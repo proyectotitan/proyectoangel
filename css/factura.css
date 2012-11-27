@@ -1,0 +1,102 @@
+/* CSS Document */
+
+/* CSS Document */
+body{
+			background-color:#D8D8D8;
+		}
+
+
+		
+		.border1{
+		
+			background-color: #A5B8DA;
+    		background-image: -moz-linear-gradient(center top , #A5B8DA, #7089B3); 
+			border: 1px solid #6E6E6E; 
+			margin: 20px;
+			padding: 20px;
+			margin-right: 100px ; 
+			margin-left: 100px ; 
+			-moz-border-radius: 1em;
+			-webkit-border-radius: 1em;
+			-webkit-box-shadow: 2px 2px 6px rgba(0,0,0,0.4);
+			-moz-box-shadow: rgba(0, 0, 0, 0.4) 4px 4px 8px;
+			box-shadow: rgba(0, 0, 0, 0.4) 4px 4px 8px;
+			border-radius: 1em;
+		}
+		.border2{
+			background-color:#A5B8DA; 
+			border: none; 
+			margin: 0px;
+			padding: 0.009px;
+			margin-right: 300px ; 
+			margin-left: 300px ; 
+			-moz-border-radius-topright: 1em; 
+			-moz-border-radius-topleft: 1em;
+			-webkit-border-top-right-radius: 24px; 
+			-webkit-border-top-left-radius: 24px;
+			border-top-right-radius: 24px;
+			border-top-left-radius: 24px;
+}
+		.borderform{
+			-moz-border-radius: 1em;
+			-webkit-border-radius: 1em;
+			-webkit-box-shadow: 2px 2px 6px rgba(0,0,0,0.4);
+			-moz-box-shadow: rgba(0, 0, 0, 0.4) 4px 4px 8px;
+			box-shadow: rgba(0, 0, 0, 0.4) 4px 4px 8px;
+			border-radius: 1em;
+			
+}
+
+p {
+		margin: 0 0 20px 0; 
+		padding: 0;
+	} 
+
+	
+	.boton_azul {
+    background-color: #A5B8DA;
+    background-image: -moz-linear-gradient(center top , #A5B8DA, #7089B3);
+    border-color: #758FBA #6C84AB #5C6F91;
+    border-radius: 18px 18px 18px 18px;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 0 1px 0 0 #AEC3E5 inset;
+    color: #FFFFFF;
+    text-align: center;
+    text-shadow: 0 -1px 1px #64799E;
+    text-transform: uppercase;
+    width: 150px;
+}
+
+input{
+    font-size:15px;
+    font-family: Arial, helvetica;
+    outline:none;
+    transition: all 0.75s ease-in-out;
+    -webkit-transition: all 0.75s ease-in-out;
+    -moz-transition: all 0.75s ease-in-out;
+    border-radius:3px;
+    -webkit-border-radius:3px;
+    -moz-border-radius:3px;
+    border:1px solid rgba(0,0,0, 0.2);
+    color:gray;
+    background-color:#eee;
+    padding: 3px;
+	height: 13px;
+	width: 100px;
+}
+ 
+input:focus {
+    box-shadow: 0 0 10px #aaa;
+    -webkit-box-shadow: 0 0 10px #aaa;
+    -moz-box-shadow: 0 0 10px #aaa;
+    border:1px solid #999;
+    background-color:white;
+}
+
+
+.footer {
+	color:gray;
+	font-family: Arial, helvetica;
+	height: 2em;
+}
