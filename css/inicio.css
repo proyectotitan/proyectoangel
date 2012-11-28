@@ -2,11 +2,24 @@
 
 /* CSS Document */
 body{
-			background-color:#D8D8D8;
+			
+			
+    		background-color: #D13737; 
+			
 		}
 
 
+		.border0{
 		
+			background-color: #A5B8DA;
+    		background-image: -moz-linear-gradient(center top , #A5B8DA, #7089B3); 
+			border: 1px solid #6E6E6E; 
+			margin: 0px;
+			padding: 0px;
+			margin-right: 00px ; 
+			margin-left: 00px ; 
+			
+		}
 		.border1{
 		
 			background-color: #A5B8DA;
