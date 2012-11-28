@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Bootstrap, from Twitter</title>
+    <title>Inicio de sesion</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -35,34 +35,55 @@
           <a class="brand" href="#" style="margin-top: 2px">Hoy en el mundo</a>
           <div class="nav-collapse collapse" align="right">
 		  
-			  Usuario&nbsp;<input type="text" placeholder="Introduce el nombre" style="margin-top: 8px">
-			  Contrase&ntilde;a&nbsp;<input type="password" placeholder="Introduce la contrase&ntilde;a" style="margin-top: 8px">
-			  <input type="submit" class="btn btn-danger" value="Enviar"></input> 	
+			  <i class="icon-user"></i>Usuario&nbsp;<input type="text" placeholder="Introduce el nombre" style="margin-top: 8px "id="s_usuario">
+			  <i class="icon-lock"></i>Contrase&ntilde;a&nbsp;<input type="password" placeholder="Introduce la contrase&ntilde;a" style="margin-top: 8px" id="s_pass">
+			  <input type="submit" class="btn btn-danger" value="Enviar" ></input> 	
 		  
           </div><!--/.nav-collapse -->
         </div>
       </div>
     </div>
     <div class="container" style="padding-top: 60px;">
-
-      <h1>Hoy en el mundo</h1>
-      <p>Hoy en el mundo es una red social donde podr&aacute;s crear y gestionar grupos de temas.<br> Adem&aacute;s podr&aacute;s contactar con amigos y otros contactos para conversar sobre los temas que se hablan en los grupos.</p>
+			<div class="tabbable"> <!-- Only required for left/right tabs -->
+				<ul class="nav nav-tabs">
+					<li class="active"><a href="#tab1" data-toggle="tab">Bienvenido a Hoy en el mundo</a></li>
+					<li><a href="#tab2" data-toggle="tab">Quienes somos</a></li>
+					<li><a href="#tab3" data-toggle="tab">Que te ofrecemos</a></li>
+				</ul>
+    		<div class="tab-content">
+   			 <div class="tab-pane active" id="tab1">
+   				 <p>Somos una red social innvadora que bla bla bla bla bla.</p>
+   			 </div>
+    		<div class="tab-pane" id="tab2">
+   			 <p>Somos un grupo de desarrolladores web que proponemos bla bla bla bla</p>
+   		 </div>
+			 <div class="tab-pane" id="tab3">
+   			 <p>Te ofrecemos un hamster molon</p>
+   		 </div>
+   	 </div>
+    </div>
     
 	<!-- Button to trigger modal -->
-    <a href="#myModal" role="button" class="btn" data-toggle="modal">Launch demo modal</a>
+	<h4>Aun no tienes cuenta en Hoy en el mundo? Rellena nuestro formulario de registro de manera rapida y accede a nuestra web para que puedas disfrutar de millones de temas y crear tus temas propios.</h4>
+    <a href="#myModal" role="button" class="btn btn-danger" data-toggle="modal">Registrate</a>
      
     <!-- Modal -->
     <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-    <h3 id="myModalLabel">Modal header</h3>
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icon-remove-circle"></i></button>
+    <h3 id="myModalLabel">Registro de usuario</h3>
     </div>
     <div class="modal-body">
-    <p>One fine body…</p>
+    	<div id="errores"><div> 
+			<form>
+				<label>Nombre de usuario</label><input type="text" placeholder="Introduce el nombre de usuario" id="r_usuario">
+				<label>Contrase&ntilde;a</label><input type="password" placeholder="Introduce la contrase&ntilde;a" id="r_pass">
+				<label>Confirma la contrase&ntilde;a</label><input type="password" placeholder="Repite la contrase&ntilde;a" id="r_conf_pass"> 
+			</form>
     </div>
     <div class="modal-footer">
-    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-    <button class="btn btn-primary">Save changes</button>
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Cerrar</button>
+    <button class="btn btn-danger">Enviar datos</button>
     </div>
     </div>
     </div> <!-- /container -->
