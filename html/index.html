@@ -6,19 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-
-    <!-- Le styles -->
-
+		
     <link href="../css/bootstrap.css" rel="stylesheet">
-    
     <link href="../css/bootstrap-responsive.css" rel="stylesheet">
-
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
-    <!-- Fav and touch icons -->
+		<script type="text/javascript"  src="../js	/validar.js"> </script>
+		<script type="text/javascript">
+			function validar_2()
+			{
+		
+					alert("cuack");	
+					var capa = document.getElementById("errores");
+						capa.className = "alert alert-error";
+					var p = document.createElement("p");
+					p.innerHTML = "el nombre falta";
+					capa.appendChild(p);
+					alert("cuack");
+					
+			
+				
+			}	
+		</script>
     
   </head>
 
@@ -81,19 +88,21 @@
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icon-remove-circle"></i></button>
     <h3 id="myModalLabel">Registro de usuario</h3>
     </div>
-    <div class="modal-body">
-    	<div id="errores"><div> 
-			<form>
-				<label>Nombre de usuario</label><input type="text" placeholder="Introduce el nombre de usuario" id="r_usuario">
-				<label>Contrase&ntilde;a</label><input type="password" placeholder="Introduce la contrase&ntilde;a" id="r_pass">
-				<label>Confirma la contrase&ntilde;a</label><input type="password" placeholder="Repite la contrase&ntilde;a" id="r_conf_pass"> 
-			</form>
+		<form id="form" name="form">
+			<div class="modal-body">
+				<div id="errores"></div> 
+					<p>Nombre de usuario&nbsp;<input type="text" placeholder="Introduce el nombre de usuario" id="r_usuario"></p>
+					<p>Contrase&ntilde;a&nbsp;<input type="password" placeholder="Introduce la contrase&ntilde;a" id="r_pass"></p>
+					<p>Confirma la contrase&ntilde;a&nbsp;<input type="password" placeholder="Repite la contrase&ntilde;a" id="r_conf_pass"> </p>
+					<p>Email&nbsp;<input type="text" placeholder="Introduce el nombre de usuario" id="r_usuario"></p>
+			</div>
+			<div class="modal-footer">
+			<button class="btn" data-dismiss="modal" aria-hidden="true">Cerrar</button>
+			<button class="btn btn-danger"  onClick="validar_2();">Enviar datos</button>
+			</div>
+		</form>
     </div>
-    <div class="modal-footer">
-    <button class="btn" data-dismiss="modal" aria-hidden="true">Cerrar</button>
-    <button class="btn btn-danger">Enviar datos</button>
-    </div>
-    </div>
+		
     </div> <!-- /container -->
 	
 
