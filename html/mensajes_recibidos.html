@@ -37,12 +37,12 @@
           <div class="nav-collapse collapse">
 		  
 			   	<ul class="nav">
-						<li class="active">
+						<li>
 							<a href="#"><i class="icon-home"></i>&nbsp;Inicio</a>
 						</li>
 					</ul>
 		     <ul role="navigation" class="nav">
-                    <li class="dropdown">
+                    <li class="dropdown, active" >
                       <a data-toggle="dropdown" class="dropdown-toggle" role="button" href="#" id="drop1"><i class="icon-envelope"></i>&nbsp;Mensajes <b class="caret"></b></a>
                       <ul aria-labelledby="drop1" role="menu" class="dropdown-menu">
                         <li><a href="http://google.com" tabindex="-1">Enviar mensaje nuevo</a></li>
@@ -81,100 +81,59 @@
       </div>
     </div>
 		
-	<div class="border1" style="margin-top: 60px; margin-left: 10px; width: 289px; height: 202px;display:inline-block;">
-		<p>Nombre de usuario</p>
-		<p><img src="../img/avatar.jpg" style="width: 60px"; height="60px"></p>
-		<p>Mensajes sin leer:</p>
-		<p>Peticiones de amistad:</p>
-		</div>
-		<div class="pull-right" style="margin-right:15px;  margin-top: 60px;">
-      <script charset="UTF-8" src="http://widget24.com/code/calendar?data%5BWidget%5D%5Bcss%5D=red" type="text/javascript"></script>
-	  </div>
-		<div class="pull-right" style="margin-right:12%; margin-top: 60px;">
-            <table width="0%" class="table table-hover">
-             <thead>
-                <tr>
-                  <th>Top 10</th>
-                  <th>Nombre de grupo</th>
-                  <th>Creador</th>
-                  <th>Fecha</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>La mejor musica rock</td>
-                  <td>Pablito</td>
-                  <td>24/10/2012</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>Musica akternativa</td>
-                  <td>Thornton</td>
-                  <td>21/04/2011</td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>Peliculas de terror</td>
-                  <td>Larry the Bird</td>
-									<td>21/04/2011</td>
-                </tr>
-								<tr>
-                  <td>4</td>
-                  <td>Peliculas de terror</td>
-                  <td>Larry the Bird</td>
-									<td>21/04/2011</td>
-                </tr>
-								<tr>
-                  <td>5</td>
-                  <td>Peliculas de terror</td>
-                  <td>Larry the Bird</td>
-									<td>21/04/2011</td>
-                </tr>
-								<tr>
-                  <td>6</td>
-                  <td>Peliculas de terror</td>
-                  <td>Larry the Bird</td>
-									<td>21/04/2011</td>
-                </tr>
-								<tr>
-                  <td>7</td>
-                  <td>Peliculas de terror</td>
-                  <td>Larry the Bird</td>
-									<td>21/04/2011</td>
-                </tr>
-								<tr>
-                  <td>8</td>
-                  <td>Peliculas de terror</td>
-                  <td>Larry the Bird</td>
-									<td>21/04/2011</td>
-                </tr>
-								<tr>
-                  <td>9</td>
-                  <td>Peliculas de terror</td>
-                  <td>Larry the Bird</td>
-									<td>21/04/2011</td>
-                </tr>
-								<tr>
-                  <td>10</td>
-                  <td>Peliculas de terror</td>
-                  <td>Larry the Bird</td>
-									<td>21/04/2011</td>
-                </tr>
-              </tbody>
-      </table>
-  </div>	
-<div class="container" style="padding-top: 60px; margin-left: 10px; width: 289px; height: 202px;">
-<div id="capahamster" style="width: 289px; height: 202px;">
-<object type="application/x-shockwave-flash" style="outline:none;" data="http://hosting.gmodules.com/ig/gadgets/file/112581010116074801021/hamster.swf?" width="300" height="225"><param name="movie" value="http://hosting.gmodules.com/ig/gadgets/file/112581010116074801021/hamster.swf?"></param><param name="AllowScriptAccess" value="always"></param><param name="wmode" value="opaque"></param></object>
-</div>			
-    </div> <!-- /container -->
-	
+		
+		
+		<div class="accordion" id="accordion2" style="margin-top:60px;">
+		<table class="table"> 
+		<thead>
+			<tr>
+				<th>Lista de mensajes recibidos</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>
+					<div class="accordion-group">
+					<div class="accordion-heading">
+					<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+					Mensaje de Manolito el dia 15/25/05 a las 10:00pm
+					</a>
+					</div>
+					<div id="collapseOne" class="accordion-body collapse" >
+					<div class="accordion-inner">
+					Hola que tal estas que bla que bla que bla tirororororor
+					</div>
+					</div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div class="accordion-group">
+					<div class="accordion-heading">
+					<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+					Mensaje de Fernanda el dia 14/10/12 a las 09:00pm
+					</a>
+					</div>
+					<div id="collapseTwo" class="accordion-body collapse">
+					<div class="accordion-inner">
+					Hola que tal estas que bla que bla que bla tirororororor
+					</div>
+					</div>
+					</div>
+					</div>
+			</td>
+		</tr>
+	</table>
 
-    <!-- Le javascript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="../js/jquery.js"></script>
+
+
+		
+		
+		
+		
+		
+  <script src="../js/jquery.js"></script>
     <script src="../js/bootstrap-transition.js"></script>
     <script src="../js/bootstrap-alert.js"></script>
 

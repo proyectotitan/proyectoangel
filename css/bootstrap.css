@@ -4781,11 +4781,19 @@ a.thumbnail:hover {
 .accordion-heading {
   border-bottom: 0;
 }
-.accordion-heading .accordion-toggle {
+.accordion-heading  {
   display: block;
+	background:#650506;
   padding: 8px 15px;
+	color:#ffffff;
+	
+	text-decoration:none;
 }
 .accordion-toggle {
+  display: block;
+  padding: 8px 15px;
+	color:#ffffff;
+	text-decoration:none;
   cursor: pointer;
 }
 .accordion-inner {
