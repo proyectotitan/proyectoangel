@@ -2,23 +2,26 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Inicio de sesion</title>
+    <title>Hoy en el Mundo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-
-    <!-- Le styles -->
-
+		
     <link href="../css/bootstrap.css" rel="stylesheet">
-    
     <link href="../css/bootstrap-responsive.css" rel="stylesheet">
-
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
-    <!-- Fav and touch icons -->
+		<script type="text/javascript"  src="../js	/validar.js"> </script>
+		<script type="text/javascript">
+			function validar_2()
+			{
+					alert("cuack");	
+					var capa = document.getElementById("errores");
+						capa.className = "alert alert-error";
+					var p = document.createElement("p");
+					p.innerHTML = "el nombre falta";
+					capa.appendChild(p);
+					alert("cuack");		
+			}	
+		</script>
     
   </head>
 
@@ -32,7 +35,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#" style="margin-top: 2px">Hoy en el mundo</a>
+          <a class="brand" href="#" style="margin-top: 2px"><img src="../img/mundo_blanco.PNG" width="25" height="25"> Hoy en el mundo</a>
           <div class="nav-collapse collapse" align="right">
 		  
 			  <i class="icon-user"></i>Usuario&nbsp;<input type="text" placeholder="Introduce el nombre" style="margin-top: 8px "id="s_usuario">
@@ -45,12 +48,18 @@
     </div>
 	
 	
-   
+<!---------------------------------Poner aqui la imagen de hoy en el mundo------------------------------------------------------------- -->
     <div class="hero-unit" style="margin:60px; background-color: #850505; color: #ffffff">
-          <div style="align: right"><h4>Aun no tienes cuenta en Hoy en el mundo? Rellena nuestro formulario de registro de manera rapida y accede a nuestra web para que puedas disfrutar de millones de temas y crear tus temas propios.</h4>
+    	<table>
+  			<tr>
+    			<td><img src="../img/logo.PNG" width="250" height="350"></td>
+    			<td><h4>Aun no tienes cuenta en Hoy en el mundo? Rellena nuestro formulario de registro de manera rapida y accede a nuestra web para que puedas disfrutar de millones de temas y crear tus temas propios.</h4>
 		  <a href="#myModal" role="button" class="btn btn-danger" data-toggle="modal">Registrate</a>
-			</div>
+                </td>
+  			</tr>
+		</table>
     </div>
+<!------------------------------------------------------------------------------------------------------------------------------------- -->
 	
     <div class="container" style="padding-top: 60px;">
 			<div class="tabbable"> <!-- Only required for left/right tabs -->
@@ -61,13 +70,17 @@
 				</ul>
     		<div class="tab-content">
    			 <div class="tab-pane active" id="tab1">
-   				 <p>Somos una red social innvadora que bla bla bla bla bla.</p>
+   				 <p>Te damos la bienvenida a la red social inovadora en la que podras crear temas de conversacion y debate con tus amigos y con miles de personas atraves de internet, ademas de cuidar de tu pequeño hamster.</p>
+                 <p>Conecta con tus amigos para poder hablar, conoce gente nueva mediante los temas y los grupos de Hoy en el Mundo, manda mensajes privados a tus amigos, opina y participa en los temas de los grupos y habla y conoce a gente nueva a traves de nuestro chat.</p>
    			 </div>
     		<div class="tab-pane" id="tab2">
-   			 <p>Somos un grupo de desarrolladores web que proponemos bla bla bla bla</p>
+   			 <p>Somos un grupo de tres desarrolladores web que han creado esta red social para poder ofrecerle a la gente la opcion de conocer gente, hablar con ella y poder participar todos juntos en un mismo grupo y conectar todos en esta gran red social.</p>
+             
    		 </div>
 			 <div class="tab-pane" id="tab3">
-   			 <p>Te ofrecemos un hamster molon</p>
+   			 <p>Te ofrecemos muchas posibilidades y esperamos que mucho entretenimiento gracias a todas las cosas que puedes hacer en esta red social</p>
+             <p>Te ofrecemos tu propio Avatar que podras personalizar con tu foto para que tus amigos te reconozcan. Te ofrecemos la posibilidad de encontrar a tus amigos y hablar con ellos. Puedes tambien unirte a grupos que te interesen para poder hablar y opinar sobre el tema del grupo. Tambien puedes crear los grupos que tu quieras con los temas que mas te gusten.
+              Y por ultimo en el chat puedes hablar y conectar con miles de personas de la red social Hoy En El Mundo.</p>
    		 </div>
    	 </div>
     </div>
@@ -81,19 +94,21 @@
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icon-remove-circle"></i></button>
     <h3 id="myModalLabel">Registro de usuario</h3>
     </div>
-    <div class="modal-body">
-    	<div id="errores"><div> 
-			<form>
-				<label>Nombre de usuario</label><input type="text" placeholder="Introduce el nombre de usuario" id="r_usuario">
-				<label>Contrase&ntilde;a</label><input type="password" placeholder="Introduce la contrase&ntilde;a" id="r_pass">
-				<label>Confirma la contrase&ntilde;a</label><input type="password" placeholder="Repite la contrase&ntilde;a" id="r_conf_pass"> 
-			</form>
+		<form id="form" name="form">
+			<div class="modal-body">
+				<div id="errores"></div> 
+					<p>Nombre de usuario&nbsp;<input type="text" placeholder="Introduce el nombre de usuario" id="r_usuario"></p>
+					<p>Contrase&ntilde;a&nbsp;<input type="password" placeholder="Introduce la contrase&ntilde;a" id="r_pass"></p>
+					<p>Confirma la contrase&ntilde;a&nbsp;<input type="password" placeholder="Repite la contrase&ntilde;a" id="r_conf_pass"> </p>
+					<p>Email&nbsp;<input type="text" placeholder="Introduce el nombre de usuario" id="r_usuario"></p>
+			</div>
+			<div class="modal-footer">
+			<button class="btn" data-dismiss="modal" aria-hidden="true">Cerrar</button>
+			<button class="btn btn-danger"  onClick="validar_2();">Enviar datos</button>
+			</div>
+		</form>
     </div>
-    <div class="modal-footer">
-    <button class="btn" data-dismiss="modal" aria-hidden="true">Cerrar</button>
-    <button class="btn btn-danger">Enviar datos</button>
-    </div>
-    </div>
+		
     </div> <!-- /container -->
 	
 
