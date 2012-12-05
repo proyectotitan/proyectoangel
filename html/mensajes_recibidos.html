@@ -20,6 +20,20 @@
     <![endif]-->
 
     <!-- Fav and touch icons -->
+		<script type="text/javascript">
+			function responder()
+			{
+					
+					var text = document.getElementById("resp");
+					var textarea = document.createElement("textarea");
+					var button = document.createElement("button");
+					button.innerHTML = "<button class= 'btn btn-danger'>Enviar</button>";
+					textarea.innerHTML;
+					text.appendChild(textarea);
+					text.appendChild(button);
+					
+			 }
+		</script>
     
   </head>
 
@@ -99,13 +113,14 @@
 					Mensaje de Manolito el dia 15/25/05 a las 10:00pm
 					
 					</a>
-					<a href="#"  class="pull-right"><i class="icon-trash"></i></a>
-					 <a href="#" class="pull-right"><i class="icon-share-alt"></i></a>
+					<a href="#"  class="pull-right" ><i class="icon-trash"></i></a>
+					 <a href="#" class="pull-right" onClick="responder()"><i class="icon-share-alt" ></i></a>
 					
 					</div>
 					<div id="collapseOne" class="accordion-body collapse" >
 					<div class="accordion-inner">
 					Hola que tal estas que bla que bla que bla tirororororor
+					<div id="resp"></div>
 					</div>
 					</div>
 					</div>
