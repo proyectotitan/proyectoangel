@@ -11,15 +11,23 @@
     <link href="../css/bootstrap-responsive.css" rel="stylesheet">
 		<script type="text/javascript"  src="../js	/validar.js"> </script>
 		<script type="text/javascript">
-			function validar_2()
+			function validar_2(form)
 			{
-					alert("cuack");	
-					var capa = document.getElementById("errores");
+			
+			var error= ""
+			
+			
+			
+			
+			
+			
+					
+				/*	var capa = document.getElementById("errores");
 						capa.className = "alert alert-error";
 					var p = document.createElement("p");
 					p.innerHTML = "el nombre falta";
 					capa.appendChild(p);
-					alert("cuack");		
+					alert("cuack");*/		
 			}	
 		</script>
     
@@ -36,12 +44,13 @@
             <span class="icon-bar"></span>
           </a>
           <a class="brand" href="#" style="margin-top: 2px"><img src="../img/mundo_blanco.PNG" width="25" height="25"> Hoy en el mundo</a>
-          <div class="nav-collapse collapse" align="right">
+          <form id="rty">
+		  <div class="nav-collapse collapse" align="right">
 		  
 			  <i class="icon-user"></i>Usuario&nbsp;<input type="text" placeholder="Introduce el nombre" style="margin-top: 8px "id="s_usuario">
 			  <i class="icon-lock"></i>Contrase&ntilde;a&nbsp;<input type="password" placeholder="Introduce la contrase&ntilde;a" style="margin-top: 8px" id="s_pass">
-			  <input type="submit" class="btn btn-danger" value="Enviar" ></input> 	
-		  
+			  <input type="submit" class="btn btn-danger" onClick="validar_2(this.form)" value="Enviar" ></input> 	
+		  </form>
           </div><!--/.nav-collapse -->
         </div>
       </div>
@@ -94,17 +103,18 @@
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icon-remove-circle"></i></button>
     <h3 id="myModalLabel">Registro de usuario</h3>
     </div>
-		<form id="form" name="form">
+		<form id="form9">
 			<div class="modal-body">
 				<div id="errores"></div> 
-					<p>Nombre de usuario&nbsp;<input type="text" placeholder="Introduce el nombre de usuario" id="r_usuario"></p>
+					<p>Nombre de usuario&nbsp;<input type="text" placeholder="Introduce el nombre de usuario" id="n_usuario"></p>
 					<p>Contrase&ntilde;a&nbsp;<input type="password" placeholder="Introduce la contrase&ntilde;a" id="r_pass"></p>
 					<p>Confirma la contrase&ntilde;a&nbsp;<input type="password" placeholder="Repite la contrase&ntilde;a" id="r_conf_pass"> </p>
 					<p>Email&nbsp;<input type="text" placeholder="Introduce el nombre de usuario" id="r_usuario"></p>
+			
 			</div>
 			<div class="modal-footer">
 			<button class="btn" data-dismiss="modal" aria-hidden="true">Cerrar</button>
-			<button class="btn btn-danger"  onClick="validar_2();">Enviar datos</button>
+			<input type="button" class="btn btn-danger" onClick="validar_2(this.form)" value="Enviar datos"></input>
 			</div>
 		</form>
     </div>
