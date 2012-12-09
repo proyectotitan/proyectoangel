@@ -13,21 +13,74 @@
 		<script type="text/javascript">
 			function validar_2(form)
 			{
+				var errores= "";
+				var sw=0;
+				
+				if(esBlanco(form.r_usuario.value))
+				{
+					errores=errores+"<p>Es necesario introducir un nombre de usuario</p>";
+					sw=1;
+					var x;
+					x=$(document);
+					x.ready(imagen_errores("i_usuario", "Es necesario introducir un nombre de usuario"));
+				}
+				else
+				{
+					var x;
+					x=$(document);
+					x.ready(imagen_correcto("i_usuario"));
+				}
+				
+				if(esBlanco(form.r_pass.value))
+				{
+					errores=errores+"<p>Es necesario introducir una contrseña</p>";
+					sw=1;
+					var x;
+					x=$(document);
+					x.ready(imagen_errores("i_pass", "Es necesario introducir una contrseña"));
+				}
+				else
+				{
+					var x;
+					x=$(document);
+					x.ready(imagen_imagen_correcto("i_pass"));
+				}
+				
+				if(!esEmail(form.r_email.value))
+				{
+					errores=errores+"<p>Es necesario introducir un email válido</p>";
+					sw=1;
+					var x;
+					x=$(document);
+					x.ready(imagen_errores("i_email", "Es necesario introducir un email válido"));
+				}
+				else
+				{
+					var x;
+					x=$(document);
+					x.ready(imagen_correcto("i_email"));
+				}
+				
+				if(form.r_pass.value!=form.r_conf_pass)
+				{
+					errores=errores+"<p>Las contraseñas no coinciden</p>";
+					sw=1;
+					x=$(document);
+					x.ready(imagen_errores("i_conf_pass", "Las contraseñas no coinciden"));
+				}
+				else
+				{
+					var x;
+					x=$(document);
+					x.ready(imagen_correcto("i_conf_pass"));
+				}
 			
-			var error= ""
-			
-			
-			
-			
-			
-			
-					
-				/*	var capa = document.getElementById("errores");
-						capa.className = "alert alert-error";
-					var p = document.createElement("p");
-					p.innerHTML = "el nombre falta";
-					capa.appendChild(p);
-					alert("cuack");*/		
+				if (sw==1)
+				{
+					var x;
+					x=$(document);
+					x.ready(muestra_errores(errores));
+				}		
 			}	
 		</script>
     
@@ -106,10 +159,10 @@
 		<form id="form9">
 			<div class="modal-body">
 				<div id="errores"></div> 
-					<p>Nombre de usuario&nbsp;<input type="text" placeholder="Introduce el nombre de usuario" id="n_usuario"></p>
-					<p>Contrase&ntilde;a&nbsp;<input type="password" placeholder="Introduce la contrase&ntilde;a" id="r_pass"></p>
-					<p>Confirma la contrase&ntilde;a&nbsp;<input type="password" placeholder="Repite la contrase&ntilde;a" id="r_conf_pass"> </p>
-					<p>Email&nbsp;<input type="text" placeholder="Introduce el nombre de usuario" id="r_usuario"></p>
+					<p>Nombre de usuario&nbsp;<input type="text" placeholder="Introduce el nombre de usuario" id="r_usuario"><i id="i_usuario"></i></p>
+					<p>Contrase&ntilde;a&nbsp;<input type="password" placeholder="Introduce la contrase&ntilde;a" id="r_pass"><i id="i_pass"></i></p>
+					<p>Confirma la contrase&ntilde;a&nbsp;<input type="password" placeholder="Repite la contrase&ntilde;a" id="r_conf_pass"><i id="i_conf_pass"></i></p>
+					<p>Email&nbsp;<input type="text" placeholder="Introduce el nombre de usuario" id="r_email"><i id="i_email"></i></p>
 			
 			</div>
 			<div class="modal-footer">
@@ -126,6 +179,7 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="../js/jquery.js"></script>
+		<script src="../js/muestra_errores.js"></script>
     <script src="../js/bootstrap-transition.js"></script>
     <script src="../js/bootstrap-alert.js"></script>
 
