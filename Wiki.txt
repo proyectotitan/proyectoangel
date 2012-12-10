@@ -1,0 +1,31 @@
+////////////////////////////////////////////////////////////////////////
+////////////////////      PASOS DE GIT      ////////////////////////////
+////////////////////////////////////////////////////////////////////////
+
+Create a new repository on the command line
+
+touch README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/proyectotitan/proyectoangel.git
+git push -u origin master
+
+Push an existing repository from the command line
+
+git remote add origin https://github.com/proyectotitan/proyectoangel.git
+git push -u origin master
+
+---------cambiar nombre de usuario al comittear y el correo-----
+
+git config --global user.name "Juan José Pérez Vidal"
+git config --global user.email jperez@miempresa.com
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/////////////////////////////////////////////////////////////////////////
+/////////////   CORREO DE GMAIL PARA EL PROYECTO   //////////////////////
+/////////////////////////////////////////////////////////////////////////
+
+Email: hoyenelmundo1@gmail.com
+password: dinosaurio1
