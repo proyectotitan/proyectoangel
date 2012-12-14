@@ -4786,7 +4786,6 @@ a.thumbnail:hover {
 	background:#650506;
   padding: 8px 15px;
 	color:#ffffff;
-	
 	text-decoration:none;
 }
 .accordion-toggle {
@@ -4799,6 +4798,7 @@ a.thumbnail:hover {
 .accordion-inner {
   padding: 9px 15px;
   border-top: 1px solid #e5e5e5;
+	background-color:#CCFFCC
 }
 .carousel {
   position: relative;

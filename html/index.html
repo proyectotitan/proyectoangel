@@ -11,15 +11,76 @@
     <link href="../css/bootstrap-responsive.css" rel="stylesheet">
 		<script type="text/javascript"  src="../js	/validar.js"> </script>
 		<script type="text/javascript">
-			function validar_2()
+			function validar_2(form)
 			{
-					alert("cuack");	
-					var capa = document.getElementById("errores");
-						capa.className = "alert alert-error";
-					var p = document.createElement("p");
-					p.innerHTML = "el nombre falta";
-					capa.appendChild(p);
-					alert("cuack");		
+				var errores= "";
+				var sw=0;
+				
+				if(esBlanco(form.r_usuario.value))
+				{
+					errores=errores+"<p>Es necesario introducir un nombre de usuario</p>";
+					sw=1;
+					var x;
+					x=$(document);
+					x.ready(imagen_errores("i_usuario", "Es necesario introducir un nombre de usuario"));
+				}
+				else
+				{
+					var x;
+					x=$(document);
+					x.ready(imagen_correcto("i_usuario"));
+				}
+				
+				if(esBlanco(form.r_pass.value))
+				{
+					errores=errores+"<p>Es necesario introducir una contrseña</p>";
+					sw=1;
+					var x;
+					x=$(document);
+					x.ready(imagen_errores("i_pass", "Es necesario introducir una contrseña"));
+				}
+				else
+				{
+					var x;
+					x=$(document);
+					x.ready(imagen_imagen_correcto("i_pass"));
+				}
+				
+				if(!esEmail(form.r_email.value))
+				{
+					errores=errores+"<p>Es necesario introducir un email válido</p>";
+					sw=1;
+					var x;
+					x=$(document);
+					x.ready(imagen_errores("i_email", "Es necesario introducir un email válido"));
+				}
+				else
+				{
+					var x;
+					x=$(document);
+					x.ready(imagen_correcto("i_email"));
+				}
+				
+				if(form.r_pass.value!=form.r_conf_pass)
+				{
+					errores=errores+"<p>Las contraseñas no coinciden</p>";
+					sw=1;
+					x=$(document);
+					x.ready(imagen_errores("i_conf_pass", "Las contraseñas no coinciden"));
+				}
+				else
+				{
+					var x;
+					x=$(document);
+					x.ready(imagen_correcto("i_conf_pass"));
+				}
+			
+				if (sw==1)
+				{
+					var x;
+					x=$(document);
+					x.ready(muestra_errores(errores));
+				}		
 			}	
 		</script>
     
@@ -36,12 +97,12 @@
             <span class="icon-bar"></span>
           </a>
           <a class="brand" href="#" style="margin-top: 2px"><img src="../img/mundo_blanco.PNG" width="25" height="25"> Hoy en el mundo</a>
-          <div class="nav-collapse collapse" align="right">
-		  
+		  <div class="nav-collapse collapse" align="right">
+		  <form id="rty" style=" height:2px">
 			  <i class="icon-user"></i>Usuario&nbsp;<input type="text" placeholder="Introduce el nombre" style="margin-top: 8px "id="s_usuario">
 			  <i class="icon-lock"></i>Contrase&ntilde;a&nbsp;<input type="password" placeholder="Introduce la contrase&ntilde;a" style="margin-top: 8px" id="s_pass">
-			  <input type="submit" class="btn btn-danger" value="Enviar" ></input> 	
-		  
+			  <input type="submit" class="btn btn-danger" onClick="validar_2(this.form)" value="Enviar" ></input> 	
+		  </form>
           </div><!--/.nav-collapse -->
         </div>
       </div>
@@ -86,25 +147,26 @@
     </div>
     
 	<!-- Button to trigger modal -->
-	
+	<div class="btn-o"><a target="_blank" id="b" class="btn" href="https://twitter.com/intent/tweet?text=Vienvenido a hoy en el mundo @HoyenelMundo&amp"><i></i><span id="l" class="label">Twittear</span></a></div>
      
     <!-- Modal -->
-    <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"">
     <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icon-remove-circle"></i></button>
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i><img src="../img/iconos/glyphicons_197_remove.png" width="17" height="25"></i></button>
     <h3 id="myModalLabel">Registro de usuario</h3>
     </div>
-		<form id="form" name="form">
+		<form id="form9">
 			<div class="modal-body">
 				<div id="errores"></div> 
-					<p>Nombre de usuario&nbsp;<input type="text" placeholder="Introduce el nombre de usuario" id="r_usuario"></p>
-					<p>Contrase&ntilde;a&nbsp;<input type="password" placeholder="Introduce la contrase&ntilde;a" id="r_pass"></p>
-					<p>Confirma la contrase&ntilde;a&nbsp;<input type="password" placeholder="Repite la contrase&ntilde;a" id="r_conf_pass"> </p>
-					<p>Email&nbsp;<input type="text" placeholder="Introduce el nombre de usuario" id="r_usuario"></p>
+					<p>Nombre de usuario&nbsp;<input type="text" placeholder="Introduce el nombre de usuario" id="r_usuario"><i id="i_usuario"></i></p>
+					<p>Contrase&ntilde;a&nbsp;<input type="password" placeholder="Introduce la contrase&ntilde;a" id="r_pass"><i id="i_pass"></i></p>
+					<p>Confirma la contrase&ntilde;a&nbsp;<input type="password" placeholder="Repite la contrase&ntilde;a" id="r_conf_pass"><i id="i_conf_pass"></i></p>
+					<p>Email&nbsp;<input type="text" placeholder="Introduce el nombre de usuario" id="r_email"><i id="i_email"></i></p>
+			
 			</div>
 			<div class="modal-footer">
 			<button class="btn" data-dismiss="modal" aria-hidden="true">Cerrar</button>
-			<button class="btn btn-danger"  onClick="validar_2();">Enviar datos</button>
+			<input type="button" class="btn btn-danger" onClick="validar_2(this.form)" value="Enviar datos"></input>
 			</div>
 		</form>
     </div>
@@ -116,6 +178,7 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="../js/jquery.js"></script>
+		<script src="../js/muestra_errores.js"></script>
     <script src="../js/bootstrap-transition.js"></script>
     <script src="../js/bootstrap-alert.js"></script>
 
