@@ -11,6 +11,13 @@
     <link href="../css/bootstrap-responsive.css" rel="stylesheet">
 		<script type="text/javascript"  src="../js	/validar.js"> </script>
 		<script type="text/javascript">
+		function twitear()
+{
+	alert("hola");
+	$('#twt').attr({
+		 'href': 'http://www.desarrolloweb.com'
+	}); 
+}
 			function validar_2(form)
 			{
 				var errores= "";
@@ -83,7 +90,7 @@
 				}		
 			}	
 		</script>
-    
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
   </head>
 
   <body>
@@ -147,7 +154,11 @@
     </div>
     
 	<!-- Button to trigger modal -->
-	<div class="btn-o"><a target="_blank" id="b" class="btn" href="https://twitter.com/intent/tweet?text=Vienvenido a hoy en el mundo @HoyenelMundo&amp"><i></i><span id="l" class="label">Twittear</span></a></div>
+	
+	<input type="text" onKeyPress="twitear"></input>
+	<div class="btn-o"><a target="_blank" id="twt" class="btn" href="https://twitter.com/intent/tweet?text=Vienvenido a hoy en el mundo @HoyenelMundo&amp"><i></i><span id="l" class="label">Twittear</span></a></div>
+	<a href="https://twitter.com/hoyenelmundo1" class="twitter-follow-button" data-show-count="false" data-lang="es">Seguir a @hoyenelmundo</a>
+
      
     <!-- Modal -->
     <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"">
@@ -179,6 +190,7 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="../js/jquery.js"></script>
 		<script src="../js/muestra_errores.js"></script>
+		<script src="../js/twitter.js"></script>
     <script src="../js/bootstrap-transition.js"></script>
     <script src="../js/bootstrap-alert.js"></script>
 
