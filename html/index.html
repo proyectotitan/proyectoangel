@@ -155,8 +155,8 @@
     
 	<!-- Button to trigger modal -->
 	
-	<input type="text" onKeyPress="twitear"></input>
-	<div class="btn-o"><a target="_blank" id="twt" class="btn" href="https://twitter.com/intent/tweet?text=Vienvenido a hoy en el mundo @HoyenelMundo&amp"><i></i><span id="l" class="label">Twittear</span></a></div>
+	<input type="text" id="mensaje_t" value="" onKeyUp="twitear()"></input>
+	<div class="btn-o"><a target="_blank" id="twt" class="btn" href="https://twitter.com/intent/tweet?text=Bienvenido a hoy en el mundo @HoyenelMundo&amp""><i></i><span id="l" class="label">Twittear</span></a></div>
 	<a href="https://twitter.com/hoyenelmundo1" class="twitter-follow-button" data-show-count="false" data-lang="es">Seguir a @hoyenelmundo</a>
 
      
@@ -184,7 +184,9 @@
 		
     </div> <!-- /container -->
 	
-
+<div style='float:right;padding:4px;z-index:500;'>
+<a class='twitter-share-button' data-count='horizontal' data-lang='es' data-via='tu_cuenta_twitter' href='http://twitter.com/share'>Tweet</a><script src='http://platform.twitter.com/widgets.js' type='text/javascript'/>
+</div>
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
