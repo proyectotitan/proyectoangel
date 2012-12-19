@@ -13,8 +13,10 @@
     <link href="../css/style.css" rel="stylesheet" type="text/css" />
     <link href="../css/bootstrap-responsive.css" rel="stylesheet"/>
 		<link href="../css/bordes.css" rel="stylesheet"/>
+		<link href="../css/blitzer/jquery-ui-css.css" rel="stylesheet"/>
 
     <script src="../js/jquery.js"></script>
+    <script src="../js/jquery-ui.js"></script>
 		<script src="../js/interface.js"></script>    
     <script src="../js/bootstrap-alert.js"></script>
     <script src="../js/bootstrap-transition.js"></script>
@@ -34,16 +36,14 @@
 	$(document).ready(
 		function()
 		{
-			$('#dock2').Fisheye(
+			$('#dock').Fisheye(
 				{
-					maxWidth: 60,
+					maxWidth: 50,
 					items: 'a',
 					itemsText: 'span',
-					container: '.dock-container2',
+					container: '.dock-container',
 					itemWidth: 40,
-					proximity: 80,
-					alignment : 'left',
-					valign: 'bottom',
+					proximity: 90,
 					halign : 'center'
 				}
 			)
@@ -51,11 +51,15 @@
 	);
 
 </script>
+<script>
+	$(function() {
+		$( "#datepicker" ).datepicker();
+	});
+	</script>
     
   </head>
 
   <body>
-
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
@@ -86,7 +90,7 @@
                  		 </li>
                       </ul>
                     </li>
-                    <li class="dropdown"
+                    <li class="dropdown">
                       <a data-toggle="dropdown" class="dropdown-toggle" role="button" id="drop2" href="#"><i class="icon-th-large"></i>&nbsp;Grupos<b class="caret"></b></a>
                       <ul aria-labelledby="drop2" role="menu" class="dropdown-menu">
                         <li><a href="#" tabindex="-1"></a></li>
@@ -111,7 +115,20 @@
         </div>
       </div>
     </div>
-		
+		<div class="dock" id="dock" style="margin-top:60px">
+		<div class="dock-container">
+			<a class="dock-item" href="#"><span>Grupo_1</span><img src="../img/agt_announcements.png" alt="home" /></a> 
+			<a class="dock-item" href="#"><span>Grupo_2</span><img src="../img/agt_announcements.png" alt="contact" /></a> 
+			<a class="dock-item" href="#"><span>Grupo_3</span><img src="../img/agt_announcements.png" alt="portfolio" /></a> 
+			<a class="dock-item" href="#"><span>Grupo_4</span><img src="../img/agt_announcements.png" alt="music" /></a> 
+			<a class="dock-item" href="#"><span>Grupo_5</span><img src="../img/agt_announcements.png" alt="video" /></a> 
+			<a class="dock-item" href="#"><span>Grupo_6</span><img src="../img/agt_announcements.png" alt="history" /></a> 
+			<a class="dock-item" href="#"><span>Grupo_7</span><img src="../img/agt_announcements.png" alt="calendar" /></a> 
+			<a class="dock-item" href="#"><span>Grupo_8</span><img src="../img/agt_announcements.png" alt="links" /></a> 
+			<a class="dock-item" href="#"><span>Grupo_9</span><img src="../img/agt_announcements.png" alt="rss" /></a> 
+			<a class="dock-item" href="#"><span>Grupo_10</span><img src="../img/agt_announcements.png" alt="rss" /></a> 
+		</div>
+	</div>
 	<div class="border1" style="margin-top: 60px; margin-left: 10px; width: 289px; height: 202px;display:inline-block;">
 		<p>Nombre de usuario</p>
 		<p><img src="../img/avatar.jpg" style="width: 60px"; height="60px"></p>
@@ -119,7 +136,7 @@
 		<p>Peticiones de amistad:</p>
 		</div>
 		<div class="pull-right" style="margin-right:15px;  margin-top: 60px;">
-      <iframe src="https://www.google.com/calendar/embed?showTitle=0&amp;showPrint=0&amp;showTz=0&amp;height=600&amp;wkst=2&amp;bgcolor=%23cc0000&amp;src=es.spain%23holiday%40group.v.calendar.google.com&amp;color=%23875509&amp;ctz=Europe%2FMadrid" style=" border-width:0 " width="400" height="300" frameborder="0" scrolling="no"></iframe>
+      <div id="datepicker"></div>
 	  </div>
 		<div class="pull-right" style="margin-right:6%; margin-top: 60px;">
             <table width="0%" class="table table-hover">
@@ -200,28 +217,9 @@
 <object type="application/x-shockwave-flash" style="outline:none;" data="http://hosting.gmodules.com/ig/gadgets/file/112581010116074801021/hamster.swf?" width="300" height="225"><param name="movie" value="http://hosting.gmodules.com/ig/gadgets/file/112581010116074801021/hamster.swf?"></param><param name="AllowScriptAccess" value="always"></param><param name="wmode" value="opaque"></param></object>
 </div>			
     </div> <!-- /container -->
-		
-	<div class="dock" id="dock2" style="position: fixed;">Tus grupos:
-		<div class="dock-container2" style="position: fixed; display:inline-block;">
-		<a class="dock-item2" href="#"><span>Grupo_1</span><img src="../img/agt_announcements.png" alt="home" /></a> 
-		<a class="dock-item2" href="#"><span>Grupo_2</span><img src="../img/agt_announcements.png" alt="contact" /></a> 
-		<a class="dock-item2" href="#"><span>Grupo_3</span><img src="../img/agt_announcements.png" alt="portfolio" /></a> 
-		<a class="dock-item2" href="#"><span>Grupo_4</span><img src="../img/agt_announcements.png" alt="music" /></a> 
-		<a class="dock-item2" href="#"><span>Grupo_5</span><img src="../img/agt_announcements.png" alt="video" /></a> 
-		<a class="dock-item2" href="#"><span>Grupo_6</span><img src="../img/agt_announcements.png" alt="history" /></a> 
-		<a class="dock-item2" href="#"><span>Grupo_7</span><img src="../img/agt_announcements.png" alt="calendar" /></a> 
-		<a class="dock-item2" href="#"><span>Grupo_8</span><img src="../img/agt_announcements.png" alt="links" /></a> 
-		<a class="dock-item2" href="#"><span>Grupo_9</span><img src="../img/agt_announcements.png" alt="rss" /></a> 
-		<a class="dock-item2" href="#"><span>Grupo_10</span><img src="../img/agt_announcements.png" alt="rss" /></a> 
-		</div>
-</div>
 
-	
 
-    <!-- Le javascript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    
+
 
   </body>
 </html>
