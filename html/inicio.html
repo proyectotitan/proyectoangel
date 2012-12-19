@@ -9,17 +9,48 @@
 
     <!-- Le styles -->
 
-    <link href="../css/bootstrap.css" rel="stylesheet">
-    
-    <link href="../css/bootstrap-responsive.css" rel="stylesheet">
-		<link href="../css/bordes.css" rel="stylesheet">
+    <link href="../css/bootstrap.css" rel="stylesheet"/>
+    <link href="../css/style.css" rel="stylesheet" type="text/css" />
+    <link href="../css/bootstrap-responsive.css" rel="stylesheet"/>
+		<link href="../css/bordes.css" rel="stylesheet"/>
 
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <script src="../js/jquery.js"></script>
+		<script src="../js/interface.js"></script>    
+    <script src="../js/bootstrap-alert.js"></script>
+    <script src="../js/bootstrap-transition.js"></script>
+    <script src="../js/bootstrap-modal.js"></script>
+    <script src="../js/bootstrap-dropdown.js"></script>
+    <script src="../js/bootstrap-scrollspy.js"></script>
+    <script src="../js/bootstrap-tab.js"></script>
+    <script src="../js/bootstrap-tooltip.js"></script>
+    <script src="../js/bootstrap-popover.js"></script>
+    <script src="../js/bootstrap-button.js"></script>
+    <script src="../js/bootstrap-collapse.js"></script>
+    <script src="../js/bootstrap-carousel.js"></script>
+    <script src="../js/bootstrap-typeahead.js"></script>
 
-    <!-- Fav and touch icons -->
+<script type="text/javascript">
+	
+	$(document).ready(
+		function()
+		{
+			$('#dock2').Fisheye(
+				{
+					maxWidth: 60,
+					items: 'a',
+					itemsText: 'span',
+					container: '.dock-container2',
+					itemWidth: 40,
+					proximity: 80,
+					alignment : 'left',
+					valign: 'bottom',
+					halign : 'center'
+				}
+			)
+		}
+	);
+
+</script>
     
   </head>
 
@@ -169,26 +200,28 @@
 <object type="application/x-shockwave-flash" style="outline:none;" data="http://hosting.gmodules.com/ig/gadgets/file/112581010116074801021/hamster.swf?" width="300" height="225"><param name="movie" value="http://hosting.gmodules.com/ig/gadgets/file/112581010116074801021/hamster.swf?"></param><param name="AllowScriptAccess" value="always"></param><param name="wmode" value="opaque"></param></object>
 </div>			
     </div> <!-- /container -->
+		
+	<div class="dock" id="dock2">
+		<div class="dock-container2">
+		<a class="dock-item2" href="#"><span>Home</span><img src="../img/home.png" alt="home" /></a> 
+		<a class="dock-item2" href="#"><span>Contact</span><img src="../img/email.png" alt="contact" /></a> 
+		<a class="dock-item2" href="#"><span>Portfolio</span><img src="../img/portfolio.png" alt="portfolio" /></a> 
+		<a class="dock-item2" href="#"><span>Music</span><img src="../img/music.png" alt="music" /></a> 
+		<a class="dock-item2" href="#"><span>Video</span><img src="../img/video.png" alt="video" /></a> 
+		<a class="dock-item2" href="#"><span>History</span><img src="../img/history.png" alt="history" /></a> 
+		<a class="dock-item2" href="#"><span>Calendar</span><img src="../img/calendar.png" alt="calendar" /></a> 
+		<a class="dock-item2" href="#"><span>Links</span><img src="../img/link.png" alt="links" /></a> 
+		<a class="dock-item2" href="#"><span>RSS</span><img src="../img/rss.png" alt="rss" /></a> 
+		<a class="dock-item2" href="#"><span>RSS2</span><img src="../img/rss2.png" alt="rss" /></a> 
+		</div>
+</div>
+
 	
 
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="../js/jquery.js"></script>
-    <script src="../js/bootstrap-transition.js"></script>
-    <script src="../js/bootstrap-alert.js"></script>
-
-    <script src="../js/bootstrap-modal.js"></script>
-    <script src="../js/bootstrap-dropdown.js"></script>
-    <script src="../js/bootstrap-scrollspy.js"></script>
-    <script src="../js/bootstrap-tab.js"></script>
-    <script src="../js/bootstrap-tooltip.js"></script>
-    <script src="../js/bootstrap-popover.js"></script>
-
-    <script src="../js/bootstrap-button.js"></script>
-    <script src="../js/bootstrap-collapse.js"></script>
-    <script src="../js/bootstrap-carousel.js"></script>
-    <script src="../js/bootstrap-typeahead.js"></script>
+    
 
   </body>
 </html>
