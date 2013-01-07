@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Mensajes recibidos</title>
+    <title>Grupo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -48,7 +48,7 @@
                  		 </li>
                       </ul>
                     </li>
-                    <li class="dropdown, active">
+                   <li class="dropdown">
                       <a data-toggle="dropdown" class="dropdown-toggle" role="button" id="drop2" href="#"><i class="icon-th-large"></i>&nbsp;Grupos<b class="caret"></b></a>
                       <ul aria-labelledby="drop2" role="menu" class="dropdown-menu">
                         <li><a href="#" tabindex="-1"></a></li>
@@ -59,7 +59,7 @@
                     </li>
                   </ul>
                   </li>
-				<ul class="nav pull-right">
+									<ul class="nav pull-right">
                     <li class="dropdown" id="fat-menu">
                       <a data-toggle="dropdown" class="dropdown-toggle" role="button" id="drop3" href="#"><i class="icon-asterisk"></i>&nbsp;Cuenta de (Nombre de usuario)<b class="caret"></b></a>
                       <ul aria-labelledby="drop3" role="menu" class="dropdown-menu">
@@ -69,60 +69,152 @@
                       </ul>
                     </li>
                   </ul>
-          </div><!--/.nav-collapse -->
+          </div>
         </div>
       </div>
     </div>
 	
-	<div class="pull-left" style="margin-right:12%; margin-top: 60px;">
-      <table width="0%" class="table table-hover">
-	    <thead>
-          <tr>
-            <th>Usuarios unidos al grupo.</th>
-          </tr>
-        </thead>
-	    <tr>
-		  <td>
-		    Pepito Fernandez
-		  </td>
-		</tr>
-		<tr>  
-		  <td>
-		    juan Rodriguez
-		  </td>
-		</tr>
-		<tr>
-		  <td>
-		    Fernando Sainz
-		  </td>
-		</tr>
-		<tr>
-		  <td>
-		    Ricardo Garcia
-		  </td>
-		</tr>
-		<tr>
-		  <td>
-		    Francisco Gonzalez
-		  </td>
-		</tr>
-		<tr>
-		  <td>
-		    Ana Ruiz
-		  </td>
-		</tr>
-		<tr>  
-		  <td>
-		    Sandra Careo
-		  </td>
-		</tr>	
-	  </table>
-	</div>
 		
-    <script src="../js/jquery.js"></script>
-	<script src="../js/responder.js"></script>
+		<!-- Html del body  -->
+		
+		<div class="container-fluid" style="margin-top:60px;">
+      <div class="row-fluid">
+	
+				<div class="span10">
+					<div class="span2">
+						<img src="../img/agt_announcements.png" style="width: 60px"; height="60px"/>
+					</div>
+					<div class="span8">
+						<h1 align="center"><p align="center">Titulo del grupo</p></h1>
+					</div>
+					<div class="span2">
+						<a href="#"><h5><img src="../img/iconos/glyphicons_043_group.png" style="width: 20px"; height="20px"/> &nbsp;Unirse al grupo</h5></a>
+					</div>
+					<div class="span12">
+						<h4 align="center"><p align="center">Aqui va la descripcion que se le ha dado al grupo</p></h4>
+					</div>
+					<!-- Aqui va un bucle por cada mensaje de la base de datos  -->
+					<div class="span12">
+							<table width="0%" class="table">
+								<tbody>
+									<tr>
+										<td style="background:#CCCCCC">
+											<div class="span1">
+												<img src="../img/avatar.jpg" style="width: 60px"; height="60px">
+											</div>
+											<div class="span4">
+												<h5>Nombre del usuario</h5>
+											</div>
+											<div class="span7">
+												<h6><i>"Estado del usuario que tiene en su perfil"</i></h6>
+											</div>
+											<div class="span12">
+												<h5>Comentario que el usuario a puesto dando su opinion en el grupo.</h5>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td style="background:#CCCCCC">
+											<div class="span1">
+												<img src="../img/avatar.jpg" style="width: 60px"; height="60px">
+											</div>
+											<div class="span4">
+												<h5>Nombre del usuario</h5>
+											</div>
+											<div class="span7">
+												<h6><i>"Estado del usuario que tiene en su perfil"</i></h6>
+											</div>
+											<div class="span12">
+												<h5>Comentario que el usuario a puesto dando su opinion en el grupo.</h5>
+											</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+					</div>
+					<div class="span4"></div>
+					<div class="span4">
+						<form>
+							<textarea></textarea><br>
+							<input type="button" value="Enviar comentario" class="btn btn-danger">
+						</form>
+					</div>
+					<div class="span4"></div>
+				</div>
+				<div class="span2">
+					<table width="0%" class="table table-hover">
+             <thead>
+                <tr>
+                  <th>Grupos relacionados</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Grupo 1</td>
+                </tr>
+                <tr>
+                  <td>Grupo 2</td>
+                </tr>
+                <tr>
+                  <td>Grupo 3</td>
+                </tr>
+								<tr>
+                  <td>Grupo 4</td>
+                </tr>
+								<tr>
+                  <td>Grupo 5</td>
+                </tr>
+								<tr>
+                  <td>Grupo 6</td>
+                </tr>
+								<tr>
+                  <td>Grupo 7</td>
+                </tr>
+              </tbody>
+      </table>
+			<div class="span12">
+					<table width="0%" class="table table-hover">
+             <thead>
+                <tr>
+                  <th>Personas unidas</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Pablito</td>
+                </tr>
+                <tr>
+                  <td>Thornton</td>
+                </tr>
+                <tr>
+                  <td>Larry the Bird</td>
+                </tr>
+								<tr>
+                  <td>Larry the Bird</td>
+                </tr>
+								<tr>
+                  <td>Larry the Bird</td>
+                </tr>
+								<tr>
+                  <td>Larry the Bird</td>
+                </tr>
+								<tr>
+                  <td>Larry the Bird</td>
+                </tr>
+              </tbody>
+      </table>
+				</div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- Carga de scripts -->
+		
+		<script src="../js/jquery.js"></script>
+		<script src="../js/responder.js"></script>
     <script src="../js/bootstrap-transition.js"></script>
     <script src="../js/bootstrap-alert.js"></script>
+
     <script src="../js/bootstrap-modal.js"></script>
     <script src="../js/bootstrap-dropdown.js"></script>
     <script src="../js/bootstrap-scrollspy.js"></script>
