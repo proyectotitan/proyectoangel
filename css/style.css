@@ -13,7 +13,7 @@ img {
 	
 }
 .dock-container {
-	position: absolute;
+	position: relative;
 	height: 50px;
 	background: url(../img/dock-bg2.gif);
 	padding-left: 20px;
@@ -46,7 +46,7 @@ a.dock-item {
 	left: 0px;
 }
 .dock-container2 {
-	position: absolute;
+	position: relative;
 	height: 50px;
 	background: url(../img/dock-bg.gif);
 	padding-left: 20px;
