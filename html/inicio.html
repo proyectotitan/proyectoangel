@@ -9,11 +9,7 @@
 
     <!-- Le styles -->
 
-    <link href="../css/bootstrap.css" rel="stylesheet"/>
-    <link href="../css/style.css" rel="stylesheet" type="text/css" />
-    <link href="../css/bootstrap-responsive.css" rel="stylesheet"/>
-		<link href="../css/bordes.css" rel="stylesheet"/>
-		<link href="../css/blitzer/jquery-ui-css.css" rel="stylesheet"/>
+   
 
     <script src="../js/jquery.js"></script>
     <script src="../js/jquery-ui.js"></script>
@@ -29,7 +25,16 @@
     <script src="../js/bootstrap-button.js"></script>
     <script src="../js/bootstrap-collapse.js"></script>
     <script src="../js/bootstrap-carousel.js"></script>
-    <script src="../js/bootstrap-typeahead.js"></script>
+		<script src="../js/bootstrap-typeahead.js"></script>
+		<script src="../js/chat.js"></script>
+		
+		<link href="../css/bootstrap.css" rel="stylesheet"/>
+    <link href="../css/style.css" rel="stylesheet" type="text/css" />
+    <link href="../css/bootstrap-responsive.css" rel="stylesheet"/>
+		<link href="../css/bordes.css" rel="stylesheet"/>
+		<link href="../css/blitzer/jquery-ui-css.css" rel="stylesheet"/>
+		<link href="../css/chat/chat.css" rel="stylesheet"/>
+		
 
 <script type="text/javascript">
 	
@@ -224,9 +229,17 @@
 				</div>
 				<div class="span4">
      			 <div id="datepicker" class="pull-right"></div>
+					 <div class="span12" style="margin-top:40px;">
+					 	<div id="main_container" class="pull-right" style="background-color:#FFFFFF;">
+							<a href="#" onClick="javascript:chatWith('janedoe')">Chat With Jane Doe</a><br>
+							<a href="#" onClick="javascript:chatWith('babydoe')">Chat With Baby Doe</a>
+						</div>
+					 </div>
 	 		 </div>
 		</div>
 	</div>
 </div>
+
+
   </body>
 </html>
