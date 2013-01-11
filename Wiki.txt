@@ -29,3 +29,16 @@ git config --global user.email jperez@miempresa.com
 
 Email: hoyenelmundo1@gmail.com
 password: dinosaurio1
+
+/////////////////////////////////////////////////////////////////////////
+/////////////   Uso de la base de datos    //////////////////////////////
+/////////////////////////////////////////////////////////////////////////
+
+La tabla usuario muestra el numero de peticiones de amistad recibidas,
+tambien muetsra si el usuario ha iniciado sesion, eso se usara para
+evitar inicios de sesion multiple.
+
+Se ha incluido una tabla de baneadosde los grupos, el admin de un grupo
+podra echar y readmitir a cualquier usuario de su grupo.
+
+
