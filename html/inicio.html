@@ -13,7 +13,7 @@
 
     <script src="../js/jquery.js"></script>
     <script src="../js/jquery-ui.js"></script>
-	<script src="../js/interface.js"></script>    
+	  <script src="../js/interface.js"></script>    
     <script src="../js/bootstrap-alert.js"></script>
     <script src="../js/bootstrap-transition.js"></script>
     <script src="../js/bootstrap-modal.js"></script>
@@ -25,8 +25,9 @@
     <script src="../js/bootstrap-button.js"></script>
     <script src="../js/bootstrap-collapse.js"></script>
     <script src="../js/bootstrap-carousel.js"></script>
-	<script src="../js/bootstrap-typeahead.js"></script>
+	  <script src="../js/bootstrap-typeahead.js"></script>
     <script src="../js/chat.js"></script>
+		<script src="../js/twitter.js"></script>
     
 	<link href="../css/bootstrap.css" rel="stylesheet"/>
     <link href="../css/style.css" rel="stylesheet" type="text/css" />
@@ -275,7 +276,10 @@
 	
 				</div>
 				<div class="span4">
-                	
+           <div class="span12">
+					 	<input type="text" id="mensaje_t" value="" onKeyUp="twitear()" style="margin-top:8px;"></input>
+						<a target="_blank" id="twt" class="btn btn-primary" href="https://twitter.com/intent/tweet?text=Bienvenido a hoy en el mundo @HoyenelMundo&amp">Twittear</a>
+					 </div>
 					<div class="span12" style="margin-top:20px;">
 						 <table width="0%" class="table table-hover">
 							 <thead>
