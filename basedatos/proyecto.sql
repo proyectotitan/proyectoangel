@@ -7,14 +7,15 @@ create table usuario
 nombre varchar2(30),
 pass varchar2(15) not null,
 correo varchar2(30) not null,
-telefono number(9),
 provincia varchar2(20),
 municipio varchar2(20),
+peticiones number(2),
+privados number(2),
+avatar varchar2(50),
 fecna date,
-sexo varchar2(1) not null,
-moderar number(1),
-constraint pk_nombre1 primary key(nombre),
-constraint check_sexo1 check (sexo in ('H','M')) 
+sexo varchar2(1),
+sesion number(1),
+constraint pk_nombre1 primary key(nombre)
 );
 
 drop table grupos cascade constraint;
@@ -24,8 +25,10 @@ nom_grup varchar2(30),
 descripcion_g long not null,
 fecha_creacion date,
 nombre_mod varchar2(30),
+imagen varchar2(50),
 seccion varchar2(20),
 constraint pk_nom_grup1 primary key(nom_grup),
+constraint fk_nom_secciones foreign key (seccion) references sections on delete cascade,
 constraint fk_nom_moderador foreign key(nombre_mod) references usuario on delete cascade
 );
 
@@ -53,8 +56,8 @@ constraint fk_pertenecen_nombre1 foreign key (nombre) references usuario on dele
 constraint fk_pertenece1_nom_gru1 foreign key (nom_grup) references grupos on delete cascade
 );
 
-drop table mens_usu cascade constraint;
-create table mens_usu
+drop table mens_enviados cascade constraint;
+create table mens_enviados
 (
 cod_menus number(4),
 contenido long not null,
@@ -64,6 +67,71 @@ receptor varchar2(30) not null ,
 constraint pk_mens_usu1 primary key (cod_menus),
 constraint fk_mens_usu_emisor1 foreign key (emisor) references usuario on delete cascade,
 constraint fk_mens_usu_receptor1 foreign key (receptor) references usuario on delete cascade
+);
+
+drop table mens_recibidos cascade constraint;
+create table mens_recibidos
+(
+cod_menus number(4),
+contenido long not null,
+fechen date,
+emisor varchar2(30) not null,
+receptor varchar2(30) not null ,
+constraint pk_mens_usu2 primary key (cod_menus),
+constraint fk_mens_usu_emisor2 foreign key (emisor) references usuario on delete cascade,
+constraint fk_mens_usu_receptor2 foreign key (receptor) references usuario on delete cascade
+);
+
+drop table peticiones cascade constraint;
+create table peticiones
+(
+cod_pet number(4),
+texto long not null,
+env varchar2(30),
+rec varchar2(30),
+constraint pk_peticiones primary key (cod_pet),
+constraint fk_env1 foreign key (env) references usuario on delete cascade,
+constraint fk_rec1 foreign key (rec) references usuario on delete cascade
+);
+
+drop table amigos cascade constraint;
+create table amigos
+(
+amigo1 varchar2(30),
+amigo2 varchar2(30),
+constraint pk_idamigos primary key (amigo1,amigo2),
+constraint fk_amigo1 foreign key(amigo1) references usuario on delete cascade,
+constraint fk_amigo2 foreign key(amigo2) references usuario on delete cascade
+);
+
+drop table baneados cascade constraint;
+create table baneados
+(
+nom_ban varchar2(30),
+grup_ban varchar2(30),
+constraint pk_baneados_1 primary key (nom_ban,grup_ban),
+constraint fk_nomban foreign key (nom_ban) references usuario on delete cascade,
+constraint fk_grupban foreign key (grup_ban) references grupos on delete cascade
+);
+
+drop table sections cascade constraint;
+create table sections
+(
+nom_sec varchar2(20),
+constraint pk_secctions primary key (nom_sec)
+);
+
+drop table chat cascade constraint;
+create table chat
+(
+cod_ch number(3),
+emi varchar2(30),
+recep varchar2(30),
+mensaje long not null,
+sent date,
+constraint pk_id_chat primary key (cod_ch),
+constraint fk_from_usu foreign key (emi) references usuario,
+constraint fk_to_usu foreign key (recep) references usuario
 );
 
 PROMPT ******************************************
