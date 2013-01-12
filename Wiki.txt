@@ -18,8 +18,8 @@ git push -u origin master
 
 ---------cambiar nombre de usuario al comittear y el correo-----
 
-git config --global user.name "Juan José Pérez Vidal"
-git config --global user.email jperez@miempresa.com
+git config --global user.name "el nombre"
+git config --global user.email correo@miempresa.com
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -28,7 +28,7 @@ git config --global user.email jperez@miempresa.com
 /////////////////////////////////////////////////////////////////////////
 
 Email: hoyenelmundo1@gmail.com
-password: dinosaurio1
+twitter: hoyenelmundoweb
 
 /////////////////////////////////////////////////////////////////////////
 /////////////   Uso de la base de datos    //////////////////////////////
