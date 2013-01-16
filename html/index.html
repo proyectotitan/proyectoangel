@@ -13,6 +13,27 @@
 		<script type="text/javascript"  src="../js	/validar.js"> </script>
 		<script type="text/javascript">
 		
+		function validar_1(form)
+			{
+				var errores= "";
+				var sw=0;
+				
+				if(esBlanco(form.s_usuario.value))
+				{
+					errores=errores+"<p>Es necesario introducir un nombre de usuario</p>";
+					sw=1;
+					var x;
+					x=$(document);
+					x.ready(imagen_errores("s_usuario", "Es necesario introducir un nombre de usuario"));
+				}
+				if (sw==1)
+				{
+					var x;
+					x=$(document);
+					x.ready(muestra_errores(errores));
+				}
+			}
+		
 			function validar_2(form)
 			{
 				var errores= "";
@@ -102,7 +123,7 @@
 		  <form id="rty" style=" height:2px">
 			  <i class="icon-user"></i>Usuario&nbsp;<input type="text" placeholder="Introduce el nombre" style="margin-top: 8px "id="s_usuario">
 			  <i class="icon-lock"></i>Contrase&ntilde;a&nbsp;<input type="password" placeholder="Introduce la contrase&ntilde;a" style="margin-top: 8px" id="s_pass">
-			  <input type="submit" class="btn btn-danger" onClick="validar_2(this.form)" value="Enviar" ></input> 	
+			  <input type="submit" class="btn btn-danger" onClick="validar_1(this.form)" value="Enviar" ></input> 	
 		  </form>
           </div><!--/.nav-collapse -->
         </div>
