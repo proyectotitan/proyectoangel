@@ -40,6 +40,8 @@
 					x=$(document);
 					x.ready(errores_cabecera(errores));
 				}
+				else
+				form.submit();
 			}
 		
 			function validar_2(form)
@@ -112,6 +114,8 @@
 					x=$(document);
 					x.ready(muestra_errores(errores));
 				}		
+				else
+				form.submit();
 			}	
 		</script>
   </head>
@@ -197,8 +201,8 @@
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 <!------------------------------------------------------------------------------------------------------------------------------------- -->
 	
-    <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-header">
+    <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="overflow:auto; height:360px;">
+    <div class="modal-header" >
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i><img src="../img/iconos/glyphicons_197_remove.png" width="17" height="25"></i></button>
     <h3 id="myModalLabel">Registro de usuario</h3>
     </div>
