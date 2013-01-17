@@ -24,14 +24,24 @@
 					sw=1;
 					var x;
 					x=$(document);
-					x.ready(imagen_errores("s_usuario", "Es necesario introducir un nombre de usuario"));
+					x.ready(errores_cabecera("s_usuario", "Es necesario introducir un nombre de usuario"));
+				}
+				if(esBlanco(form.s_pass.value))
+				{
+					errores=errores+"<p>Es necesario introducir una contraseña</p>";
+					sw=1;
+					var x;
+					x=$(document);
+					x.ready(errores_cabecera("s_pass", "Es necesario introducir una contraseña"));
 				}
 				if (sw==1)
 				{
 					var x;
 					x=$(document);
-					x.ready(muestra_errores(errores));
+					x.ready(errores_cabecera(errores));
 				}
+				else
+				form.submit();
 			}
 		
 			function validar_2(form)
@@ -104,6 +114,8 @@
 					x=$(document);
 					x.ready(muestra_errores(errores));
 				}		
+				else
+				form.submit();
 			}	
 		</script>
   </head>
@@ -119,11 +131,12 @@
             <span class="icon-bar"></span>
           </a>
           <a class="brand" href="#" style="margin-top: 2px"><img src="../img/mundo_blanco.PNG" width="25" height="25"> Hoy en el mundo</a>
+					
 		  <div class="nav-collapse collapse" align="right">
 		  <form id="rty" style=" height:2px">
 			  <i class="icon-user"></i>Usuario&nbsp;<input type="text" placeholder="Introduce el nombre" style="margin-top: 8px "id="s_usuario">
 			  <i class="icon-lock"></i>Contrase&ntilde;a&nbsp;<input type="password" placeholder="Introduce la contrase&ntilde;a" style="margin-top: 8px" id="s_pass">
-			  <input type="submit" class="btn btn-danger" onClick="validar_1(this.form)" value="Enviar" ></input> 	
+			  <input type="button" class="btn btn-danger" onClick="validar_1(this.form)" value="Enviar" ></input> 	
 		  </form>
           </div><!--/.nav-collapse -->
         </div>
@@ -132,11 +145,12 @@
 	
 	
 <!---------------------------------Poner aqui la imagen de hoy en el mundo------------------------------------------------------------- -->
+<div id="errores_cab" class="pull-right" style="position:absolute; margin-top:60px;"></div>
 <img src="../img/mapa_mundi_noche.jpg" style="width:100%; height:350px;">
 <div class="container-fluid" style="margin-top:10px;">
-	<div class="row-fluid">
-		
-		
+	<div class="row-fluid">	
+	
+	
 <div class="span6"> 
 		<div class="span6">
 				<img src="../img/bola.png" width="240" height="240">
@@ -187,8 +201,8 @@
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 <!------------------------------------------------------------------------------------------------------------------------------------- -->
 	
-    <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-header">
+    <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="overflow:auto; height:360px;">
+    <div class="modal-header" >
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i><img src="../img/iconos/glyphicons_197_remove.png" width="17" height="25"></i></button>
     <h3 id="myModalLabel">Registro de usuario</h3>
     </div>
@@ -214,6 +228,7 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="../js/jquery.js"></script>
 	<script src="../js/muestra_errores.js"></script>
+	<script src="../js/errores_cabecera.js"></script>
     <script src="../js/twitter.js"></script>
     <script src="../js/bootstrap-transition.js"></script>
     <script src="../js/bootstrap-alert.js"></script>
