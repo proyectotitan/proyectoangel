@@ -20,7 +20,7 @@
 				
 				if(esBlanco(form.s_usuario.value))
 				{
-					errores=errores+"Es necesario introducir un nombre de usuario";
+					errores=errores+"<p>Es necesario introducir un nombre de usuario</p>";
 					sw=1;
 					var x;
 					x=$(document);
@@ -28,7 +28,7 @@
 				}
 				if(esBlanco(form.s_pass.value))
 				{
-					errores=errores+"Es necesario introducir una contraseña &nbsp;&nbsp;";
+					errores=errores+"<p>Es necesario introducir una contraseña</p>";
 					sw=1;
 					var x;
 					x=$(document);
@@ -127,8 +127,8 @@
             <span class="icon-bar"></span>
           </a>
           <a class="brand" href="#" style="margin-top: 2px"><img src="../img/mundo_blanco.PNG" width="25" height="25"> Hoy en el mundo</a>
+					
 		  <div class="nav-collapse collapse" align="right">
-		  <div id="errores_cab" ></div>
 		  <form id="rty" style=" height:2px">
 			  <i class="icon-user"></i>Usuario&nbsp;<input type="text" placeholder="Introduce el nombre" style="margin-top: 8px "id="s_usuario">
 			  <i class="icon-lock"></i>Contrase&ntilde;a&nbsp;<input type="password" placeholder="Introduce la contrase&ntilde;a" style="margin-top: 8px" id="s_pass">
@@ -141,11 +141,12 @@
 	
 	
 <!---------------------------------Poner aqui la imagen de hoy en el mundo------------------------------------------------------------- -->
+<div id="errores_cab" class="pull-right" style="position:absolute; margin-top:60px;"></div>
 <img src="../img/mapa_mundi_noche.jpg" style="width:100%; height:350px;">
 <div class="container-fluid" style="margin-top:10px;">
-	<div class="row-fluid">
-		
-		
+	<div class="row-fluid">	
+	
+	
 <div class="span6"> 
 		<div class="span6">
 				<img src="../img/bola.png" width="240" height="240">
