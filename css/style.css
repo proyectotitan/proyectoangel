@@ -42,7 +42,7 @@ a.dock-item {
 #dock2 {
 	width: 100%;
 	bottom: 0px;
-	position: absolute;
+	position: relative;
 	left: 0px;
 }
 .dock-container2 {

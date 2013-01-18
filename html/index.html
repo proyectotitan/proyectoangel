@@ -9,6 +9,7 @@
     <meta name="author" content="">
 		
     <link href="../css/bootstrap.css" rel="stylesheet">
+	<link href="../css/errores.css" rel="stylesheet">
     <link href="../css/bootstrap-responsive.css" rel="stylesheet">
 		<script type="text/javascript"  src="../js	/validar.js"> </script>
 		<script type="text/javascript">
@@ -61,7 +62,7 @@
 				{
 					var x;
 					x=$(document);
-					x.ready(imagen_correcto("i_usuario"));
+					x.ready(imagen_correcto("i_usuario", "r_usuario"));
 				}
 				
 				if(esBlanco(form.r_pass.value))
@@ -145,7 +146,7 @@
 	
 	
 <!---------------------------------Poner aqui la imagen de hoy en el mundo------------------------------------------------------------- -->
-<div id="errores_cab" class="pull-right" style="position:absolute; margin-top:60px;"></div>
+<div id="errores_cab" style="position:absolute; margin-top:60px;"></div>
 <img src="../img/mapa_mundi_noche.jpg" style="width:100%; height:350px;">
 <div class="container-fluid" style="margin-top:10px;">
 	<div class="row-fluid">	
