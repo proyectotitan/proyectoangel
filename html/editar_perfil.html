@@ -26,6 +26,7 @@
     <script src="../js/bootstrap-collapse.js"></script>
     <script src="../js/bootstrap-carousel.js"></script>
 	<script src="../js/bootstrap-typeahead.js"></script>
+    <script src="../js/marcar_celda.js"></script>
 
     
 	<link href="../css/bootstrap.css" rel="stylesheet"/>
@@ -108,10 +109,10 @@
               <div class="span3" style="margin-top:17px;">  
                   <div class="bs-docs-sidebar">
                     <ul class="nav nav-list bs-docs-sidenav affix">
-                        <li class="active"><a href="#datos"><i class="icon-chevron-right"></i> Datos Usuario</a></li>
-                        <li><a href="#estado"><i class="icon-chevron-right"></i> Estado y Avatar</a></li>
-                        <li><a href="#resi"><i class="icon-chevron-right"></i> Datos De Residencia</a></li>
-                        <li><a href="#otros"><i class="icon-chevron-right"></i> Otros Datos</a></li>
+                        <li id="i_datos" class="active"><a href="#datos"><i class="icon-chevron-right"></i> Datos Usuario</a></li>
+                        <li id="i_estado"><a href="#estado"><i class="icon-chevron-right"></i> Estado y Avatar</a></li>
+                        <li id="i_resi"><a href="#resi" onClick="marcar_celda('pepe')"><i class="icon-chevron-right"></i> Datos De Residencia</a></li>
+                        <li id="i_otros"><a href="#otros"><i class="icon-chevron-right"></i> Otros Datos</a></li>
                     </ul>
                   </div>
               </div>
