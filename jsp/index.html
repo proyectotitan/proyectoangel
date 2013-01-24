@@ -1,0 +1,251 @@
+<%@ page contentType="text/html; charset=iso-8859-1" session="true" language="java" import="java.sql.*, java.util.*"  errorPage="" %>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Hoy en el Mundo</title>
+    <link rel="icon" type="image/png" href="../img/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+		
+    <link href="../css/bootstrap.css" rel="stylesheet">
+		<link href="../css/bootstrap-responsive.css" rel="stylesheet">
+		<script type="text/javascript"  src="../js	/validar.js"> </script>
+		<script type="text/javascript">
+		
+		function validar_1(form)
+			{
+				var errores= "";
+				var sw=0;
+				
+				if(esBlanco(form.s_usuario.value))
+				{
+					errores=errores+"<p>Es necesario introducir un nombre de usuario</p>";
+					sw=1;
+					var x;
+					x=$(document);
+					x.ready(errores_cabecera("s_usuario", "Es necesario introducir un nombre de usuario"));
+				}
+				if(esBlanco(form.s_pass.value))
+				{
+					errores=errores+"<p>Es necesario introducir una contraseña</p>";
+					sw=1;
+					var x;
+					x=$(document);
+					x.ready(errores_cabecera("s_pass", "Es necesario introducir una contraseña"));
+				}
+				if (sw==1)
+				{
+					var x;
+					x=$(document);
+					x.ready(errores_cabecera(errores));
+				}
+				else
+				form.submit();
+			}
+		
+			function validar_2(form)
+			{
+				var errores= "";
+				var sw=0;
+				
+				if(esBlanco(form.r_usuario.value))
+				{
+					errores=errores+"<p>Es necesario introducir un nombre de usuario</p>";
+					sw=1;
+					var x;
+					x=$(document);
+					x.ready(imagen_errores("i_usuario", "Es necesario introducir un nombre de usuario"));
+				}
+				else
+				{
+					var x;
+					x=$(document);
+					x.ready(imagen_correcto("i_usuario", "r_usuario"));
+				}
+				
+				if(esBlanco(form.r_pass.value))
+				{
+					errores=errores+"<p>Es necesario introducir una contrseña</p>";
+					sw=1;
+					var x;
+					x=$(document);
+					x.ready(imagen_errores("i_pass", "Es necesario introducir una contrseña"));
+				}
+				else
+				{
+					var x;
+					x=$(document);
+					x.ready(imagen_imagen_correcto("i_pass"));
+				}
+				
+				if(!esEmail(form.r_email.value))
+				{
+					errores=errores+"<p>Es necesario introducir un email válido</p>";
+					sw=1;
+					var x;
+					x=$(document);
+					x.ready(imagen_errores("i_email", "Es necesario introducir un email válido"));
+				}
+				else
+				{
+					var x;
+					x=$(document);
+					x.ready(imagen_correcto("i_email"));
+				}
+				
+				if(form.r_pass.value!=form.r_conf_pass)
+				{
+					errores=errores+"<p>Las contraseñas no coinciden</p>";
+					sw=1;
+					x=$(document);
+					x.ready(imagen_errores("i_conf_pass", "Las contraseñas no coinciden"));
+				}
+				else
+				{
+					var x;
+					x=$(document);
+					x.ready(imagen_correcto("i_conf_pass"));
+				}
+			
+				if (sw==1)
+				{
+					var x;
+					x=$(document);
+					x.ready(muestra_errores(errores));
+				}		
+				else
+				form.submit();
+			}	
+		</script>
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#" style="margin-top: 2px"><img src="../img/mundo_blanco.PNG" width="25" height="25"> Hoy en el mundo</a>
+					
+		  <div class="nav-collapse collapse" align="right">
+		  <form id="rty"  action="sesion.jsp" method="post" style=" height:2px">
+			  <i class="icon-user"></i>Usuario&nbsp;<input type="text" placeholder="Introduce el nombre" style="margin-top: 8px "id="s_usuario">
+			  <i class="icon-lock"></i>Contrase&ntilde;a&nbsp;<input type="password" placeholder="Introduce la contrase&ntilde;a" style="margin-top: 8px" id="s_pass">
+			  <input type="button" class="btn btn-danger" onClick="validar_1(this.form)" value="Enviar" ></input> 	
+		  </form>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+	
+	
+<!---------------------------------Poner aqui la imagen de hoy en el mundo------------------------------------------------------------- -->
+<div id="errores_cab" style="position:absolute; margin-top:60px;"></div>
+<img src="../img/mapa_mundi_noche.jpg" style="width:100%; height:350px;">
+<div class="container-fluid" style="margin-top:10px;">
+	<div class="row-fluid">	
+	
+	
+<div class="span6"> 
+		<div class="span6">
+				<img src="../img/bola.png" width="240" height="240">
+			</div>
+			<div class="span6">
+				<h4>Aun no tienes cuenta en Hoy en el mundo? Rellena nuestro formulario de registro de manera rapida y accede a nuestra web para que puedas disfrutar de millones de temas y crear tus temas propios.</h4>
+		  <a href="#myModal" role="button" class="btn btn-danger" data-toggle="modal">Registrate</a><br></br>
+			</div>
+		</div>
+		<div class="span1">
+		</div>
+		<div class="span5">
+			<div class="tabbable"> <!-- Only required for left/right tabs -->
+				<ul class="nav nav-tabs">
+					<li class="active"><a href="#tab1" data-toggle="tab">Bienvenido a Hoy en el mundo</a></li>
+					<li><a href="#tab2" data-toggle="tab">Quienes somos</a></li>
+					<li><a href="#tab3" data-toggle="tab">Que te ofrecemos</a></li>
+				</ul>
+    		<div class="tab-content">
+   			 <div class="tab-pane active" id="tab1">
+   				 <p>Te damos la bienvenida a la red social inovadora en la que podras crear temas de conversacion y debate con tus amigos y con miles de personas atraves de internet, ademas de cuidar de tu pequeño hamster.</p>
+                 <p>Conecta con tus amigos para poder hablar, conoce gente nueva mediante los temas y los grupos de Hoy en el Mundo, manda mensajes privados a tus amigos, opina y participa en los temas de los grupos y habla y conoce a gente nueva a traves de nuestro chat.</p>
+   			 </div>
+    		<div class="tab-pane" id="tab2">
+   			 <p>Somos un grupo de tres desarrolladores web que han creado esta red social para poder ofrecerle a la gente la opcion de conocer gente, hablar con ella y poder participar todos juntos en un mismo grupo y conectar todos en esta gran red social.</p>
+             
+   		 </div>
+			 <div class="tab-pane" id="tab3">
+   			 <p>Te ofrecemos muchas posibilidades y esperamos que mucho entretenimiento gracias a todas las cosas que puedes hacer en esta red social</p>
+             <p>Te ofrecemos tu propio Avatar que podras personalizar con tu foto para que tus amigos te reconozcan. Te ofrecemos la posibilidad de encontrar a tus amigos y hablar con ellos. Puedes tambien unirte a grupos que te interesen para poder hablar y opinar sobre el tema del grupo. Tambien puedes crear los grupos que tu quieras con los temas que mas te gusten.
+              Y por ultimo en el chat puedes hablar y conectar con miles de personas de la red social Hoy En El Mundo.</p>
+   	 </div>
+    </div>
+		</div>
+	</div>
+</div>
+
+
+
+
+ <a href="https://twitter.com/intent/tweet?screen_name=hoyenelmundoweb" class="twitter-mention-button" data-lang="es" data-related="hoyenelmundoweb">Tweet to @hoyenelmundoweb</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.hoyenelmundo.com" data-text="Descubre la pagina Hoy en el Mundo!! @hoyenelmundoweb" data-lang="es">Twittear</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+<a href="https://twitter.com/hoyenelmundoweb" class="twitter-follow-button" data-show-count="false" data-lang="es">Seguir a @hoyenelmundoweb</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<!------------------------------------------------------------------------------------------------------------------------------------- -->
+	
+    <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="overflow:auto; height:360px;">
+    <div class="modal-header" >
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i><img src="../img/iconos/glyphicons_197_remove.png" width="17" height="25"></i></button>
+    <h3 id="myModalLabel">Registro de usuario</h3>
+    </div>
+		<form id="form9" action='java/InsertarUsuario' method='post'>
+			<div class="modal-body">
+				<div id="errores"></div> 
+					<p>Nombre de usuario&nbsp;<input type="text" placeholder="Introduce el nombre de usuario" id="r_usuario"><i id="i_usuario"></i></p>
+					<p>Contrase&ntilde;a&nbsp;<input type="password" placeholder="Introduce la contrase&ntilde;a" id="r_pass"><i id="i_pass"></i></p>
+					<p>Confirma la contrase&ntilde;a&nbsp;<input type="password" placeholder="Repite la contrase&ntilde;a" id="r_conf_pass"><i id="i_conf_pass"></i></p>
+					<p>Email&nbsp;<input type="text" placeholder="Introduce el nombre de usuario" id="r_email"><i id="i_email"></i></p>
+			
+			</div>
+			<div class="modal-footer">
+			<button class="btn" data-dismiss="modal" aria-hidden="true">Cerrar</button>
+			<input type="button" class="btn btn-danger" onClick="validar_2(this.form)" value="Enviar datos"></input>
+			</div>
+		</form>
+    </div>
+    </div> <!-- /container -->
+
+<script src='http://platform.twitter.com/widgets.js' type='text/javascript'></script>
+
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../js/jquery.js"></script>
+	<script src="../js/muestra_errores.js"></script>
+	<script src="../js/errores_cabecera.js"></script>
+    <script src="../js/twitter.js"></script>
+    <script src="../js/bootstrap-transition.js"></script>
+    <script src="../js/bootstrap-alert.js"></script>
+
+    <script src="../js/bootstrap-modal.js"></script>
+    <script src="../js/bootstrap-dropdown.js"></script>
+    <script src="../js/bootstrap-scrollspy.js"></script>
+    <script src="../js/bootstrap-tab.js"></script>
+    <script src="../js/bootstrap-tooltip.js"></script>
+    <script src="../js/bootstrap-popover.js"></script>
+
+    <script src="../js/bootstrap-button.js"></script>
+    <script src="../js/bootstrap-collapse.js"></script>
+    <script src="../js/bootstrap-carousel.js"></script>
+    <script src="../js/bootstrap-typeahead.js"></script>
+
+  </body>
+</html>

@@ -30,6 +30,7 @@ fecha_creacion date,
 nombre_mod varchar2(30),
 imagen varchar2(50),
 seccion varchar2(20),
+visitas number(9),
 constraint pk_nom_grup1 primary key(nom_grup),
 constraint fk_nom_secciones foreign key (seccion) references sections on delete cascade,
 constraint fk_nom_moderador foreign key(nombre_mod) references usuario on delete cascade
@@ -143,8 +144,8 @@ PROMPT ******************************************
 
 INSERT INTO USUARIO VALUES('Super fuerza', 'Super', 'superfuerza@gmail.com','','Madrid', 'Leganes','0','0','avatar','','super inteligencia, que te follen superfuerza','10/12/1990','H','0');
 INSERT INTO USUARIO VALUES('Roberto Sanchez Perez', 'Roberto', 'robertos@gmail.com','','Madrid', 'Getafe','0','0','avatar','','sevilla sity vamoh alla','10/12/1990','H','0');
-INSERT INTO USUARIO VALUES('Marina Lopez Reverte', 'Marina', 'lokitah@gmail.com','Madrid','','Leganes','0','0','avatar','','ey nigga','19/11/1994','M','0');
-INSERT INTO USUARIO VALUES('Beatriz Sotomonte Veraz', 'Beatriz', 'beatriz@gmail.com','Madrid','546378767','Fuenlabrada','0','0','avatar','','Con los dedos de la mano, los dedos de los pies...','14/02/1991','M','0');
+INSERT INTO USUARIO VALUES('Marina Lopez Reverte', 'Marina', 'lokitah@gmail.com','','Madrid','Leganes','0','0','avatar','','ey nigga','19/11/1994','M','0');
+INSERT INTO USUARIO VALUES('Beatriz Sotomonte Veraz', 'Beatriz', 'beatriz@gmail.com','345678989','Madrid','Fuenlabrada','0','0','avatar','','Con los dedos de la mano, los dedos de los pies...','14/02/1991','M','0');
 INSERT INTO USUARIO VALUES('Juan Perez Perez', 'Juan', 'juanito@gmail.com','','Madrid', 'Madrid','0','0','avatar','','mmm 64 lonchas de queso americano','18/10/1992','H','0');
 INSERT INTO USUARIO VALUES('Luisa Gonzalez Martin', 'Luisa', 'luisinha@gmail.com','','Madrid', 'Getafe','0','0','avatar','','Nos fuimos a pescar gambas... buaa','05/02/1989','M','0');
 INSERT INTO USUARIO VALUES('Marta Garcia Rodriguez', 'Marta', 'martita@gmail.com','','Madrid', 'Fuenlabrada','0','0','avatar','','Ebrios patanes del jurado','11/11/1991','M','0');
@@ -155,11 +156,17 @@ INSERT INTO USUARIO VALUES('Miguel Reverte de la Fuente', 'Miguel', 'mdelafuente
 PROMPT *****************************************
 PROMPT **COMIENZA EL INSERTADO DE DATOS GRUPOS**
 PROMPT *****************************************
-INSERT INTO GRUPOS VALUES('Los mejores coches', 'Aqui se hablará de cuales son los mejores coches del mercado.', '01/01/2012', 'Roberto Sanchez Perez','imagen', 'Motor');
-INSERT INTO GRUPOS VALUES('Rock and roll', 'En este grupo se hablará de los mejores grupos de rock de la historia.', '21/01/2012', 'Marina Lopez Reverte','imagen', 'Musica');
-INSERT INTO GRUPOS VALUES('que miedo!', 'En este grupo se hablara de los mejores relatos y peliculas de horror', '14/03/2012', 'Beatriz Sotomonte Veraz','imagen', 'Varios');
-INSERT INTO GRUPOS VALUES('Los mejores campings', 'Podreis dar vuestra opinion sobre los diferentes campings del mundo donde hayais estado.', '07/06/2009', 'Marta Garcia Rodriguez','imagen', 'Turismo');
-INSERT INTO GRUPOS VALUES('Warhammer Fantasy', 'Se hablara del rico mundo del warhammer.', '20/10/2012', 'Super fuerza','imagen', 'frikeo');
+INSERT INTO GRUPOS VALUES('Los mejores coches', 'Aqui se hablará de cuales son los mejores coches del mercado.', '01/01/2012', 'Roberto Sanchez Perez','imagen', 'Motor','20');
+INSERT INTO GRUPOS VALUES('Rock and roll', 'En este grupo se hablará de los mejores grupos de rock de la historia.', '21/01/2012', 'Marina Lopez Reverte','imagen', 'Musica','20');
+INSERT INTO GRUPOS VALUES('que miedo!', 'En este grupo se hablara de los mejores relatos y peliculas de horror', '14/03/2012', 'Beatriz Sotomonte Veraz','imagen', 'Varios','20');
+INSERT INTO GRUPOS VALUES('Los mejores campings', 'Podreis dar vuestra opinion sobre los diferentes campings del mundo donde hayais estado.', '07/06/2009', 'Marta Garcia Rodriguez','imagen', 'Turismo','20');
+INSERT INTO GRUPOS VALUES('Warhammer Fantasy', 'Se hablara del rico mundo del warhammer.', '20/10/2012', 'Super fuerza','imagen', 'frikeo','20');
+INSERT INTO GRUPOS VALUES('kebabis', 'Se hablara del rico mundo del doble kebab doble solo carne y salsa.', '20/10/2012', 'Super fuerza','imagen', 'Varios','20');
+INSERT INTO GRUPOS VALUES('pico y pala', 'Estrategias para pico-palear de sol a sol', '20/10/2012', 'Roberto Sanchez Perez','imagen', 'Varios','20');
+INSERT INTO GRUPOS VALUES('Al duro banco', 'Los jugadores de futbol mas malos', '20/10/2012', 'Super fuerza','imagen', 'Varios','20');
+INSERT INTO GRUPOS VALUES('Turismo rural', 'Las mejores ofertas de casas rurales', '20/10/2012', 'Marina Lopez Reverte','imagen', 'Turismo','20');
+INSERT INTO GRUPOS VALUES('Pezuñeo', 'Se hablara de los reyes de la Pezuña, los mas topejos', '20/10/2012', 'Miguel Reverte de la Fuente','imagen', 'frikeo','20');
+
 
 PROMPT *******************************************
 PROMPT **COMIENZA EL INSERTADO DE DATOS MENSAJES**
@@ -183,7 +190,11 @@ INSERT INTO PERTENECEN VALUES('Juan Perez Perez', 'Los mejores campings');
 INSERT INTO PERTENECEN VALUES('Marina Lopez Reverte', 'Rock and roll');
 INSERT INTO PERTENECEN VALUES('Beatriz Sotomonte Veraz', 'que miedo!');
 INSERT INTO PERTENECEN VALUES('Super fuerza', 'Warhammer Fantasy');
-
+INSERT INTO PERTENECEN VALUES('Super fuerza', 'kebabis');
+INSERT INTO PERTENECEN VALUES('Roberto Sanchez Perez', 'pico y pala');
+INSERT INTO PERTENECEN VALUES('Super fuerza', 'Al duro banco');
+INSERT INTO PERTENECEN VALUES('Marina Lopez Reverte', 'Turismo rural');
+INSERT INTO PERTENECEN VALUES('Miguel Reverte de la Fuente', 'Pezuñeo');
 
 PROMPT *******************************************
 PROMPT **COMIENZA EL INSERTADO DE DATOS MENS_ENVIADOS**
