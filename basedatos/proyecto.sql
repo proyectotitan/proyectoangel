@@ -7,11 +7,13 @@ create table usuario
 nombre varchar2(30),
 pass varchar2(15) not null,
 correo varchar2(30) not null,
+telefono number(9),
 provincia varchar2(20),
 municipio varchar2(20),
 peticiones number(2),
 privados number(2),
 avatar varchar2(50),
+gustos varchar2(50),
 estado varchar2(50),
 fecna date,
 sexo varchar2(1),
@@ -139,14 +141,14 @@ PROMPT ******************************************
 PROMPT **COMIENZA EL INSERTADO DE DATOS USUARIO**
 PROMPT ******************************************
 
-INSERT INTO USUARIO VALUES('Super fuerza', 'Super', 'superfuerza@gmail.com','Madrid', 'Leganes','0','0','avatar','super inteligencia, que te follen superfuerza','10/12/1990','H','0');
-INSERT INTO USUARIO VALUES('Roberto Sanchez Perez', 'Roberto', 'robertos@gmail.com','Madrid', 'Getafe','0','0','avatar','sevilla sity vamoh alla','10/12/1990','H','0');
-INSERT INTO USUARIO VALUES('Marina Lopez Reverte', 'Marina', 'lokitah@gmail.com','Madrid','Leganes','0','0','avatar','ey nigga','19/11/1994','M','0');
-INSERT INTO USUARIO VALUES('Beatriz Sotomonte Veraz', 'Beatriz', 'beatriz@gmail.com','Madrid','Fuenlabrada','0','0','avatar','Con los dedos de la mano, los dedos de los pies...','14/02/1991','M','0');
-INSERT INTO USUARIO VALUES('Juan Perez Perez', 'Juan', 'juanito@gmail.com','Madrid', 'Madrid','0','0','avatar','mmm 64 lonchas de queso americano','18/10/1992','H','0');
-INSERT INTO USUARIO VALUES('Luisa Gonzalez Martin', 'Luisa', 'luisinha@gmail.com','Madrid', 'Getafe','0','0','avatar','Nos fuimos a pescar gambas... buaa','05/02/1989','M','0');
-INSERT INTO USUARIO VALUES('Marta Garcia Rodriguez', 'Marta', 'martita@gmail.com','Madrid', 'Fuenlabrada','0','0','avatar','Ebrios patanes del jurado','11/11/1991','M','0');
-INSERT INTO USUARIO VALUES('Miguel Reverte de la Fuente', 'Miguel', 'mdelafuente@gmail.com','Madrid', 'Leganes','0','0','avatar','baauuula baaauuula','07/06/1993','H','0');
+INSERT INTO USUARIO VALUES('Super fuerza', 'Super', 'superfuerza@gmail.com','','Madrid', 'Leganes','0','0','avatar','','super inteligencia, que te follen superfuerza','10/12/1990','H','0');
+INSERT INTO USUARIO VALUES('Roberto Sanchez Perez', 'Roberto', 'robertos@gmail.com','','Madrid', 'Getafe','0','0','avatar','','sevilla sity vamoh alla','10/12/1990','H','0');
+INSERT INTO USUARIO VALUES('Marina Lopez Reverte', 'Marina', 'lokitah@gmail.com','Madrid','','Leganes','0','0','avatar','','ey nigga','19/11/1994','M','0');
+INSERT INTO USUARIO VALUES('Beatriz Sotomonte Veraz', 'Beatriz', 'beatriz@gmail.com','Madrid','546378767','Fuenlabrada','0','0','avatar','','Con los dedos de la mano, los dedos de los pies...','14/02/1991','M','0');
+INSERT INTO USUARIO VALUES('Juan Perez Perez', 'Juan', 'juanito@gmail.com','','Madrid', 'Madrid','0','0','avatar','','mmm 64 lonchas de queso americano','18/10/1992','H','0');
+INSERT INTO USUARIO VALUES('Luisa Gonzalez Martin', 'Luisa', 'luisinha@gmail.com','','Madrid', 'Getafe','0','0','avatar','','Nos fuimos a pescar gambas... buaa','05/02/1989','M','0');
+INSERT INTO USUARIO VALUES('Marta Garcia Rodriguez', 'Marta', 'martita@gmail.com','','Madrid', 'Fuenlabrada','0','0','avatar','','Ebrios patanes del jurado','11/11/1991','M','0');
+INSERT INTO USUARIO VALUES('Miguel Reverte de la Fuente', 'Miguel', 'mdelafuente@gmail.com','','Madrid', 'Leganes','0','0','avatar','','baauuula baaauuula','07/06/1993','H','0');
 
 
 
