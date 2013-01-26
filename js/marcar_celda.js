@@ -1,4 +1,5 @@
 function marcar_celda (enlace)
 {
-	alert(enlace);
-	}
+	$('ul.bs-docs-sidenav li.active').removeClass('active');
+	$("#"+enlace+"").addClass('active');
+}
