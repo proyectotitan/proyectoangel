@@ -13,5 +13,5 @@ function crear_respuesta ()
 {
 	var resp;
 	resp=$("#resp");
-	resp.html('<form><textarea></textarea><button class= "btn btn-danger">Enviar</button></form>');
+	resp.html('<form id="res"><textarea></textarea><button class= "btn btn-danger">Enviar</button></form>');
 }
