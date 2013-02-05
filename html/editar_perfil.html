@@ -7,7 +7,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-
+    
+    <script type="text/javascript"  src="../js/validar.js"> </script>
+	<script type="text/javascript">
+		
+		function validar(form)
+			{
+				var errores= "";
+				var sw=0;
+				
+				if(esBlanco(form.s_usuario.value))
+				{
+					errores=errores+"<p>Es necesario introducir un nombre de usuario</p>";
+					sw=1;
+					var x;
+					x=$(document);
+					x.ready(errores_cabecera("s_usuario", "Es necesario introducir un nombre de usuario"));
+				}
+				if(esBlanco(form.s_pass.value))
+				{
+					errores=errores+"<p>Es necesario introducir una contraseña</p>";
+					sw=1;
+					var x;
+					x=$(document);
+					x.ready(errores_cabecera("s_pass", "Es necesario introducir una contraseña"));
+				}
+				if (sw==1)
+				{
+					var x;
+					x=$(document);
+					x.ready(errores_cabecera(errores));
+				}
+				else
+				form.submit();
+			}
+	</script>
     <!-- Le styles -->
 
    
@@ -122,6 +156,7 @@
                         <p>Nombre: </p><p><input type="text" id="u_nombre"></input></p>
                         <p>Contraseña: </p><p><input type="password" id="u_pass"></input></p>
                         <p>Confirmar Contraseña: </p><p><input type="password" id="u_conf_pass"></input></p>
+                        <p>E-mail: </p><p><input type="text" id="u_email"></input></p>
                         
                         <hr align="LEFT" size="1" width="100%" color="White" noshade>
                         
@@ -163,17 +198,35 @@
                         
                         <hr align="LEFT" size="1" width="100%" color="White" noshade>
                         
-                        <p class="pull-right"><input class="btn btn-danger" type="button" value="Guardar"></input></p>
+                        <p class="pull-right"><input class="btn btn-danger" type="button" onClick="validar(this.form)" value="Guardar"></input></p>
+                        <a class="btn btn-inverse" data-toggle="modal" role="button" href="#myModal">Eliminar Cuenta</a>
                         
                   </div>
               </form>
-          </div>
-            
-            
-            
-            
+          </div>    
              
 	  </div>
 	</div>
+  
+  <!------------------------------------------------------------------------------------------------------------------------------------- -->
+	
+    <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="overflow:auto; height:230px;">
+    <div class="modal-header" >
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i><img src="../img/iconos/glyphicons_197_remove.png" width="17" height="25"></i></button>
+    <h3 id="myModalLabel">Eliminacion de usuario</h3>
+    </div>
+		<form id="form9">
+			<div class="modal-body">
+				<p>¿Estas completamente seguro de querer eliminar la cuenta por completo?</p>
+                <p>Se eliminaran todos los datos y nunca se podran volver a recuperar.</p>
+			</div>
+			<div class="modal-footer">
+			<button class="btn btn-danger" data-dismiss="modal" aria-hidden="true">NO</button>
+			<button class="btn btn-success" data-dismiss="modal" aria-hidden="true">SI</button>
+			</div>
+		</form>
+    </div>
+    </div> <!-- /container -->
+  
   </body>
 </html>
