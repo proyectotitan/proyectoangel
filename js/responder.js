@@ -1,17 +1,12 @@
-var x;
-x=$(document);
-x.ready(inicializar);
-
-function inicializar()
+function crear_respuesta(id_mensaje)
 {
-	var enlace_respuesta;
-	enlace_respuesta=$("#responder");
-	enlace_respuesta.click(crear_respuesta);
-}
-
-function crear_respuesta ()
-{
-	var resp;
-	resp=$("#resp");
-	resp.html('<form><textarea></textarea><button class= "btn btn-danger">Enviar</button></form>');
+	if ($("#form_res").length)
+	{
+		$("#form_res").remove();
+	}
+	else
+	{
+		$("#form_res").remove();
+		$("#"+id_mensaje+"").html('<form id="form_res"><textarea></textarea><button class= "btn btn-danger">Enviar</button></form>');	
+	}
 }
