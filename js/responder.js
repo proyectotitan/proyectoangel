@@ -1,7 +1,7 @@
 function crear_respuesta(id_mensaje)
 {
 	if ($("#form_res").length)
-	{
+	{ 
 		$("#form_res").remove();
 	}
 	else
