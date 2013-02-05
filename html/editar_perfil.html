@@ -16,22 +16,50 @@
 				var errores= "";
 				var sw=0;
 				
-				if(esBlanco(form.s_usuario.value))
+				if(esBlanco(form.u_nombre.value))
 				{
-					errores=errores+"<p>Es necesario introducir un nombre de usuario</p>";
+					errores=errores+"<p>El Nombre no puede estar en blanco</p>";
 					sw=1;
 					var x;
 					x=$(document);
-					x.ready(errores_cabecera("s_usuario", "Es necesario introducir un nombre de usuario"));
+					x.ready(errores_cabecera("u_nombre", "El Nombre no puede estar en blanco"));
 				}
-				if(esBlanco(form.s_pass.value))
+				
+				if(esBlanco(form.u_pass.value))
 				{
 					errores=errores+"<p>Es necesario introducir una contraseña</p>";
 					sw=1;
 					var x;
 					x=$(document);
-					x.ready(errores_cabecera("s_pass", "Es necesario introducir una contraseña"));
+					x.ready(errores_cabecera("u_pass", "Es necesario introducir una contraseña"));
 				}
+				
+				if(esBlanco(form.u_conf_pass.value))
+				{
+					errores=errores+"<p>Es necesario confirmar la contraseña</p>";
+					sw=1;
+					var x;
+					x=$(document);
+					x.ready(errores_cabecera("u_conf_pass", "Es necesario confirmar la contraseña"));
+				}
+				
+				if(form.u_pass.value!=form.u_conf_pass.value)
+				{
+					errores=errores+"<p>Las contraseñas deben coincidir</p>";
+					sw=1;
+					x=$(document);
+					x.ready(errores_cabecera("u_pass", "Las contraseñas no coinciden"));
+				}
+				
+				if(!esEmail(form.u_email.value))
+				{
+					errores=errores+"<p>Es necesario introducir un email válido</p>";
+					sw=1;
+					var x;
+					x=$(document);
+					x.ready(errores_cabecera("u_email", "Es necesario introducir un email válido"));
+				}
+				
 				if (sw==1)
 				{
 					var x;
@@ -151,7 +179,7 @@
                     </ul>
                   </div>
               </div>
-              <form>
+              <form id="editform">
                   <div class="span9">
                         <p id="datos"><h3>Datos De Usuario</h3></p>
                         <p>Nombre: </p><p><input type="text" id="u_nombre"></input></p>
@@ -222,7 +250,7 @@
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i><img src="../img/iconos/glyphicons_197_remove.png" width="17" height="25"></i></button>
     <h3 id="myModalLabel">Eliminacion de usuario</h3>
     </div>
-		<form id="form9">
+		<form id="elimform">
 			<div class="modal-body">
 				<p>¿Estas completamente seguro de querer eliminar la cuenta por completo?</p>
                 <p>Se eliminaran todos los datos y nunca se podran volver a recuperar.</p>
