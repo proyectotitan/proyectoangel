@@ -146,7 +146,8 @@
                         <li id="i_datos" class="active" onClick="marcar_celda('i_datos')"><a href="#datos"><i class="icon-chevron-right"></i> Datos Usuario</a></li>
                         <li id="i_estado"><a href="#estado" onClick="marcar_celda('i_estado')"><i class="icon-chevron-right"></i> Estado y Avatar</a></li>
                         <li id="i_resi"><a href="#resi" onClick="marcar_celda('i_resi')"><i class="icon-chevron-right"></i> Datos De Residencia</a></li>
-                        <li id="i_otros"><a href="#otros" onClick="marcar_celda('i_otros')"><i class="icon-chevron-right"></i> Otros Datos</a></li>
+                        <li id="i_otros"><a href="#otros" onClick="marcar_celda('i_otros')"><i class="icon-chevron-right"></i> Otros Datos</a></li>				
+                        <li id="i_eliminar"><a href="#eliminar" onClick="marcar_celda('i_eliminar')"><i class="icon-chevron-right"></i> Eliminar Cuenta</a></li>
                     </ul>
                   </div>
               </div>
@@ -198,8 +199,14 @@
                         
                         <hr align="LEFT" size="1" width="100%" color="White" noshade>
                         
-                        <p class="pull-right"><input class="btn btn-danger" type="button" onClick="validar(this.form)" value="Guardar"></input></p>
+                        <p id="eliminar"><h3>Eliminar Cuenta</h3></p>
+                        <p>Eliminar la cuenta implicara tambien borrar todos los mensajes relacionados con la cuenta, grupos, mensajes privados y el avatar.</p>
+                        <p>Si aun estas seguro de borrar completamente la cuenta y todos tu grupos puedes hacerlo pulsando el siguiente boton</p>	
                         <a class="btn btn-inverse" data-toggle="modal" role="button" href="#myModal">Eliminar Cuenta</a>
+                        
+                        <hr align="LEFT" size="1" width="100%" color="White" noshade>
+                        
+                        <p class="pull-right"><input class="btn btn-danger" type="button" onClick="validar(this.form)" value="Guardar"></input></p>
                         
                   </div>
               </form>
