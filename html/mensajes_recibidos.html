@@ -83,7 +83,7 @@
     	<div class="span3">  
                   <div class="bs-docs-sidebar">
                     <ul class="nav nav-list bs-docs-sidenav affix">
-                        <li><a href="#datos"><i class="icon-chevron-right"></i>Enviar mensaje</a></li>
+                        <li><a data-toggle="modal" role="button" href="#myModal"><i class="icon-chevron-right"></i>Enviar mensaje</a></li>
                         <li class="active"><a href="mensajes_recibidos.html"><i class="icon-chevron-right"></i>Mensajes recibidos</a></li>
                         <li><a href="mensajes_enviados.html"><i class="icon-chevron-right"></i>Mensajes enviados</a></li>
                     </ul>
@@ -160,5 +160,24 @@
     <script src="../js/bootstrap-carousel.js"></script>
     <script src="../js/bootstrap-typeahead.js"></script>
 
+
+<!-- -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+- -->
+	
+    <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="overflow:auto; height:230px;">
+    <div class="modal-header" >
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i><img src="../img/iconos/glyphicons_197_remove.png" width="17" height="25"></i></button>
+    <h3 id="myModalLabel">Enviar nuevo mensaje</h3>
+    </div>
+		<form id="enviarform">
+			<div class="modal-body">
+				<p>FUNCIONAAAA</p>
+			</div>
+			<div class="modal-footer">
+			<button class="btn btn-danger" data-dismiss="modal" aria-hidden="true">Cancelar</button>
+			<button class="btn btn-success" data-dismiss="modal" aria-hidden="true">Enviar</button>
+			</div>
+		</form>
+    </div>
+    </div> <!-- /container -->
   </body>
 </html>
