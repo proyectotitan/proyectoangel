@@ -163,14 +163,17 @@
 
 <!-- -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+- -->
 	
-    <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="overflow:auto; height:230px;">
+    <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="overflow:auto; height:400px;">
     <div class="modal-header" >
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i><img src="../img/iconos/glyphicons_197_remove.png" width="17" height="25"></i></button>
     <h3 id="myModalLabel">Enviar nuevo mensaje</h3>
     </div>
 		<form id="enviarform">
 			<div class="modal-body">
-				<p>FUNCIONAAAA</p>
+				<p>Para: <input type="text" placeholder="Destinatario" id="r_usuario"><i id="enviar"></i></p>
+				<p>Asunto: <input type="text" placeholder="Asunto" id="r_pass"><i id="asunto"></i></p>
+				<p>Escribe tu mensaje</p>
+                <p><textarea style="width:400px;height:100px;border: 2px" ></textarea></p>
 			</div>
 			<div class="modal-footer">
 			<button class="btn btn-danger" data-dismiss="modal" aria-hidden="true">Cancelar</button>
