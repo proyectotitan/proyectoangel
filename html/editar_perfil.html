@@ -16,22 +16,50 @@
 				var errores= "";
 				var sw=0;
 				
-				if(esBlanco(form.s_usuario.value))
+				if(esBlanco(form.u_nombre.value))
 				{
-					errores=errores+"<p>Es necesario introducir un nombre de usuario</p>";
+					errores=errores+"<p>El Nombre no puede estar en blanco</p>";
 					sw=1;
 					var x;
 					x=$(document);
-					x.ready(errores_cabecera("s_usuario", "Es necesario introducir un nombre de usuario"));
+					x.ready(errores_cabecera("u_nombre", "El Nombre no puede estar en blanco"));
 				}
-				if(esBlanco(form.s_pass.value))
+				
+				if(esBlanco(form.u_pass.value))
 				{
 					errores=errores+"<p>Es necesario introducir una contraseña</p>";
 					sw=1;
 					var x;
 					x=$(document);
-					x.ready(errores_cabecera("s_pass", "Es necesario introducir una contraseña"));
+					x.ready(errores_cabecera("u_pass", "Es necesario introducir una contraseña"));
 				}
+				
+				if(esBlanco(form.u_conf_pass.value))
+				{
+					errores=errores+"<p>Es necesario confirmar la contraseña</p>";
+					sw=1;
+					var x;
+					x=$(document);
+					x.ready(errores_cabecera("u_conf_pass", "Es necesario confirmar la contraseña"));
+				}
+				
+				if(form.u_pass.value!=form.u_conf_pass.value)
+				{
+					errores=errores+"<p>Las contraseñas deben coincidir</p>";
+					sw=1;
+					x=$(document);
+					x.ready(errores_cabecera("u_pass", "Las contraseñas no coinciden"));
+				}
+				
+				if(!esEmail(form.u_email.value))
+				{
+					errores=errores+"<p>Es necesario introducir un email válido</p>";
+					sw=1;
+					var x;
+					x=$(document);
+					x.ready(errores_cabecera("u_email", "Es necesario introducir un email válido"));
+				}
+				
 				if (sw==1)
 				{
 					var x;
@@ -47,7 +75,9 @@
    
 
     <script src="../js/jquery.js"></script>
-	<script src="../js/abrir_ventana.js"></script> 
+	<script src="../js/abrir_ventana.js"></script>
+    <script src="../js/muestra_errores.js"></script>
+	<script src="../js/errores_cabecera.js"></script> 
     <script src="../js/bootstrap-alert.js"></script>
     <script src="../js/bootstrap-transition.js"></script>
     <script src="../js/bootstrap-modal.js"></script>
@@ -146,11 +176,12 @@
                         <li id="i_datos" class="active" onClick="marcar_celda('i_datos')"><a href="#datos"><i class="icon-chevron-right"></i> Datos Usuario</a></li>
                         <li id="i_estado"><a href="#estado" onClick="marcar_celda('i_estado')"><i class="icon-chevron-right"></i> Estado y Avatar</a></li>
                         <li id="i_resi"><a href="#resi" onClick="marcar_celda('i_resi')"><i class="icon-chevron-right"></i> Datos De Residencia</a></li>
-                        <li id="i_otros"><a href="#otros" onClick="marcar_celda('i_otros')"><i class="icon-chevron-right"></i> Otros Datos</a></li>
+                        <li id="i_otros"><a href="#otros" onClick="marcar_celda('i_otros')"><i class="icon-chevron-right"></i> Otros Datos</a></li>				
+                        <li id="i_eliminar"><a href="#eliminar" onClick="marcar_celda('i_eliminar')"><i class="icon-chevron-right"></i> Eliminar Cuenta</a></li>
                     </ul>
                   </div>
               </div>
-              <form>
+              <form id="editform">
                   <div class="span9">
                         <p id="datos"><h3>Datos De Usuario</h3></p>
                         <p>Nombre: </p><p><input type="text" id="u_nombre"></input></p>
@@ -198,8 +229,14 @@
                         
                         <hr align="LEFT" size="1" width="100%" color="White" noshade>
                         
-                        <p class="pull-right"><input class="btn btn-danger" type="button" onClick="validar(this.form)" value="Guardar"></input></p>
+                        <p id="eliminar"><h3>Eliminar Cuenta</h3></p>
+                        <p>Eliminar la cuenta implicara tambien borrar todos los mensajes relacionados con la cuenta, grupos, mensajes privados y el avatar.</p>
+                        <p>Si aun estas seguro de borrar completamente la cuenta y todos tu grupos puedes hacerlo pulsando el siguiente boton</p>	
                         <a class="btn btn-inverse" data-toggle="modal" role="button" href="#myModal">Eliminar Cuenta</a>
+                        
+                        <hr align="LEFT" size="1" width="100%" color="White" noshade>
+                        
+                        <p class="pull-right"><input class="btn btn-danger" type="button" onClick="validar(this.form)" value="Guardar"></input></p>
                         
                   </div>
               </form>
@@ -215,7 +252,7 @@
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i><img src="../img/iconos/glyphicons_197_remove.png" width="17" height="25"></i></button>
     <h3 id="myModalLabel">Eliminacion de usuario</h3>
     </div>
-		<form id="form9">
+		<form id="elimform">
 			<div class="modal-body">
 				<p>¿Estas completamente seguro de querer eliminar la cuenta por completo?</p>
                 <p>Se eliminaran todos los datos y nunca se podran volver a recuperar.</p>
