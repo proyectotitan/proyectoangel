@@ -181,7 +181,7 @@
                     </ul>
                   </div>
               </div>
-              <form id="editform">
+              <form id="form">
                   <div class="span9">
                         <p id="datos"><h3>Datos De Usuario</h3></p>
                         <p>Nombre: </p><p><input type="text" id="u_nombre"></input></p>
@@ -227,21 +227,19 @@
                         </p>
                         <p>Gustos: </p><p><textarea rows="3"></textarea></p>
                         
-                        <hr align="LEFT" size="1" width="100%" color="White" noshade>
+                        <p class="pull-right"><input class="btn btn-danger" type="button" onClick="validar(this.form)" value="Guardar"></input></p>
                         
-                        <p id="eliminar"><h3>Eliminar Cuenta</h3></p>
+                        
+                     </form>
+                     <br>
+     				<p><hr align="LEFT" size="1" width="100%" color="White" noshade></p>
+                      <p id="eliminar"><h3>Eliminar Cuenta</h3></p>
                         <p>Eliminar la cuenta implicara tambien borrar todos los mensajes relacionados con la cuenta, grupos, mensajes privados y el avatar.</p>
                         <p>Si aun estas seguro de borrar completamente la cuenta y todos tu grupos puedes hacerlo pulsando el siguiente boton</p>	
                         <a class="btn btn-inverse" data-toggle="modal" role="button" href="#myModal">Eliminar Cuenta</a>
-                        
-                        <hr align="LEFT" size="1" width="100%" color="White" noshade>
-                        
-                        <p class="pull-right"><input class="btn btn-danger" type="button" onClick="validar(this.form)" value="Guardar"></input></p>
-                        
-                  </div>
-              </form>
-          </div>    
-             
+                      <p><hr align="LEFT" size="1" width="100%" color="White" noshade></p>    
+                  </div>  
+          </div>         
 	  </div>
 	</div>
   
