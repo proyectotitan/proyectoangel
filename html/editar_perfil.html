@@ -8,7 +8,6 @@
     <meta name="description" content="">
     <meta name="author" content="">
     
-    <script type="text/javascript"  src="../js/validar.js"> </script>
 	<script type="text/javascript">
 		
 		function validar(form)
@@ -18,11 +17,11 @@
 				
 				if(esBlanco(form.u_nombre.value))
 				{
-					errores=errores+"<p>El Nombre no puede estar en blanco</p>";
+					errores=errores+"<p>El nombre no puede estar en blanco</p>";
 					sw=1;
 					var x;
 					x=$(document);
-					x.ready(errores_cabecera("u_nombre", "El Nombre no puede estar en blanco"));
+					x.ready(imagen_errores("i_nombre", "Es necesario introducir un nombre de usuario"));
 				}
 				
 				if(esBlanco(form.u_pass.value))
@@ -31,7 +30,7 @@
 					sw=1;
 					var x;
 					x=$(document);
-					x.ready(errores_cabecera("u_pass", "Es necesario introducir una contraseña"));
+					x.ready(imagen_errores("i_pass", "Es necesario introducir una contraseña"));
 				}
 				
 				if(esBlanco(form.u_conf_pass.value))
@@ -40,7 +39,7 @@
 					sw=1;
 					var x;
 					x=$(document);
-					x.ready(errores_cabecera("u_conf_pass", "Es necesario confirmar la contraseña"));
+					x.ready(imagen_errores("i_conf_pass", "Es necesario confirmar la contraseña"));
 				}
 				
 				if(form.u_pass.value!=form.u_conf_pass.value)
@@ -48,7 +47,7 @@
 					errores=errores+"<p>Las contraseñas deben coincidir</p>";
 					sw=1;
 					x=$(document);
-					x.ready(errores_cabecera("u_pass", "Las contraseñas no coinciden"));
+					x.ready(imagen_errores("i_conf_pass", "Las contraseñas no coinciden"));
 				}
 				
 				if(!esEmail(form.u_email.value))
@@ -57,14 +56,14 @@
 					sw=1;
 					var x;
 					x=$(document);
-					x.ready(errores_cabecera("u_email", "Es necesario introducir un email válido"));
+					x.ready(imagen_errores("i_email", "Es necesario introducir un email válido"));
 				}
 				
 				if (sw==1)
 				{
 					var x;
 					x=$(document);
-					x.ready(errores_cabecera(errores));
+					x.ready(muestra_errores(errores));
 				}
 				else
 				form.submit();
@@ -76,8 +75,8 @@
 
     <script src="../js/jquery.js"></script>
 	<script src="../js/abrir_ventana.js"></script>
-    <script src="../js/muestra_errores.js"></script>
-	<script src="../js/errores_cabecera.js"></script> 
+    <script src="../js/validar.js"></script>
+    <script src="../js/muestra_errores.js"></script> 
     <script src="../js/bootstrap-alert.js"></script>
     <script src="../js/bootstrap-transition.js"></script>
     <script src="../js/bootstrap-modal.js"></script>
@@ -184,10 +183,11 @@
               <form id="form">
                   <div class="span9">
                         <p id="datos"><h3>Datos De Usuario</h3></p>
-                        <p>Nombre: </p><p><input type="text" id="u_nombre"></input></p>
-                        <p>Contraseña: </p><p><input type="password" id="u_pass"></input></p>
-                        <p>Confirmar Contraseña: </p><p><input type="password" id="u_conf_pass"></input></p>
-                        <p>E-mail: </p><p><input type="text" id="u_email"></input></p>
+                        <div id="errores"></div>
+                        <p>Nombre: </p><p><input type="text" id="u_nombre"></input><i id="i_nombre"></i></p>
+                        <p>Contraseña: </p><p><input type="password" id="u_pass"></input><i id="i_pass"></i></p>
+                        <p>Confirmar Contraseña: </p><p><input type="password" id="u_conf_pass"></input><i id="i_conf_pass"></i></p>
+                        <p>E-mail: </p><p><input type="text" id="u_email"></input><i id="i_email"></i></p>
                         
                         <hr align="LEFT" size="1" width="100%" color="White" noshade>
                         
@@ -205,7 +205,7 @@
                             <input type="radio" name="img_avatar" style="margin-left:50px;"></input>
                             <img src="../img/avatar4.jpg">
                         </p>
-                        <p>Subir Imagen:</p><p><input style="margin-top:7px;" type="text" id="u_nombre"></input><input class="btn btn-info" style="margin-left:10px;" type="button" value="Examinar..."></input></p>
+                        <p>Subir Imagen:</p><p><input style="margin-top:7px;" type="text" id="u_imagen"></input><input class="btn btn-info" style="margin-left:10px;" type="button" value="Examinar..."></input></p>
                         
                         <hr align="LEFT" size="1" width="100%" color="White" noshade>
                         
