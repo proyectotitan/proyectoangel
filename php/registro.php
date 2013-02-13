@@ -7,7 +7,7 @@ try{
 mysql_query("INSERT INTO usuario (nombre,pass,correo) VALUES ('{$_POST['r_usuario']}','{$_POST['r_usuario']}','{$_POST['r_usuario']}')");
 
 }catch (Exception $e) {
-    echo 'Excepción capturada: ',  $e->getMessage(), "\n";
+    $error = $e->getMessage();
 }
 mysql_close($conexion);
 header('Location: index.php');
