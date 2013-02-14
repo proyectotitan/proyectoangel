@@ -154,6 +154,8 @@
 		echo '</div>';
 	}
 ?>
+
+
 <img src="../img/mapa_mundi_noche.jpg" style="width:100%; height:350px;">
 <div class="container-fluid" style="margin-top:10px;">
 	<div class="row-fluid">	
