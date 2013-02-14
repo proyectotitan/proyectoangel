@@ -10,8 +10,6 @@
 
     <!-- Le styles -->
 
-   
-
     <script src="../js/jquery.js"></script>
 	<script src="../js/abrir_ventana.js"></script> 
     <script src="../js/bootstrap-alert.js"></script>
@@ -132,7 +130,7 @@
                              <option value="seccion_8">Seccion_8</option>
                          </select>
                         </p>
-                        <p><input type="button" class="btn btn-danger" value="Guardar datos"></p>
+                        
                         <p><h4>Imagen de Grupo:</h4> 
                         	<input type="radio" name="img_avatar" style="margin-left:50px;"></input>
                         	<img src="../img/agt_announcements.png" style="width:60px; height:60px;">
@@ -146,10 +144,14 @@
                             <img src="../img/grupo_04.jpg">
                         </p>
                         <p>Subir Imagen:</p><p><input style="margin-top:7px;" type="text" id="u_nombre"></input><input class="btn btn-info" style="margin-left:10px;" type="button" value="Examinar..."></input></p>
+                        <p><input type="button" class="btn btn-danger" value="Guardar datos"></p>
+                        
+   <!-- -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+ -->
                         
                         <hr align="LEFT" size="1" width="100%" color="White" noshade>
                         <p id="mensajes"><h3>Mensajes</h3></p>
-                        <p><input type="button" class="btn btn-inverse" value="Eliminar todos los mensajes"></p>
+                        <p><a class="btn btn-inverse" data-toggle="modal" role="button" href="#myModal">Eliminar todos los mensajes</a></p>
+                        
                         <table class="table table-hover">
 							 <thead>
 									<tr>
@@ -177,11 +179,11 @@
 									</tr>
 								</tbody>
 							</table>
-                            <p><input type="button" class="btn btn-danger" value="Eliminar mensajes seleccionados"></p>
+                            <p><a class="btn btn-danger" data-toggle="modal" role="button" href="#myModal2">Eliminar mensajes seleccionados</a></p>
                             
                              <hr align="LEFT" size="1" width="100%" color="White" noshade>
                         <p id="banear"><h3>Banear</h3></p>
-                        <p><input type="button" class="btn btn-inverse" value="Banear todos los usuarios"></p>
+                        <p><a class="btn btn-inverse" data-toggle="modal" role="button" href="#myModal3">Banear todos los usuarios</a></p>
                         <table class="table table-hover">
 							 <thead>
 									<tr>
@@ -193,24 +195,24 @@
 								</thead>
 								<tbody>
 									<tr>
-										<td><img src="../img/avatar.jpg"></td>
+										<td><img src="../img/avatar.jpg" style="width:40px; height:40px"></td>
                                         <td>Usuario 001</td>
                                         <td><input type="checkbox"></td>
                                         <td><a href="#"><img src="../img/iconos/glyphicons_207_remove_2.png" style="width:14px; height:14px"></a></td>
 									</tr>
 									<tr>
-										<td><img src="../img/avatar.jpg"></td>
+										<td><img src="../img/avatar.jpg" style="width:40px; height:40px"></td>
                                         <td>Usuario 002</td>
                                         <td><input type="checkbox"></td>
                                         <td><a href="#"><img src="../img/iconos/glyphicons_207_remove_2.png" style="width:14px; height:14px"></a></td>
 									</tr>
 								</tbody>
 							</table>
-                            <p><input type="button" class="btn btn-danger" value="Banear usuarios seleccionados"></p>
+                            <p><a class="btn btn-danger" data-toggle="modal" role="button" href="#myModal4">Banear usuarios seleccionados</a></p>
                             
                             <hr align="LEFT" size="1" width="100%" color="White" noshade>
                         <p id="readmitir"><h3>Readmitir</h3></p>
-                        <p><input type="button" class="btn btn-inverse" value="Readmitir todos los usuarios"></p>
+                        <p><a class="btn btn-inverse" data-toggle="modal" role="button" href="#myModal5">Readmitir todos los usuarios</a></p>
                         <table class="table table-hover">
 							 <thead>
 									<tr>
@@ -222,22 +224,148 @@
 								</thead>
 								<tbody>
 									<tr>
-										<td><img src="../img/avatar.jpg"></td>
+										<td><img src="../img/avatar.jpg" style="width:40px; height:40px"></td>
                                         <td>Usuario 001</td>
                                         <td><input type="checkbox"></td>
                                         <td><a href="#"><img src="../img/iconos/glyphicons_207_remove_2.png" style="width:14px; height:14px"></a></td>
 									</tr>
 									<tr>
-										<td><img src="../img/avatar.jpg"></td>
+										<td><img src="../img/avatar.jpg" style="width:40px; height:40px"></td>
                                         <td>Usuario 002</td>
                                         <td><input type="checkbox"></td>
                                         <td><a href="#"><img src="../img/iconos/glyphicons_207_remove_2.png" style="width:14px; height:14px"></a></td>
 									</tr>
 								</tbody>
 							</table>
-                            <p><input type="button" class="btn btn-danger" value="Readmitir usuarios seleccionados"></p>
+                            <p><a class="btn btn-danger" data-toggle="modal" role="button" href="#myModal6">Readmitir usuarios seleccionados</a></p>
             
 		</div>
-	</div>	
+	</div>
+    
+      <!------------------------------------------------------------------------------------------------------------------------------------- -->
+      <!-------------------------------------------          COMIENZAN LAS POLLAS         --------------------------------------------------- -->
+      <!-------------------------------------------          QUE BIEEEEEEEEEN!!!!         --------------------------------------------------- -->
+      <!------------------------------------------------------------------------------------------------------------------------------------- -->
+      
+      <!-------------------------------------------   MYMODAL ELIMINAR TODOS LOS MENSAJES  -------------------------------------------------- -->
+	
+    <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="overflow:auto; height:230px;">
+    <div class="modal-header" >
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i><img src="../img/iconos/glyphicons_197_remove.png" width="17" height="25"></i></button>
+    <h3 id="myModalLabel">Eliminar todos los mensajes</h3>
+    </div>
+		<form id="elimform">
+			<div class="modal-body">
+				<p>¿Estas completamente seguro de querer eliminar todos los mensajes de este grupo?</p>
+                <p>Se eliminaran todos los mensajes y nunca se podran volver a recuperar.</p>
+			</div>
+			<div class="modal-footer">
+			<button class="btn btn-danger" data-dismiss="modal" aria-hidden="true">NO</button>
+			<button class="btn btn-success" data-dismiss="modal" aria-hidden="true">SI</button>
+			</div>
+		</form>
+    </div>
+    </div> <!-- /container -->
+    
+    <!-------------------------------------------   MYMODAL2 ELIMINAR MENSAJES SELECCIONADOS  -------------------------------------------------- -->
+	
+    <div id="myModal2" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="overflow:auto; height:230px;">
+    <div class="modal-header" >
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i><img src="../img/iconos/glyphicons_197_remove.png" width="17" height="25"></i></button>
+    <h3 id="myModalLabel">Eliminar mensajes seleccionados</h3>
+    </div>
+		<form id="elimform">
+			<div class="modal-body">
+				<p>¿Estas completamente seguro de querer eliminar los mensajes seleccionados de este grupo?</p>
+                <p>Se eliminaran los mensajes seleccionados y nunca se podran volver a recuperar.</p>
+			</div>
+			<div class="modal-footer">
+			<button class="btn btn-danger" data-dismiss="modal" aria-hidden="true">NO</button>
+			<button class="btn btn-success" data-dismiss="modal" aria-hidden="true">SI</button>
+			</div>
+		</form>
+    </div>
+    </div> <!-- /container -->
+    
+    <!----------------------------------------------   MYMODAL3 BANEAR TODOS LOS USUARIOS  ----------------------------------------------------- -->
+	
+    <div id="myModal3" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="overflow:auto; height:230px;">
+    <div class="modal-header" >
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i><img src="../img/iconos/glyphicons_197_remove.png" width="17" height="25"></i></button>
+    <h3 id="myModalLabel">Banear todos los usuarios</h3>
+    </div>
+		<form id="elimform">
+			<div class="modal-body">
+				<p>¿Estas completamente seguro de querer bloquear el acceso a todos los usuarios de este grupo?</p>
+                <p>Se bloqueara el acceso todos los usuarios y no podran acceder a tu grupo.</p>
+			</div>
+			<div class="modal-footer">
+			<button class="btn btn-danger" data-dismiss="modal" aria-hidden="true">NO</button>
+			<button class="btn btn-success" data-dismiss="modal" aria-hidden="true">SI</button>
+			</div>
+		</form>
+    </div>
+    </div> <!-- /container -->
+    
+    <!---------------------------------------------   MYMODAL4 BANEAR USUARIOS SELECCIONADOS  -------------------------------------------------- -->
+	
+    <div id="myModal4" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="overflow:auto; height:230px;">
+    <div class="modal-header" >
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i><img src="../img/iconos/glyphicons_197_remove.png" width="17" height="25"></i></button>
+    <h3 id="myModalLabel">Banear usuarios seleccionados</h3>
+    </div>
+		<form id="elimform">
+			<div class="modal-body">
+				<p>¿Estas completamente seguro de querer bloquear el acceso a los usuarios seleccionados de este grupo?</p>
+                <p>Se bloqueara el acceso a los usuarios seleccionados y no podran acceder a tu grupo.</p>
+			</div>
+			<div class="modal-footer">
+			<button class="btn btn-danger" data-dismiss="modal" aria-hidden="true">NO</button>
+			<button class="btn btn-success" data-dismiss="modal" aria-hidden="true">SI</button>
+			</div>
+		</form>
+    </div>
+    </div> <!-- /container -->
+    
+    <!-------------------------------------------------   MYMODAL5 READMITIR TODOS LOS USUARIOS  -------------------------------------------------- -->
+	
+    <div id="myModal5" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="overflow:auto; height:230px;">
+    <div class="modal-header" >
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i><img src="../img/iconos/glyphicons_197_remove.png" width="17" height="25"></i></button>
+    <h3 id="myModalLabel">Readmitir a todos los usuarios</h3>
+    </div>
+		<form id="elimform">
+			<div class="modal-body">
+				<p>¿Estas completamente seguro de querer readmitir a todos los usuarios en tu grupo?</p>
+                <p>Todos los usuarios volveran a poder escribir mensajes en tu grupo.</p>
+			</div>
+			<div class="modal-footer">
+			<button class="btn btn-danger" data-dismiss="modal" aria-hidden="true">NO</button>
+			<button class="btn btn-success" data-dismiss="modal" aria-hidden="true">SI</button>
+			</div>
+		</form>
+    </div>
+    </div> <!-- /container -->
+    
+    <!-------------------------------------------   MYMODAL6 READMITIR USUARIOS SELECCIONADOS  -------------------------------------------------- -->
+	
+    <div id="myModal6" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="overflow:auto; height:230px;">
+    <div class="modal-header" >
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i><img src="../img/iconos/glyphicons_197_remove.png" width="17" height="25"></i></button>
+    <h3 id="myModalLabel">Readmitir a los usuarios seleccionados</h3>
+    </div>
+		<form id="elimform">
+			<div class="modal-body">
+				<p>¿Estas completamente seguro de querer readmitir a los usuarios seleccionados en tu grupo?</p>
+                <p>Los usuarios seleccionados volveran a poder escribir mensajes en tu grupo.</p>
+			</div>
+			<div class="modal-footer">
+			<button class="btn btn-danger" data-dismiss="modal" aria-hidden="true">NO</button>
+			<button class="btn btn-success" data-dismiss="modal" aria-hidden="true">SI</button>
+			</div>
+		</form>
+    </div>
+    </div> <!-- /container -->
+    	
   </body>
 </html>
