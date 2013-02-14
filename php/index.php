@@ -133,9 +133,9 @@
           <a class="brand" href="#" style="margin-top: 2px"><img src="../img/mundo_blanco.PNG" width="25" height="25"> Hoy en el mundo</a>
 					
 		  <div class="nav-collapse collapse" align="right">
-		  <form id="rty" style=" height:2px">
-			  <i class="icon-user"></i>Usuario&nbsp;<input type="text" placeholder="Introduce el nombre" style="margin-top: 8px "id="s_usuario">
-			  <i class="icon-lock"></i>Contrase&ntilde;a&nbsp;<input type="password" placeholder="Introduce la contrase&ntilde;a" style="margin-top: 8px" id="s_pass">
+		  <form id="rty" action="inicio_sesion.php" method="POST" style=" height:2px">
+			  <i class="icon-user"></i>Usuario&nbsp;<input type="text" name="s_usuario" placeholder="Introduce el nombre" style="margin-top: 8px "id="s_usuario">
+			  <i class="icon-lock"></i>Contrase&ntilde;a&nbsp;<input type="password" name="s_pass"  placeholder="Introduce la contrase&ntilde;a" style="margin-top: 8px" id="s_pass">
 			  <input type="button" class="btn btn-danger" onClick="validar_1(this.form)" value="Enviar" ></input> 	
 		  </form>
           </div><!--/.nav-collapse -->
@@ -146,6 +146,14 @@
 	
 <!---------------------------------Poner aqui la imagen de hoy en el mundo------------------------------------------------------------- -->
 <div id="errores_cab" style="position:absolute; margin-top:60px;"></div>
+<?php
+	if($_GET['varerror']!="")
+	{
+		echo '<div class="alert alert-error" style="position:absolute; margin-top:60px;">';
+		echo $_GET['varerror']; 
+		echo '</div>';
+	}
+?>
 <img src="../img/mapa_mundi_noche.jpg" style="width:100%; height:350px;">
 <div class="container-fluid" style="margin-top:10px;">
 	<div class="row-fluid">	
