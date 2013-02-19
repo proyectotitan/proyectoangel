@@ -28,6 +28,16 @@ mysql_query("INSERT INTO usuario (nombre, pass, correo, telefono, provincia, mun
 
 mysql_query("INSERT INTO usuario (nombre, pass, correo, telefono, provincia, municipio, peticiones, privados, avatar, gustos, estado, fecna, sexo, sesion) VALUES('Miguel Reverte de la Fuente', 'Miguel', 'mdelafuente@gmail.com','','Madrid', 'Leganes','0','0','avatar','','baauuula baaauuula','07/06/1993','H','0')");
 
+// *******************************************
+// **COMIENZA EL INSERTADO DATOS CATEGORIAS**
+// *******************************************
+
+mysql_query("INSERT INTO sections (nom_sec) VALUES('Motor')");
+mysql_query("INSERT INTO sections (nom_sec) VALUES('Musica')");
+mysql_query("INSERT INTO sections (nom_sec) VALUES('Varios')");
+mysql_query("INSERT INTO sections (nom_sec) VALUES('Turismo')");
+mysql_query("INSERT INTO sections (nom_sec) VALUES('frikeo')");
+
 // *****************************************
 // **COMIENZA EL INSERTADO DE DATOS GRUPOS**
 // *****************************************
@@ -50,7 +60,7 @@ mysql_query("INSERT INTO grupos (nom_grup, descripcion_g, fecha_creacion, nombre
 
 mysql_query("INSERT INTO grupos (nom_grup, descripcion_g, fecha_creacion, nombre_mod, imagen, seccion, visitas) VALUES('Turismo rural', 'Las mejores ofertas de casas rurales', '20/10/2012', 'Marina Lopez Reverte','imagen', 'Turismo','20')");
 
-mysql_query("INSERT INTO grupos (nom_grup, descripcion_g, fecha_creacion, nombre_mod, imagen, seccion, visitas) VALUES('Pezuñeo', 'Se hablara de los reyes de la Pezuña, los mas topejos', '20/10/2012', 'Miguel Reverte de la Fuente','imagen', 'frikeo','20')");
+mysql_query("INSERT INTO grupos (nom_grup, descripcion_g, fecha_creacion, nombre_mod, imagen, seccion, visitas) VALUES('Pezuneo', 'Se hablara de los reyes de la Pezuña, los mas topejos', '20/10/2012', 'Miguel Reverte de la Fuente','imagen', 'frikeo','20')");
 
 // *******************************************
 // **COMIENZA EL INSERTADO DE DATOS MENSAJES**
@@ -102,23 +112,13 @@ mysql_query("INSERT INTO pertenecen (nombre, nom_grup) VALUES('Miguel Reverte de
 // **COMIENZA EL INSERTADO DE DATOS MENS_ENVIADOS**
 // ************************************************
 
-mysql_query("INSERT INTO mens_enviados (cod_menus, contenido, fechen, emisor, receptor) VALUES('1', 'Me podrias decir donde esta el camping de cuenca?', '17/06/2009', 'Marta Garcia Rodriguez', 'Juan Perez Perez')");
+mysql_query("INSERT INTO mens_enviado (contenido, fechen, emisor, receptor) VALUES('Me podrias decir donde esta el camping de cuenca?', '17/06/2009', 'Juan Perez Perez', 'Marta Garcia Rodriguez')");
 
 // *************************************************
 // **COMIENZA EL INSERTADO DE DATOS MENS_RECIBIDOS**
 // *************************************************
 
-mysql_query("INSERT INTO mens_recibidos (cod_menus, contenido, fechen, emisor, receptor) VALUES('1', 'Me podrias decir donde esta el camping de cuenca?', '17/06/2009', 'Marta Garcia Rodriguez', 'Juan Perez Perez')");
-
-// *******************************************
-// **COMIENZA EL INSERTADO  DATOS CATEGORIAS**
-// *******************************************
-
-mysql_query("INSERT INTO sections (nom_sec) VALUES('Motor')");
-mysql_query("INSERT INTO sections (nom_sec) VALUES('Musica')");
-mysql_query("INSERT INTO sections (nom_sec) VALUES('Varios')");
-mysql_query("INSERT INTO sections (nom_sec) VALUES('Turismo')");
-mysql_query("INSERT INTO sections (nom_sec) VALUES('frikeo')");
+mysql_query("INSERT INTO mens_recibido (contenido, fechen, emisor, receptor) VALUES('Me podrias decir donde esta el camping de cuenca?', '17/06/2009', 'Marta Garcia Rodriguez', 'Juan Perez Perez')");
 
 // **********************************************
 // **FIN DE LA CREACION E INTRODUCCION DE DATOS**
