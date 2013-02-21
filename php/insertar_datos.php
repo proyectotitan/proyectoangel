@@ -183,11 +183,34 @@ mysql_query("INSERT INTO peticiones (texto, env, rec) VALUES('hola soy SUPERFUER
 // ****COMIENZA EL INSERTADO DE DATOS AMIGOS****
 // *********************************************
 
-mysql_query("INSERT INTO amigos (amigo1, amigo2) VALUES('Juan Perez Perez', 'Marta Garcia Rodriguez')");
+mysql_query("INSERT INTO amigos (amigo1, amigo2) VALUES('Super fuerza', 'Roberto Sanchez Perez')");
+mysql_query("INSERT INTO amigos (amigo1, amigo2) VALUES('Super fuerza', 'Marina Lopez Reverte')");
+mysql_query("INSERT INTO amigos (amigo1, amigo2) VALUES('Super fuerza', 'Beatriz Sotomonte Veraz')");
+mysql_query("INSERT INTO amigos (amigo1, amigo2) VALUES('Super fuerza', 'Juan Perez Perez')");
+mysql_query("INSERT INTO amigos (amigo1, amigo2) VALUES('Super fuerza', 'Luisa Gonzalez Martin')");
+mysql_query("INSERT INTO amigos (amigo1, amigo2) VALUES('Roberto Sanchez Perez', 'Marina Lopez Reverte')");
+mysql_query("INSERT INTO amigos (amigo1, amigo2) VALUES('Roberto Sanchez Perez', 'Beatriz Sotomonte Veraz')");
 mysql_query("INSERT INTO amigos (amigo1, amigo2) VALUES('Roberto Sanchez Perez', 'Juan Perez Perez')");
-mysql_query("INSERT INTO amigos (amigo1, amigo2) VALUES('Marta Garcia Rodriguez', 'Roberto Sanchez Perez')");
-mysql_query("INSERT INTO amigos (amigo1, amigo2) VALUES('Luisa Gonzalez Martin', 'Super fuerza')");
+mysql_query("INSERT INTO amigos (amigo1, amigo2) VALUES('Roberto Sanchez Perez', 'Luisa Gonzalez Martin')");
+mysql_query("INSERT INTO amigos (amigo1, amigo2) VALUES('Roberto Sanchez Perez', 'Marta Garcia Rodriguez')");
+mysql_query("INSERT INTO amigos (amigo1, amigo2) VALUES('Marina Lopez Reverte', 'Beatriz Sotomonte Veraz')");
+mysql_query("INSERT INTO amigos (amigo1, amigo2) VALUES('Marina Lopez Reverte', 'Juan Perez Perez')");
 mysql_query("INSERT INTO amigos (amigo1, amigo2) VALUES('Marina Lopez Reverte', 'Luisa Gonzalez Martin')");
+mysql_query("INSERT INTO amigos (amigo1, amigo2) VALUES('Marina Lopez Reverte', 'Marta Garcia Rodriguez')");
+mysql_query("INSERT INTO amigos (amigo1, amigo2) VALUES('Marina Lopez Reverte', 'Miguel Reverte de la Fuente')");
+mysql_query("INSERT INTO amigos (amigo1, amigo2) VALUES('Beatriz Sotomonte Veraz', 'Juan Perez Perez')");
+mysql_query("INSERT INTO amigos (amigo1, amigo2) VALUES('Beatriz Sotomonte Veraz', 'Luisa Gonzalez Martin')");
+mysql_query("INSERT INTO amigos (amigo1, amigo2) VALUES('Beatriz Sotomonte Veraz', 'Marta Garcia Rodriguez')");
+mysql_query("INSERT INTO amigos (amigo1, amigo2) VALUES('Beatriz Sotomonte Veraz', 'Miguel Reverte de la Fuente')");
+mysql_query("INSERT INTO amigos (amigo1, amigo2) VALUES('Juan Perez Perez', 'Luisa Gonzalez Martin')");
+mysql_query("INSERT INTO amigos (amigo1, amigo2) VALUES('Juan Perez Perez', 'Marta Garcia Rodriguez')");
+mysql_query("INSERT INTO amigos (amigo1, amigo2) VALUES('Juan Perez Perez', 'Miguel Reverte de la Fuente')");
+mysql_query("INSERT INTO amigos (amigo1, amigo2) VALUES('Luisa Gonzalez Martin', 'Marta Garcia Rodriguez')");
+mysql_query("INSERT INTO amigos (amigo1, amigo2) VALUES('Luisa Gonzalez Martin', 'Miguel Reverte de la Fuente')");
+mysql_query("INSERT INTO amigos (amigo1, amigo2) VALUES('Marta Garcia Rodriguez', 'Miguel Reverte de la Fuente')");
+mysql_query("INSERT INTO amigos (amigo1, amigo2) VALUES('Marta Garcia Rodriguez', 'Super fuerza')");
+mysql_query("INSERT INTO amigos (amigo1, amigo2) VALUES('Miguel Reverte de la Fuente', 'Super fuerza')");
+mysql_query("INSERT INTO amigos (amigo1, amigo2) VALUES('Miguel Reverte de la Fuente', 'Roberto Sanchez Perez')");
 
 // **********************************************
 // **FIN DE LA CREACION E INTRODUCCION DE DATOS**
