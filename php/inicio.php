@@ -291,7 +291,7 @@
 						<p><h4><?php echo $_SESSION["usuario"];?></h4></p>
 						<p><img src="<?php echo $registro['avatar']; ?>" style="width: 60px"; height="60px"></p>
 						<p>Mensajes sin leer: &nbsp;<?php echo $registro['privados']; ?></p>
-						<p>Peticiones de amistad: &nbsp; <?php echo $registro['peticiones']; ?></p>
+						<p><a style="text-decoration:none; color:#FFF;" href="peticiones.php">Peticiones de amistad: &nbsp; <?php echo $registro['peticiones']; ?></a></p>
 						</div>
         <?php
                  
