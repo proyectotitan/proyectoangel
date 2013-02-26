@@ -41,4 +41,9 @@ evitar inicios de sesion multiple.
 Se ha incluido una tabla de baneadosde los grupos, el admin de un grupo
 podra echar y readmitir a cualquier usuario de su grupo.
 
+/////////////********************////////////////////////
+PAGINA RELATIVA AL CHAT:
+http://anantgarg.com/2009/05/13/gmail-facebook-style-jquery-chat/
+/////////////********************////////////////////////
+
 
