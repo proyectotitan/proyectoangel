@@ -19,7 +19,7 @@ else
 $error="";
 
 
-$para = 'osquitarbs@gmail.com';
+$para = 'carloswolf666@gmail.com';
 $titulo = 'El título';
 $mensaje = 'Hola';
 

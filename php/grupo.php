@@ -93,6 +93,9 @@
     <?php
         $cadena = "SELECT nom_grup, imagen, descripcion_g FROM grupos where nom_grup='{$_GET["grupo"]}'";
         $cadena2 = "SELECT nom_grup FROM pertenecen where nom_grup='{$_GET["grupo"]}' and nombre='{$_SESSION["usuario"]}'";
+		$cadena3 = "SELECT nom_grup FROM `grupos` WHERE seccion in (select seccion from grupos where nom_grup='{$_GET["grupo"]}')";
+		$cadena4 = "SELECT nombre FROM `pertenecen` WHERE nom_grup='{$_GET["grupo"]}' and nombre!='{$_SESSION["usuario"]}'";
+		$cadena5 = "SELECT usuario.avatar, usuario.estado, mensajes.texto, mensajes.fecha, mensajes.nombre FROM usuario, mensajes WHERE mensajes.nom_grup='{$_GET["grupo"]}'";
         
         $conexion = mysql_connect ("localhost","proyecto","proyecto");
         
@@ -100,10 +103,13 @@
     
         $peticion = mysql_query($cadena);
 		$c_peticiones = mysql_query($cadena2);
-    
+		$t_grupos = mysql_query($cadena3);
+		$t_usuarios = mysql_query($cadena4);
+		$l_mensajes = mysql_query($cadena5);
+      	mysql_close($conexion);  
       ?>
 		<?php
-          	  while ($registro = mysql_fetch_array($peticion)){
+          	 $registro = mysql_fetch_array($peticion);
         ?>
 					<div class="span2">
 						<img src="<?php echo $registro['imagen']; ?>" style="width: 60px"; height="60px"/>
@@ -126,56 +132,44 @@
 					</div>
 					<div class="span12">
 						<h4 align="center"><p align="center"><?php echo $registro['descripcion_g']; ?></p></h4>
-         <?php
-                 
-                }
-      		  mysql_close($conexion);
-             
-            ?>   
+          
 					</div>
 					<!-- Aqui va un bucle por cada mensaje de la base de datos  -->
 					<div class="span12">
 							<table width="0%" class="table">
 								<tbody>
+    <?php
+        while ($registro5 = mysql_fetch_array($l_mensajes)){
+    ?>
 									<tr>
 										<td style="background:#CCCCCC">
 											<div class="span1">
 												<img src="../img/avatar.jpg" style="width: 60px"; height="60px">
 											</div>
 											<div class="span4">
-												<h5>Nombre del usuario</h5>
+												<h5><?php echo $registro5['nombre'];?></h5>
 											</div>
-											<div class="span7">
-												<h6><i>"Estado del usuario que tiene en su perfil"</i></h6>
+											<div class="span5">
+												<h6><i><?php echo $registro5['estado'];?></i></h6>
+											</div>
+                                            <div class="span2">
+												 <h6><i>Enviado el: <?php echo $registro5['fecha'];?></i></h6>
 											</div>
 											<div class="span12">
-												<h5>Comentario que el usuario a puesto dando su opinion en el grupo.</h5>
+												<h6><?php echo $registro5['texto'];?></h6>
+                                               
 											</div>
 										</td>
 									</tr>
-									<tr>
-										<td style="background:#CCCCCC">
-											<div class="span1">
-												<img src="../img/avatar.jpg" style="width: 60px"; height="60px">
-											</div>
-											<div class="span4">
-												<h5>Nombre del usuario</h5>
-											</div>
-											<div class="span7">
-												<h6><i>"Estado del usuario que tiene en su perfil"</i></h6>
-											</div>
-											<div class="span12">
-												<h5>Comentario que el usuario a puesto dando su opinion en el grupo.</h5>
-											</div>
-										</td>
-									</tr>
+        <?php
+			}
+		?>
 								</tbody>
 							</table>
 					</div>
 					<div class="span4"></div>
 					<div class="span4">
-         <?php
-			$registro2 = mysql_fetch_array($c_peticiones);
+         <?php			
 				if ($registro2!="")
 			{
 		?>
@@ -197,27 +191,16 @@
                 </tr>
               </thead>
               <tbody>
+	<?php
+        while ($registro3 = mysql_fetch_array($t_grupos)){
+    ?>
                 <tr>
-                  <td>Grupo 1</td>
+                  <td><a href="grupo.php?grupo=<?php echo $registro3['nom_grup']; ?>"> <?php echo $registro3['nom_grup']; ?> </a></td>
                 </tr>
-                <tr>
-                  <td>Grupo 2</td>
-                </tr>
-                <tr>
-                  <td>Grupo 3</td>
-                </tr>
-								<tr>
-                  <td>Grupo 4</td>
-                </tr>
-								<tr>
-                  <td>Grupo 5</td>
-                </tr>
-								<tr>
-                  <td>Grupo 6</td>
-                </tr>
-								<tr>
-                  <td>Grupo 7</td>
-                </tr>
+	<?php
+			}
+	?>
+                
               </tbody>
       </table>
 			<div class="span12">
@@ -228,27 +211,15 @@
                 </tr>
               </thead>
               <tbody>
+    <?php
+        while ($registro4 = mysql_fetch_array($t_usuarios)){
+    ?>
                 <tr>
-                  <td>Pablito</td>
+                  <td><?php echo $registro4['nombre'];?></td>
                 </tr>
-                <tr>
-                  <td>Thornton</td>
-                </tr>
-                <tr>
-                  <td>Larry the Bird</td>
-                </tr>
-								<tr>
-                  <td>Larry the Bird</td>
-                </tr>
-								<tr>
-                  <td>Larry the Bird</td>
-                </tr>
-								<tr>
-                  <td>Larry the Bird</td>
-                </tr>
-								<tr>
-                  <td>Larry the Bird</td>
-                </tr>
+    <?php
+		}
+	?>
               </tbody>
       </table>
 				</div>
