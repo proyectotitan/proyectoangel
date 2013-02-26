@@ -272,19 +272,28 @@
 		
 		<?php
         $cadena = "SELECT privados, peticiones, avatar FROM usuario where nombre='{$_SESSION["usuario"]}'";
-        
+        $cadena2 = "SELECT nom_grup, nombre_mod, fecha_creacion FROM `grupos` ORDER BY visitas, nom_grup LIMIT 10 ";
+		$cadena3 = "SELECT nom_grup FROM `grupos` WHERE nom_grup IN (SELECT nom_grup FROM `pertenecen` WHERE nombre='{$_SESSION["usuario"]}')";
+		$cadena4 = "SELECT nom_grup FROM `grupos`";
+		$cadena5 = "SELECT nombre FROM `usuario` WHERE nombre != '{$_SESSION["usuario"]}'";
         
         $conexion = mysql_connect ("localhost","proyecto","proyecto");
         
         mysql_select_db("proyecto", $conexion);
     
         $peticion = mysql_query($cadena);
+		$top10 = mysql_query($cadena2);
+		$grupo_b = mysql_query($cadena3);
+		$grupos = mysql_query($cadena4);
+		$amigos = mysql_query($cadena5);
+		
+		mysql_close($conexion);
     
       ?>
 		<?php
           	  while ($registro = mysql_fetch_array($peticion)){
           ?>
-		<div class="container-fluid" style="margin-top:60px;">
+	<div class="container-fluid" style="margin-top:60px;">
       <div class="row-fluid">
 				<div class="span4">
 					<div class="border1" style="margin-left:3px;"> 
@@ -293,12 +302,9 @@
 						<p>Mensajes sin leer: &nbsp;<?php echo $registro['privados']; ?></p>
 						<p><a style="text-decoration:none; color:#FFF;" href="peticiones.php">Peticiones de amistad: &nbsp; <?php echo $registro['peticiones']; ?></a></p>
 						</div>
-        <?php
-                 
-                }
-      		  mysql_close($conexion);
-             
-            ?>
+        <?php    
+             }
+        ?>
 						<div class="span12">
 								<object type="application/x-shockwave-flash" style="outline:none;" data="http://hosting.gmodules.com/ig/gadgets/file/112581010116074801021/hamster.swf?" width="300" height="225"><param name="movie" value="http://hosting.gmodules.com/ig/gadgets/file/112581010116074801021/hamster.swf?"></param><param name="AllowScriptAccess" value="always"></param><param name="wmode" value="opaque"></param></object>
 					</div>
@@ -311,16 +317,7 @@
 						<a target="_blank" id="twt" class="btn btn-primary" href="https://twitter.com/intent/tweet?text=Bienvenido a hoy en el mundo @HoyenelMundo&amp">Twittear</a>
 					 </div>
                      
-          <?php
-			$cadena = "SELECT nom_grup, nombre_mod, fecha_creacion FROM `grupos` ORDER BY visitas, nom_grup LIMIT 10 ";
-			
-			$conexion = mysql_connect ("localhost","proyecto","proyecto");
-			
-			mysql_select_db("proyecto", $conexion);
-		
-			$peticion = mysql_query($cadena);
-		
-		  ?>
+         
                      
 					<div class="span12" style="margin-top:20px;">
 						 <table width="0%" class="table table-hover">
@@ -335,20 +332,18 @@
 								<tbody>
           <?php
 		  		$filas=1;
-          	  while ($registro = mysql_fetch_array($peticion)){
+          	  while ($registro = mysql_fetch_array($top10)){
           ?>
-									<tr>
-										<td><?php echo $filas; ?></td>
-										<td><?php echo $registro['nom_grup']; ?></td>
-										<td><?php echo $registro['nombre_mod']; ?></td>
-										<td><?php echo $registro['fecha_creacion']; ?></td>
-									</tr> 
+    <tr>
+        <td><?php echo $filas; ?></td>
+        <td><a href="grupo.php?grupo=<?php echo $registro['nom_grup']; ?>"><?php echo $registro['nom_grup']; ?></a></td>
+        <td><a href="javascript:Abrir_ventana('v_amigo.php?usuario=<?php echo $registro['nombre_mod']; ?>')"><?php echo $registro['nombre_mod']; ?></a></td>
+        <td><?php echo $registro['fecha_creacion']; ?></td>
+    </tr> 
                                     
            <?php
                  $filas++;
-                }
-      		  mysql_close($conexion);
-             
+                }             
             ?>
 								</tbody>
       			</table>
@@ -356,24 +351,13 @@
                     <div class="span12" style="margin-top:20px;">
                     <div class="dock" id="dock2">
   						<div class="dock-container2">
-           <?php
-        	$cadena = "SELECT nom_grup FROM `grupos` WHERE nom_grup IN (SELECT nom_grup FROM `pertenecen` WHERE nombre='{$_SESSION["usuario"]}')";
-        
-        
-       	 $conexion = mysql_connect ("localhost","proyecto","proyecto");
-        
-       	 mysql_select_db("proyecto", $conexion);
-    
-   	     $peticion = mysql_query($cadena);
-		  if (mysql_fetch_array($peticion)!="")
-				  {
-    
-      ?>  
+     
                     
           
 		  <?php
-          	  while ($registro = mysql_fetch_array($peticion)){
-				 
+		  	if (mysql_fetch_array($grupo_b)!="")
+			  {
+          	  while ($registro = mysql_fetch_array($grupo_b)){		 
           ?>
 							<a class="dock-item2" href="grupo.php?grupo=<?php echo $registro['nom_grup']; ?>"><span><?php echo $registro['nom_grup']; ?></span><img src="../img/agt_announcements.png" alt="home" /></a> 
            <?php
@@ -385,8 +369,6 @@
             <a class="dock-item2" href="busca_grupos.php"><span>Buscar grupos</span><img src="../img/iconos/glyphicons_027_search.png" alt="home" /></a>
 			<?php  
 			  }
-      		  mysql_close($conexion);
-             
             ?>
 							 
 								
@@ -400,32 +382,19 @@
                  <div class="span12" style="margin-top: 15px">
                  <div class="pull-right" style="margin-right:11px;">
                         <div class="ui-widget">
-       <?php
-			$cadena = "SELECT nom_grup FROM `grupos`";
-			
-			
-			$conexion = mysql_connect ("localhost","proyecto","proyecto");
-			
-			mysql_select_db("proyecto", $conexion);
-		
-			$peticion = mysql_query($cadena);
-		
-		  ?>
+      
                         <form id="bus_grupo">
                             <label>Buscardor de Grupos:</label>
                             <p>
                             	<select id="b_grupos" name="b_gupos">
                                  <option value=""></option>
           <?php
-          	  while ($registro = mysql_fetch_array($peticion)){
+          	  while ($registro = mysql_fetch_array($grupos)){
           ?>
                                    
                 <option value="<?php echo $registro['nom_grup']; ?>"><?php echo $registro['nom_grup']; ?></option>
            <?php
-                 
-                }
-      		  mysql_close($conexion);
-             
+               }             
             ?>
                             	</select>
                             </p>
@@ -437,32 +406,18 @@
                     <div class="span12" style="margin-top: 7px">
                 	 <div class="pull-right" style="margin-right:11px;">
                         <div class="ui-widget">
-           <?php
-			$cadena = "SELECT nombre FROM `usuario` WHERE nombre != '{$_SESSION["usuario"]}'";
-			
-			
-			$conexion = mysql_connect ("localhost","proyecto","proyecto");
-			
-			mysql_select_db("proyecto", $conexion);
-		
-			$peticion = mysql_query($cadena);
-		
-		  ?>
+          
                         <form id="bus_amigos" name="bus_amigos">
                             <label>Buscardor de Amigos:</label>
                             <p>
                                 <select id="b_amigos">
                                  <option value=""></option>
           <?php
-          	  while ($registro = mysql_fetch_array($peticion)){
-          ?>
-                                   
+          	  while ($registro = mysql_fetch_array($amigos)){
+          ?>                
                 <option value="<?php echo $registro['nombre']; ?>"><?php echo $registro['nombre']; ?></option>
            <?php
-                 
                 }
-      		  mysql_close($conexion);
-             
             ?>
                                 </select>
                             </p>

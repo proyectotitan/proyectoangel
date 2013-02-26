@@ -123,7 +123,7 @@
     
    <?php
      while ($registro = mysql_fetch_array($peticion2)){
-		$cadena = "SELECT correo, telefono,	provincia, municipio, avatar, gustos, estado, fecna  FROM usuario wHERE nombre='{$registro["env"]}'";
+		$cadena = "SELECT correo, telefono,	provincia, municipio, avatar, gustos, estado, fecna  FROM usuario WHERE nombre='{$registro["env"]}'";
 		$conexion = mysql_connect ("localhost","proyecto","proyecto");
 		mysql_select_db("proyecto", $conexion);
 		$datos = mysql_query($cadena);
@@ -136,7 +136,6 @@
     
     <h3 id="myModalLabel"><img src="<?php echo $d_usuario['avatar']; ?>" style="width: 40px"; height="40px">&nbsp;&nbsp;<?php echo $registro['env'];?></h3>
     </div>
-		<form id="elimform">
 			<div class="modal-body">
                 <p><b>Estado: </b><?php echo $d_usuario['estado'];?></p>
                 <p><b>Email: </b><?php echo $d_usuario['correo'];?></p>
@@ -147,9 +146,8 @@
                 <p><b>Gustos: </b><?php echo $d_usuario['gustos'];?></p>
 			</div>
 			<div class="modal-footer">
-			<button class="btn btn-danger" data-dismiss="modal" aria-hidden="true">Cerrar</button>
+				<button class="btn btn-danger" data-dismiss="modal" aria-hidden="true">Cerrar</button>
 			</div>
-		</form>
     </div>
     </div>
     
@@ -160,16 +158,14 @@
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i><img src="../img/iconos/glyphicons_197_remove.png" width="17" height="25"></i></button>
     <h3 id="myModalLabel">Aceptar usuario</h3>
     </div>
-		<form id="elimform">
 			<div class="modal-body">
 				<p>¿Estas completamente seguro de querer agregar a <?php echo $registro['env'];?> a tus amigos?</p>
                 <p>Este usuario podra ver tus datos y ver cuando estas conectado</p>
 			</div>
 			<div class="modal-footer">
-			<button class="btn btn-danger" data-dismiss="modal" aria-hidden="true">Cerrar</button>
-			<a class="btn btn-success" href="aceptar_peticion.php">SI</a>
+                <button class="btn btn-danger" data-dismiss="modal" aria-hidden="true">Cerrar</button>
+                <a class="btn btn-success" href="aceptar_peticion.php?peticion=<?php echo $registro['env'];?>">SI</a>
 			</div>
-		</form>
     </div>
     </div>
     
@@ -178,16 +174,14 @@
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i><img src="../img/iconos/glyphicons_197_remove.png" width="17" height="25"></i></button>
     <h3 id="myModalLabel">Rechazar usuario</h3>
     </div>
-		<form id="elimform">
 			<div class="modal-body">
 				<p>¿Estas completamente seguro de querer rechazar la peticion de <?php echo $registro['env'];?>?</p>
                 <p>Se rachazara la peticion y no agregaras este usuario a tus amigos.</p>
 			</div>
 			<div class="modal-footer">
-			<button class="btn btn-danger" data-dismiss="modal" aria-hidden="true">Cerrar</button>
-			<a class="btn btn-success" href="rechazar_peticion.php">SI</a>
+				<button class="btn btn-danger" data-dismiss="modal" aria-hidden="true">Cerrar</button>
+				<a class="btn btn-success" href="rechazar_peticion.php?peticion=<?php echo $registro['env'];?>">SI</a>
 			</div>
-		</form>
     </div>
     </div>
     
