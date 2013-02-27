@@ -46,10 +46,12 @@
 		}
 		function agregar()
 		{
-			
+			var mss = $("#mensaje").val();
+			document.cookie ='texto='+mss+'';
 			<?php 
-				mysql_query("INSERT INTO peticiones (texto, env, rec) VALUES('', '{$_SESSION["usuario"]}', '{$_GET["usuario"]}')");
-			?>	
+				$texto_m =  $_COOKIE["texto"];
+				mysql_query("INSERT INTO peticiones (texto, env, rec) VALUES('"+$texto_m+"', '{$_SESSION["usuario"]}', '{$_GET["usuario"]}')");
+			?>
 		}
 	</script>
 	
@@ -123,10 +125,7 @@
         <p><b>Provincia: </b><?php echo $registro2['provincia'];?></p>
         <p><b>Municipio: </b><?php echo $registro2['municipio'];?></p>
         <p><b>Telefono: </b><?php echo $registro2['telefono'];?></p>
-        <p><b>Gustos: </b><?php echo $registro2['gustos'];?></p>
-        
-       
-            
+        <p><b>Gustos: </b><?php echo $registro2['gustos'];?></p>           
         </div>
     </div>
 
@@ -138,11 +137,10 @@
 			<div class="modal-body">
 				<p>¿Estas completamente seguro de querer agregar a <?php echo $registro2['nombre'];?> a tus amigos?</p>
                 <p>Mensaje de petici&oacute;n de amistad:</p>
-                <textarea rows="3" style="resize:none"></textarea>
+                <textarea rows="3" style="resize:none;" id="mensaje"></textarea>
 			</div>
 			<div class="modal-footer">
-                <button class="btn btn-danger" data-dismiss="modal" aria-hidden="true">Cerrar</button>
-                <a class="btn btn-success" href="aceptar_peticion.php?peticion=<?php echo $registro['env'];?>">SI</a>
+           <a class="btn btn-success" href="#" onClick="agregar()">Enviar petici&oacute;n</a>
 			</div>
     </div>
     </div>
