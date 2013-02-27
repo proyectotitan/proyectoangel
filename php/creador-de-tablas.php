@@ -3,8 +3,6 @@
 $conexion = mysql_connect ("localhost","proyecto","proyecto");
 
 
-
-
 mysql_select_db("proyecto",$conexion);
 $sql = "CREATE TABLE usuario
 (nombre varchar(30),
