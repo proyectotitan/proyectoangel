@@ -1,0 +1,71 @@
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++    MANUAL PARA CONFIGURAR MERCURY    +++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Con los siguientes pasos podrás configurar tu Mercury/32 que viene con xampp
+para enviar emails a correos externos desde tu servidor.
+
+1. Iniciamos el Mercury/32 desde el panel del xampp y damos al botón Admin.
+   Se iniciará el panel de control del Mercury/32.
+
+2. Vamos a Configuration/Protocol Modules y desactivamos “MercuryB HTTP web server” 
+   y “Mercury IMAP4rev1 server”. Para mandar emails a correos externos desactivamos
+   “MercuryE SMTP end-to-end delivery client” y en cambio activamos “MercuryC SMTP relaying client”. 
+   Damos al Ok y reiniciamos el Mercury.
+
+3. Volvemos a la consola del Mercury y vamos a Configuration/Mercury core module y 
+   nos ponemos en la pestaña General. En “internet name for this system” ponemos el
+   dominio que tenemos en nuestro servidor, ya sea localhost, yo como lo oriento a 
+   la instalación del wordpress MU con buddyPress necesito poner el dominio 
+   que elegí: localhost.wordpress, pero en general, para el resto de los mortales 
+   pondremos localhost. Los otros campos están ya configurados, sólo tenemos que desactivar
+   todos los check de abajo menos “Send copies of all errors to postmaster”. Vamos a la 
+   pestaña “Local domains” y añadimos el internet name, para el resto de los mortales con 
+   servidor localhost ya estará añadido. Damos a Ok. 
+
+4. Vamos a configurar el SMTP para los emails salientes en Configuration/MercuryS SMTP Server.
+   En la pestaña General, en el campo “Announce myself as” ponemos el nombre que nos 
+   salga: “XX SMTP”, lo que quieras. Comprueba que el TCP/IP port está a 25, que es el 
+   del SMTP. En “IP interface to use” pones 127.0.0.1. Ahora limitaremos el acceso a tu servidor
+   a sólo tu máquina local de la siguiente forma: En la pestaña Connection control damos al 
+   botón Add restriction y ponemos 127.0.0.1 to 127.0.0.1. Comprobamos que está activos Allow Connection y 
+   dejamos todos los check desactivados. En la pestaña Connection Control 
+   desactivamos Do not Permit SMTP relaying to non-local mail. Damos al OK.
+
+5. Configuraremos el POP3 del Mercury en Configuration/MercuryP POP3 Server. En la pestaña General 
+   comprobamos el que TCP port es 110 y la “IP interface to use” es 127.0.0.1. Vamos a Connection Control
+   y añadimos la misma restricción que en alterior punto, sólo para nuestra máquina local de la misma forma.
+   Damos al Ok.
+
+6. Nos toca configurar el cliente del SMTP del Mercury en Configuration/MercuryC SMTP Client. 
+   Para mandar emails al exterior necesitamos los datos de un correo exterior. Yo pondré los datos 
+   de el gmail del SMTP para correos salientes. En “Smart host name” ponemos smtp.gmail.com. 
+   El puerto elegiremos el 587. Con el otro que viene no me va. Luego elegimos STARTTLS que es 
+   lo que soporta el gmail. En “Login username” ponemos nuestra cuenta de correo de gmail, 
+   y en “Password” nuestra contraseña del correo gmail. Esta parte la tenemos resuelta. Damos al Ok.
+
+7. Configuration/Manage local users comprobamos que tenemos los usuarios Admin y 
+   postmaster con permisos de administrador.
+
+8. Con el Mercury ya hemos acabado, ahora toca modificar el archivo php.ini que se encuentra 
+   en xampp/php. Nos dirigimos a [mail function] y comprobamos que los siguientes datos están así:
+   SMTP = localhost, smtp_port = 25 y añadimos la siguiente linea : sendmail_from = postmaster@localhost
+   (o descomentamos la que hay y la cambiamos por estos datos). Guardamos y reiniciamos el apache.
+
+9. Debería funcionar. ¿Cómo lo comprobamos? en el Mercury en File/Send mail message enviamos un email a
+   un correo externo. Para comprobar el php creamos un archivo php con la función mail(); de esta forma:
+   (‘xxx@gmail.com’, ‘Comprobación del MErcury’, ‘Si tu lees ésto es que todo va bien’);
+
+
+---------------------------------------------          FIN           ---------------------------------------------
+
+
+
+
+
+
+
+
+
+
+ 
