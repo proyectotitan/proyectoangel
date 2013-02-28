@@ -381,9 +381,7 @@
                  
                  <div class="span12" style="margin-top: 15px">
                  <div class="pull-right" style="margin-right:11px;">
-                        <div class="ui-widget">
-      
-                        <form id="bus_grupo">
+                        <div class="ui-widget" id="d_grupos">
                             <label>Buscardor de Grupos:</label>
                             <p>
                             	<select id="b_grupos" name="b_gupos">
@@ -398,17 +396,14 @@
             ?>
                             	</select>
                             </p>
-                            <p><input type="button" class="btn-danger" value="Buscar Grupo"></p>
-                         </form>   
+                        <a href="#" class="btn btn-danger" id="e_gupos" onClick="grupos()">Buscar Grupo</a>
                         </div>
                       </div>  
                     </div>
                     <div class="span12" style="margin-top: 7px">
                 	 <div class="pull-right" style="margin-right:11px;">
-                        <div class="ui-widget">
-          
-                        <form id="bus_amigos" name="bus_amigos">
-                            <label>Buscardor de Amigos:</label>
+                        <div class="ui-widget" id="d_amigos">
+                          <label>Buscador de Amigos:</label>
                             <p>
                                 <select id="b_amigos">
                                  <option value=""></option>
@@ -421,8 +416,7 @@
             ?>
                                 </select>
                             </p>
-                            <input type="button" class="btn-danger" value="Buscar Amigo">
-                         </form>   
+                         <a href="#" class="btn btn-danger" id="e_amigos" onClick="amigos()">Buscar Amigo</a>
                         </div>
                        </div> 
                     </div>
@@ -446,7 +440,7 @@
 									<tr>
 										<td><a href="#" onClick="javascript:chatWith('Amigo_3')">Amigo 3</a></td>
 									</tr>
-									<tr>
+								<tr>
 										<td><a href="#" onClick="javascript:chatWith('Amigo_4')">Amigo 4</a></td>
 									</tr>
                                     <tr>
@@ -463,4 +457,23 @@
 
 
   </body>
+<script>
+  function amigos()
+  {
+   if ($('#b_amigos').val()!="")
+	$('#e_amigos').attr({"href": "javascript:Abrir_ventana('v_amigo.php?usuario="+$('#b_amigos').val()+"')"}); 	
+   else
+	$('#d_amigos').prepend('<div class="alert alert-error pull-right"><button type="button" class="close" data-dismiss="alert">X</button><strong>Busque un usuario.</strong></div>');
+  }
+  
+  function grupos()
+  {
+   if ($('#b_grupos').val()!="")
+   {
+   alert("hola");
+	$('#e_gupos').attr({"href": "grupo.php?grupo="+$('#b_grupos').val()+""}); 	}
+   else
+	$('#d_grupos').prepend('<div class="alert alert-error pull-right"><button type="button" class="close" data-dismiss="alert">X</button><strong>Busque un grupo.</strong></div>');
+  }
+</script>
 </html>

@@ -32,27 +32,38 @@
     
      <?php
       $cadena = "SELECT amigo1 FROM amigos WHERE (amigo1='{$_GET["usuario"]}' or amigo2='{$_GET["usuario"]}') and (amigo1='{$_SESSION["usuario"]}' or amigo2='{$_SESSION["usuario"]}')"; 
-	   $cadena2 = "SELECT nombre, correo, telefono,	provincia, municipio, avatar, gustos, estado, fecna  FROM usuario WHERE nombre='{$_GET["usuario"]}'";    
+	   $cadena2 = "SELECT nombre, correo, telefono,	provincia, municipio, avatar, gustos, estado, fecna, peticiones  FROM usuario WHERE nombre='{$_GET["usuario"]}'";    
       $conexion = mysql_connect ("localhost","proyecto","proyecto");        
       mysql_select_db("proyecto", $conexion);    
       $c_amigo = mysql_query($cadena);
-	  $datos_usuario = mysql_query($cadena2);	
+	  $datos_usuario = mysql_query($cadena2);
+	  $registro2 = mysql_fetch_array($datos_usuario);	
     ?>
     
     <script>
+	    function cerrarVentana(){
+   	   	  window.close();
+   		}
 		function eliminar()
 		{
 			<?php echo "hola";?>	
 		}
 		function agregar()
 		{
+			
 			var mss = $("#mensaje").val();
-			document.cookie ='texto='+mss+'';
+			document.cookie ='texto='+mss+'; expires=Thu, 2 Aug 2021 20:47:11 UTC; path=/';
 			<?php 
-				$texto_m =  $_COOKIE["texto"];
-				mysql_query("INSERT INTO peticiones (texto, env, rec) VALUES('"+$texto_m+"', '{$_SESSION["usuario"]}', '{$_GET["usuario"]}')");
+				mysql_query("INSERT INTO peticiones (texto, env, rec) VALUES('{$_COOKIE["texto"]}', '{$_SESSION["usuario"]}', '{$_GET["usuario"]}')");
+				$n_peticiones = $registro2["peticiones"]+1;
+				mysql_query("UPDATE `usuario` SET `peticiones`= {$n_peticiones} WHERE nombre='{$_GET["usuario"]}'");
+				
 			?>
+			$("#capa_form").remove();
+			$("#mod").replaceWith('<div class="alert alert-success">Peticion enviada. En breves se cerrará la ventana.</div>');
+			setTimeout(cerrarVentana,3500);
 		}
+		
 	</script>
 	
     <?php
@@ -89,7 +100,6 @@
 				{			
 			?>
                 <a href="#agregar" data-toggle="modal" role="button" title="Ver usuario"><i class="icon-minus-sign"></i>&nbsp;&nbsp;Eliminar amigo</a>
-                <?php echo $registro['amigo1']; ?>
              <?php
 				}
 				else	
@@ -104,7 +114,7 @@
       </div>
     </div>
     <?php    
-      $registro2 = mysql_fetch_array($datos_usuario);
+      
     ?>
     <div class="container-fluid">
     	<div class="row-fluid">
@@ -137,10 +147,12 @@
 			<div class="modal-body">
 				<p>¿Estas completamente seguro de querer agregar a <?php echo $registro2['nombre'];?> a tus amigos?</p>
                 <p>Mensaje de petici&oacute;n de amistad:</p>
+                
                 <textarea rows="3" style="resize:none;" id="mensaje"></textarea>
-			</div>
-			<div class="modal-footer">
+			
+			<div class="modal-footer" id="mod">
            <a class="btn btn-success" href="#" onClick="agregar()">Enviar petici&oacute;n</a>
+           </div>
 			</div>
     </div>
     </div>
