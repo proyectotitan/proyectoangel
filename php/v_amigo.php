@@ -8,10 +8,10 @@
     <meta name="description" content="">
     <meta name="author" content="">
     
-    <?php
+<?php
 	session_start();
 	if ($_SESSION["usuario"]=="")
-		header("Location: index.php");
+	header("Location: index.php");
 ?>
 	
     <script src="../js/jquery.js"></script>
