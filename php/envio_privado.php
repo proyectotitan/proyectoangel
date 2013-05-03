@@ -6,13 +6,14 @@
 	$conexion = mysql_connect ("localhost","proyecto","proyecto");        
 	mysql_select_db("proyecto", $conexion);
 	
-	$receptor = $_POST['amigos'];
-	$mensaje = $_POST['mensaje'];
-
-	
+	mysql_query("INSERT INTO `mens_enviado`(`contenido`, `fechen`, `emisor`, `receptor`) 
+	VALUES ('{$_POST['mensaje']}', sysdate(), '{$_SESSION["usuario"]}', '{$_POST['amigos']}');");
 	mysql_query("INSERT INTO `mens_recibido`(`contenido`, `fechen`, `emisor`, `receptor`) 
 	VALUES ('{$_POST['mensaje']}', sysdate(), '{$_SESSION["usuario"]}', '{$_POST['amigos']}');");
-	$error= mysql_error();
+	$n_privados = mysql_query("SELECT privados FROM usuario where nombre='{$_POST['amigos']}';");
+    $nu_privados = mysql_fetch_array($n_privados);;
+	mysql_query("UPDATE `usuario` SET `privados`='{$nu_privados['privados']}'+1 where nombre='{$_POST['amigos']}';");
+	$error = mysql_error();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -66,7 +67,6 @@
   </head>
 
   <body>
-<div classº
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
@@ -83,11 +83,12 @@
     <?php if ($error=="") {?>
     <div class="alert alert-success">
     	<strong>Mensaje enviado correctamente</strong>
-        En breves se cerrar&aacute; esta ventana.	
+        En breves se cerrar&aacute; esta ventana.
     </div>   
 	<?php }else{?>
     <div class="alert alert-danger">
     	<strong>Error en el envio</strong>
+        Revisa que los datos sean correctos.
         En breves se cerrar&aacute; esta ventana.
     </div>
     <?php }?>

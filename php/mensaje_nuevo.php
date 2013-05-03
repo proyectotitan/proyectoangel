@@ -262,6 +262,7 @@
         <div id="errores"></div>
         <p>Para: 
             <select id="amigos" name="amigos">
+            <option value=""></option>
             <?php
 				while ($registro = mysql_fetch_array($amigos)){
 			?>
