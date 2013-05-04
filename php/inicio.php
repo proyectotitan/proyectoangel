@@ -224,7 +224,7 @@
           <div class="nav-collapse collapse">
 		  		<ul class="nav">
 						<li class="active">
-							<a href="inicio.html"><i class="icon-home"></i>&nbsp;Inicio</a>
+							<a href="inicio.php"><i class="icon-home"></i>&nbsp;Inicio</a>
 						</li>
 					</ul>
 			   	
@@ -236,8 +236,8 @@
 												<li class="dropdown-submenu">
                         <a href="#" tabindex="-1">Buz&oacute;n</a>
                         <ul class="dropdown-menu">
-													<li><a href="mensajes_recibidos.html" tabindex="-1">Mensajes recibidos</a></li>
-													<li><a href="mensajes_enviados.html" tabindex="-1">Mensajes enviados</a></li>
+													<li><a href="mensajes_recibidos.php" tabindex="-1">Mensajes recibidos</a></li>
+													<li><a href="mensajes_enviados.php" tabindex="-1">Mensajes enviados</a></li>
                     		</ul>
                  		 </li>
                       </ul>
@@ -246,13 +246,13 @@
                       <a data-toggle="dropdown" class="dropdown-toggle" role="button" id="drop2" href="#"><i class="icon-th-large"></i>&nbsp;Grupos<b class="caret"></b></a>
                       <ul aria-labelledby="drop2" role="menu" class="dropdown-menu">
                         <li><a href="#" tabindex="-1"></a></li>
-                        <li><a href="mis_grupos.html" tabindex="-1">Mis grupos</a></li>
-                        <li><a href="nuevo_grupo.html" tabindex="-1">Nuevo grupo</a></li>
-												<li><a href="busca_grupos.html" tabindex="-1">Busca grupos</a></li>
+                        <li><a href="mis_grupos.php" tabindex="-1">Mis grupos</a></li>
+                        <li><a href="nuevo_grupo.php" tabindex="-1">Nuevo grupo</a></li>
+												<li><a href="busca_grupos.php" tabindex="-1">Busca grupos</a></li>
                       </ul>
                     </li>
 
-                    <li><a href="javascript:Abrir_ventana('chat.html')"><i class="icon-comment"></i>&nbsp;Chat</a></li>
+                    <li><a href="javascript:Abrir_ventana('chat.php')"><i class="icon-comment"></i>&nbsp;Chat</a></li>
             </ul>
                   </li>
 									<ul class="nav pull-right">
@@ -299,7 +299,7 @@
 					<div class="border1" style="margin-left:3px;"> 
 						<p><h4><?php echo $_SESSION["usuario"];?></h4></p>
 						<p><img src="<?php echo $registro['avatar']; ?>" style="width: 60px"; height="60px"></p>
-						<p>Mensajes sin leer: &nbsp;<?php echo $registro['privados']; ?></p>
+						<p><a style="text-decoration:none; color:#FFF;" href="mensajes_recibidos.php">Mensajes sin leer: &nbsp;<?php echo $registro['privados']; ?></a></p>
 						<p><a style="text-decoration:none; color:#FFF;" href="peticiones.php">Peticiones de amistad: &nbsp; <?php echo $registro['peticiones']; ?></a></p>
 						</div>
         <?php    

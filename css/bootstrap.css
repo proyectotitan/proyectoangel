@@ -4784,7 +4784,7 @@ a.thumbnail:hover {
 .accordion-heading  {
   display: block;
 	background:#650506;
-  padding: 8px 15px;
+  padding: 1px 15px;
 	color:#ffffff;
 	text-decoration:none;
 }
