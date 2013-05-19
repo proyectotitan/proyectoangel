@@ -38,35 +38,6 @@
       $c_amigo = mysql_query($cadena);
 	  $datos_usuario = mysql_query($cadena2);
 	  $registro2 = mysql_fetch_array($datos_usuario);	
-    ?>
-    
-    <script>
-	    function cerrarVentana(){
-   	   	  window.close();
-   		}
-		function eliminar()
-		{
-			<?php echo "hola";?>	
-		}
-		function agregar()
-		{
-			
-			var mss = $("#mensaje").val();
-			document.cookie ='texto='+mss+'; expires=Thu, 2 Aug 2021 20:47:11 UTC; path=/';
-			<?php 
-				mysql_query("INSERT INTO peticiones (texto, env, rec) VALUES('{$_COOKIE["texto"]}', '{$_SESSION["usuario"]}', '{$_GET["usuario"]}')");
-				$n_peticiones = $registro2["peticiones"]+1;
-				mysql_query("UPDATE `usuario` SET `peticiones`= {$n_peticiones} WHERE nombre='{$_GET["usuario"]}'");
-				
-			?>
-			$("#capa_form").remove();
-			$("#mod").replaceWith('<div class="alert alert-success">Peticion enviada. En breves se cerrará la ventana.</div>');
-			setTimeout(cerrarVentana,3500);
-		}
-		
-	</script>
-	
-    <?php
 	  mysql_close($conexion);    
     ?>
     
@@ -99,7 +70,7 @@
 				if ($registro['amigo1']!="")
 				{			
 			?>
-                <a href="#agregar" data-toggle="modal" role="button" title="Ver usuario"><i class="icon-minus-sign"></i>&nbsp;&nbsp;Eliminar amigo</a>
+                <a href="#eliminar" data-toggle="modal" role="button" title="Ver usuario"><i class="icon-minus-sign"></i>&nbsp;&nbsp;Eliminar amigo</a>
              <?php
 				}
 				else	
@@ -140,23 +111,41 @@
     </div>
 
     <div id="agregar" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="overflow:auto; height:auto;">
-    <div class="modal-header" >
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i><img src="../img/iconos/glyphicons_197_remove.png" width="17" height="25"></i></button>
-    <h3 id="myModalLabel">Enviar petici&oacute;n de amistad.</h3>
-    </div>
-			<div class="modal-body">
-				<p>¿Estas completamente seguro de querer agregar a <?php echo $registro2['nombre'];?> a tus amigos?</p>
+        <div class="modal-header" >
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i><img src="../img/iconos/glyphicons_197_remove.png" width="17" height="25"></i></button>
+        <h3 id="myModalLabel">Enviar petici&oacute;n de amistad.</h3>
+        </div>
+        <div class="modal-body">
+                <p>¿Estas completamente seguro de querer agregar a <?php echo $registro2['nombre'];?> a tus amigos?</p>
                 <p>Mensaje de petici&oacute;n de amistad:</p>
-                
-                <textarea rows="3" style="resize:none;" id="mensaje"></textarea>
-			
-			<div class="modal-footer" id="mod">
-           <a class="btn btn-success" href="#" onClick="agregar()">Enviar petici&oacute;n</a>
-           </div>
-			</div>
+                <form name="frm_agregar_amigo" action="agregar_amigo.php" method="POST">
+                    <input type="hidden" name="nombre" value="<?php echo $registro2['nombre']; ?>">
+                    <textarea rows="3" style="resize:none;" id="mensaje" name="mensaje"></textarea>
+                    <div class="modal-footer" id="mod">
+                        <button class="btn btn-danger" data-dismiss="modal" aria-hidden="true">Cerrar</button>
+                        <input type="submit" class="btn btn-success" value="Enviar petici&oacute;n">
+                    </div>
+                </form>
+        </div>
     </div>
-    </div>
-   
     
+    <div id="agregar" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="overflow:auto; height:auto;">
+        <div class="modal-header" >
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i><img src="../img/iconos/glyphicons_197_remove.png" width="17" height="25"></i></button>
+        <h3 id="myModalLabel">Enviar petici&oacute;n de amistad.</h3>
+        </div>
+        <div class="modal-body">
+                <p>¿Estas completamente seguro de querer agregar a <?php echo $registro2['nombre'];?> a tus amigos?</p>
+                <p>Mensaje de petici&oacute;n de amistad:</p>
+                <form name="frm_agregar_amigo" action="agregar_amigo.php" method="POST">
+                    <input type="hidden" name="nombre" value="<?php echo $registro2['nombre']; ?>">
+                    <textarea rows="3" style="resize:none;" id="mensaje" name="mensaje"></textarea>
+                    <div class="modal-footer" id="mod">
+                        <button class="btn btn-danger" data-dismiss="modal" aria-hidden="true">Cerrar</button>
+                        <input type="submit" class="btn btn-success" value="Enviar petici&oacute;n">
+                    </div>
+                </form>
+        </div>
+    </div>  
   </body>
 </html>

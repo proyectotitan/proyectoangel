@@ -176,7 +176,7 @@
     </div>
 			<div class="modal-body">
 				<p>¿Estas completamente seguro de querer rechazar la peticion de <?php echo $registro['env'];?>?</p>
-                <p>Se rachazara la peticion y no agregaras este usuario a tus amigos.</p>
+                <p>Se rachazara la peticion y no agregaras a este usuario a tus amigos.</p>
 			</div>
 			<div class="modal-footer">
 				<button class="btn btn-danger" data-dismiss="modal" aria-hidden="true">Cerrar</button>
