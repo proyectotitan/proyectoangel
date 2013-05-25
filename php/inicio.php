@@ -470,7 +470,6 @@
   {
    if ($('#b_grupos').val()!="")
    {
-   alert("hola");
 	$('#e_gupos').attr({"href": "grupo.php?grupo="+$('#b_grupos').val()+""}); 	}
    else
 	$('#d_grupos').prepend('<div class="alert alert-error pull-right"><button type="button" class="close" data-dismiss="alert">X</button><strong>Busque un grupo.</strong></div>');

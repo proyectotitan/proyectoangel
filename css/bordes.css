@@ -8,8 +8,15 @@ thead{
         color: #ffffff;
 }
 .border1{
-        background-color: #A5B8DA;
+        background-color: #D10A0D;
         background-image: -moz-linear-gradient(center top , #D10A0D, #650506); 
+        
+        background: -webkit-gradient(linear, left top, left bottom, from(#D10A0D), to(#650506), color-stop(0.7, #650506));
+        background: -moz-linear-gradient(top, #D10A0D, #650506);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#D10A0D', endColorstr='#650506');
+        -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#00abeb', endColorstr='#650506')";
+        background: -o-linear-gradient(top, #D10A0D, #650506);
+        
         border: 1px solid #6E6E6E; 
         margin: 20px;
         padding: 20px;

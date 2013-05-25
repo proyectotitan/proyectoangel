@@ -28,18 +28,19 @@
     <script src="../js/bootstrap-button.js"></script>
     <script src="../js/bootstrap-collapse.js"></script>
     <script src="../js/bootstrap-carousel.js"></script>
-	<script src="../js/bootstrap-typeahead.js"></script>
-    
+    <script src="../js/bootstrap-typeahead.js"></script>
+            
      <?php
       $cadena = "SELECT amigo1 FROM amigos WHERE (amigo1='{$_GET["usuario"]}' or amigo2='{$_GET["usuario"]}') and (amigo1='{$_SESSION["usuario"]}' or amigo2='{$_SESSION["usuario"]}')"; 
-	   $cadena2 = "SELECT nombre, correo, telefono,	provincia, municipio, avatar, gustos, estado, fecna, peticiones  FROM usuario WHERE nombre='{$_GET["usuario"]}'";    
+      $cadena2 = "SELECT nombre, correo, telefono, provincia, municipio, avatar, gustos, estado, fecna, peticiones  FROM usuario WHERE nombre='{$_GET["usuario"]}'";    
       $conexion = mysql_connect ("localhost","proyecto","proyecto");        
       mysql_select_db("proyecto", $conexion);    
       $c_amigo = mysql_query($cadena);
 	  $datos_usuario = mysql_query($cadena2);
 	  $registro2 = mysql_fetch_array($datos_usuario);	
-	  mysql_close($conexion);    
     ?>
+    
+    
     
 	<link href="../css/bootstrap.css" rel="stylesheet"/>
     <link href="../css/style.css" rel="stylesheet" type="text/css" />
@@ -128,24 +129,19 @@
                 </form>
         </div>
     </div>
-    
-    <div id="agregar" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="overflow:auto; height:auto;">
+    <div id="eliminar" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="overflow:auto; height:auto;">
         <div class="modal-header" >
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i><img src="../img/iconos/glyphicons_197_remove.png" width="17" height="25"></i></button>
-        <h3 id="myModalLabel">Enviar petici&oacute;n de amistad.</h3>
+        <h3 id="myModalLabel">Eliminar amigo.</h3>
         </div>
         <div class="modal-body">
-                <p>¿Estas completamente seguro de querer agregar a <?php echo $registro2['nombre'];?> a tus amigos?</p>
-                <p>Mensaje de petici&oacute;n de amistad:</p>
-                <form name="frm_agregar_amigo" action="agregar_amigo.php" method="POST">
-                    <input type="hidden" name="nombre" value="<?php echo $registro2['nombre']; ?>">
-                    <textarea rows="3" style="resize:none;" id="mensaje" name="mensaje"></textarea>
-                    <div class="modal-footer" id="mod">
-                        <button class="btn btn-danger" data-dismiss="modal" aria-hidden="true">Cerrar</button>
-                        <input type="submit" class="btn btn-success" value="Enviar petici&oacute;n">
-                    </div>
-                </form>
+            <p>¿Estas completamente seguro de querer eliminar a <?php echo $registro2['nombre'];?> de tu lista de amigos?</p>
+            <div class="modal-footer" id="mod">
+                <button class="btn btn-danger" data-dismiss="modal" aria-hidden="true">Cerrar</button>
+                <a href="eliminar_amigo.php?usuario=<?php echo $registro2['nombre'];?>" class="btn btn-success">Eliminar amigo</a>
+            </div>
         </div>
     </div>  
+      
   </body>
 </html>

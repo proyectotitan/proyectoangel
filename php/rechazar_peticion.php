@@ -17,5 +17,5 @@ mysql_query("UPDATE `usuario` SET `peticiones`= {$n_peticiones} WHERE nombre='{$
 
 mysql_close($conexion);
 
-//header("Location: peticiones.php");
+header("Location: peticiones.php");
 ?>
