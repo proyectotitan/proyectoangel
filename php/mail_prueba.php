@@ -1,4 +1,4 @@
-<?php
+<?php //
     include("class.phpmailer.php");
     include("class.smtp.php");
 
@@ -8,7 +8,7 @@
     try {
       $mail->SMTPAuth   = true;                  
     // Habilitamos la autentificación por SMTP
-      $mail->SMTPSecure = "ssl";                 
+//      $mail->SMTPSecure = "ssl";                 
     // Usar SMTP seguro
       $mail->Host       = "smtp.gmail.com";      
     // Indicamos el servidor SMTP

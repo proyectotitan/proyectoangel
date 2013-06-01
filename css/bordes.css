@@ -79,3 +79,15 @@ thead{
     box-shadow: rgba(0, 0, 0, 0.4) 4px 4px 8px;
     margin-top: 15%;
 }
+ .trans{
+      background-color:#333333;
+      position:absolute;
+      font-weight:bold;
+      width:100%;
+      z-index:2031;
+      /*filter:alpha(opacity=60);*/
+      /*float:left;-moz-opacity:.60;*/
+      /*opacity:.60;*/
+      color: white;
+      margin-top: 0px !important;
+    }

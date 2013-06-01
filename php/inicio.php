@@ -211,6 +211,12 @@
   </head>
 
   <body>
+<!--  <div class="trans">
+        asdasdasd
+        <div class="progress progress-info">
+            <div class="bar" style="width: 20%"></div>
+        </div>
+    </div>-->
   
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
