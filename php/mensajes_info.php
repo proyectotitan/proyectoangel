@@ -69,15 +69,18 @@
         </div>
       </div>
     </div>
+      <div class="cargando"><img src="../img/loading.gif"></img></div>
+      <div class="contenedor_mensajes">
     <?php if ($_GET["error"]==""){ ?>
-        <div class="alert alert-success">
+        <div class="alert alert-success" style="margin-bottom: 0px;">
             <strong><?php echo $_GET["mensaje_ventana"]; ?></strong> La ventana se cerrar&aacute; en breves momentos.
         </div>   
    <?php }else{ ?>
-        <div class="alert alert-danger">
+        <div class="alert alert-danger" style="margin-bottom: 0px;">
             <strong><?php echo $_GET["error"]; ?></strong>
             <?php echo $_GET["mensaje_ventana"]; ?> La ventana se cerrar&aacute; en breves momentos.
         </div>
    <?php } ?>
+    </div>
   </body>
 </html>

@@ -137,7 +137,7 @@
 		  <form id="rty" action="inicio_sesion.php" method="POST" style=" height:2px">
 			  <i class="icon-user"></i>Usuario&nbsp;<input type="text" name="s_usuario" placeholder="Introduce el nombre" style="margin-top: 8px "id="s_usuario">
 			  <i class="icon-lock"></i>Contrase&ntilde;a&nbsp;<input type="password" name="s_pass"  placeholder="Introduce la contrase&ntilde;a" style="margin-top: 8px" id="s_pass">
-			  <input type="button" class="btn btn-danger" onClick="validar_1(this.form)" value="Enviar" ></input> 	
+                          <input type="button" class="btn btn-danger" onClick="validar_1(this.form)" style="margin-top: -2px; margin-left: 1%;" value="Enviar" ></input> 	
 		  </form>
           </div><!--/.nav-collapse -->
         </div>

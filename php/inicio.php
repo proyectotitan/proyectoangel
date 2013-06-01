@@ -305,9 +305,13 @@
         <?php    
              }
         ?>
-						<div class="span12">
-								<object type="application/x-shockwave-flash" style="outline:none;" data="http://hosting.gmodules.com/ig/gadgets/file/112581010116074801021/hamster.swf?" width="300" height="225"><param name="movie" value="http://hosting.gmodules.com/ig/gadgets/file/112581010116074801021/hamster.swf?"></param><param name="AllowScriptAccess" value="always"></param><param name="wmode" value="opaque"></param></object>
-					</div>
+                                    <div class="span12">
+                                        <a class="twitter-timeline" href="https://twitter.com/hoyenelmundoweb" data-widget-id="340785401629376513">Tweets por @hoyenelmundoweb</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+
+
+                                    </div>
              
 	
 				</div>
