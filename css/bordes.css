@@ -81,13 +81,35 @@ thead{
 }
  .trans{
       background-color:#333333;
-      position:absolute;
+      position:fixed;
       font-weight:bold;
       width:100%;
-      z-index:2031;
-      /*filter:alpha(opacity=60);*/
-      /*float:left;-moz-opacity:.60;*/
-      /*opacity:.60;*/
+      z-index:10;
+      filter:alpha(opacity=70);
+      float:left;-moz-opacity:.70;
+      opacity:.70;
       color: white;
       margin-top: 0px !important;
+      padding-top: 18%;
+      padding-bottom: 39%;
+    }
+    .contenedor_carga{
+        position: fixed;
+        width: 50%;
+        margin-top: 20%;
+        margin-left: 25%;
+        margin-right: 25%;
+        background: white;
+        padding: 1%;
+        color: #D10A0D;
+        font-weight: bold;
+        line-height: 275%;
+        -moz-border-radius: 1em 1em 0 0;
+        -webkit-border-radius: 1em 1em 1em 1em;
+        border-radius: 1em 1em 1em 1em;
+        -webkit-box-shadow: 2px 2px 6px rgba(0,0,0,0.4);
+        -moz-box-shadow: rgba(0, 0, 0, 0.4) 4px 4px 8px;
+        box-shadow: rgba(0, 0, 0, 0.4) 4px 4px 8px;
+        z-index: 11;
+        
     }

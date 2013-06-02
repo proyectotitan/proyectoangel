@@ -27,7 +27,7 @@ $array=mysql_fetch_array($result);
 
 session_start(); 
 $_SESSION["usuario"]= $array["nombre"];
-
+$_SESSION["inicio"]=1;
 mysql_query ("UPDATE usuario SET sesion = '1' WHERE nombre = '{$_POST['s_usuario']}'" );
 
 

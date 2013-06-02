@@ -5,6 +5,7 @@
 	session_start();
 	if ($_SESSION["usuario"]=="")
 		header("Location: index.php");
+        
 ?>
   
     <meta charset="utf-8">
@@ -45,7 +46,27 @@
 	<link href="../css/blitzer/jquery-ui-css.css" rel="stylesheet"/>
 	<link href="../css/chat/chat.css" rel="stylesheet"/>
    
-		
+<script type="text/javascript">
+    $porcentaje=0;
+    function abrir_pagina(){
+        $("#cargando").remove();
+        $("#cabecera").addClass("navbar-fixed-top");
+    }
+    function barra(){
+      $porcentaje++;
+      if($porcentaje<=100)
+          $("#numero_por").replaceWith("<span id='numero_por'>"+$porcentaje+"%</span>");
+      $("#barra_carga").width(''+$porcentaje+'%');
+     if($porcentaje===95)
+          setTimeout(abrir_pagina,2000);    
+        }
+    $(document).ready(function()
+    {
+        var id = setInterval("barra()",35);
+        setTimeout("clearInterval("+id+")",3895);     
+    });
+    
+</script>		
 
 <script type="text/javascript">
 	
@@ -211,14 +232,18 @@
   </head>
 
   <body>
-<!--  <div class="trans">
-        asdasdasd
-        <div class="progress progress-info">
-            <div class="bar" style="width: 20%"></div>
+      <?php if($_SESSION["inicio"]==1) {?>
+      <div id="cargando"><div class="trans">&nbsp;</div>
+      <div class="contenedor_carga">
+          Cargando... <span id="numero_por">0%</span>
+        <div class="progress progress-danger">
+            <div id="barra_carga" class="bar" style="width: 0%"></div>
         </div>
-    </div>-->
+      </div></div>
+      <?php $_SESSION["inicio"]=0; }?>
   
-    <div class="navbar navbar-inverse navbar-fixed-top">
+  
+    <div  id="cabecera" class="navbar navbar-inverse">
       <div class="navbar-inner">
         <div class="container">
           <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -312,9 +337,10 @@
              }
         ?>
                                     <div class="span12">
+                                        <div style="width: 74%">
                                         <a class="twitter-timeline" href="https://twitter.com/hoyenelmundoweb" data-widget-id="340785401629376513">Tweets por @hoyenelmundoweb</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-
+                                        </div>
 
 
                                     </div>
@@ -432,9 +458,9 @@
                     </div>
                  
                  
-					 <div class="span12" style="margin-top:10px;">
-					 	<div id="main_container" class="pull-right" style="overflow:auto; height:200px;">
-						<table width="0%" class="table" style= "border-top:1px solid #000000; background-color:#FFFFFF; width: 206px; margin-right:11px;">
+					 <div class="span12" style="margin-top:7%;">
+					 	<div id="main_container" class="pull-right" style="overflow-x: auto; height:180px; width: 52%;">
+						<table width="100%" class="table" style= "border-top:1px solid #000000; background-color:#FFFFFF; width: 100%; margin-right:11px;">
 							 <thead>
 									<tr>
 										<th>Amigos conectados</th>
