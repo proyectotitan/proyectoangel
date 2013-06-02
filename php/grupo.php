@@ -19,6 +19,29 @@
     <link href="../css/bootstrap-responsive.css" rel="stylesheet">
 		<link href="../css/bordes.css" rel="stylesheet">
     
+	<script type="text/javascript"  src="../js	/validar.js"> </script>
+		<script type="text/javascript">
+		
+		function validar_post(form)
+			{
+				var errores= "";
+				var sw=0;
+				
+				if(esBlanco(form.upost.value))
+				{
+					errores=errores+"No s epuede subir un comentario en blanco";
+					sw=1;					
+				}
+				
+				if (sw==1)
+				{
+					alert(errores);
+				}		
+				else
+				form.submit();
+				
+	}
+	</script>
   </head>
 
   <body>
@@ -94,7 +117,7 @@
         $cadena = "SELECT nom_grup, imagen, descripcion_g FROM grupos where nom_grup='{$_GET["grupo"]}'";
         $cadena2 = "SELECT nom_grup FROM pertenecen where nom_grup='{$_GET["grupo"]}' and nombre='{$_SESSION["usuario"]}'";
 		$cadena3 = "SELECT nom_grup FROM `grupos` WHERE seccion in (select seccion from grupos where nom_grup='{$_GET["grupo"]}')";
-		$cadena4 = "SELECT nombre FROM `pertenecen` WHERE nom_grup='{$_GET["grupo"]}' and nombre!='{$_SESSION["usuario"]}'";
+		$cadena4 = "SELECT nombre FROM `pertenecen` WHERE nom_grup='{$_GET["grupo"]}'";
 		$cadena5 = "SELECT usuario.avatar, usuario.estado, mensajes.texto, mensajes.fecha, mensajes.nombre FROM usuario, mensajes WHERE mensajes.nom_grup='{$_GET["grupo"]}' GROUP BY mensajes.texto";
         
         $conexion = mysql_connect ("localhost","proyecto","proyecto");
@@ -173,9 +196,12 @@
 				if ($registro2!="")
 			{
 		?>
-						<form>
-							<textarea></textarea><br>
-							<input type="button" value="Enviar comentario" class="btn btn-danger">
+						<form id="comment" name="comment"  method="post" action="post.php">
+							<textarea id="upost" name="upost" ></textarea><br>
+							<input type="hidden" id="n_grup" name="n_grup" value="<?php echo $_GET["grupo"]?>"/>
+							<input type="hidden" id="n_usu" name="n_usu" value="<?php echo $_SESSION["usuario"]?>"/>
+							<input type="button" onClick="validar_post(this.form)"  value="Enviar comentario" class="btn btn-danger">
+							
 						</form>
          <?php
 			}
