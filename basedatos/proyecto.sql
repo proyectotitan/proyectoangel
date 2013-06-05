@@ -93,7 +93,7 @@ cod_pet number(4),
 texto long not null,
 env varchar2(30),
 rec varchar2(30),
-constraint pk_peticiones primary key (cod_pet),
+constraint pk_peticiones primary key (env,rec),
 constraint fk_env1 foreign key (env) references usuario on delete cascade,
 constraint fk_rec1 foreign key (rec) references usuario on delete cascade
 );

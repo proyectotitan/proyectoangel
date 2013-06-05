@@ -8,7 +8,7 @@
     try {
       $mail->SMTPAuth   = true;                  
     // Habilitamos la autentificación por SMTP
-      $mail->SMTPSecure = "ssl";                 
+//      $mail->SMTPSecure = "ssl";                 
     // Usar SMTP seguro
       $mail->Host       = "Mx1.hostinger.es";      
     // Indicamos el servidor SMTP

@@ -7,9 +7,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
+	<script type="text/javascript"  src="../js	/validar.js"> </script>
+		<script type="text/javascript">
+		
+		function validar_grupo(form)
+			{
+				var errores= "";
+				var sw=0;
+				
+				if(esBlanco(form.g_nombre.value))
+				{
+					errores=errores+"El nombre es obligatorio\n";
+					sw=1;					
+				}
+				
+				if(esBlanco(form.g_descripcion.value))
+				{
+					errores=errores+"La descripcion es obligatorio";
+					sw=1;					
+				}
+				
+				if (sw==1)
+				{
+					alert(errores);
+				}		
+				else
+				form.submit();
+				
+	}
+	</script>
+	
 
     <!-- Le styles -->
-
+<?php
+	session_start();
+	if ($_SESSION["usuario"]=="")
+		header("Location: index.php");
+?>
    
 
     <script src="../js/jquery.js"></script>
@@ -71,7 +105,7 @@
                       <ul aria-labelledby="drop2" role="menu" class="dropdown-menu">
                         <li><a href="#" tabindex="-1"></a></li>
                         <li><a href="mis_grupos.html" tabindex="-1">Mis grupos</a></li>
-                        <li><a href="nuevo_grupo.html" tabindex="-1">Nuevo grupo</a></li>
+                        <li><a href="nuevo_grupo.php" tabindex="-1">Nuevo grupo</a></li>
 												<li><a href="busca_grupos.html" tabindex="-1">Busca grupos</a></li>
                       </ul>
                     </li>
@@ -96,43 +130,61 @@
 			
       <div class="container-fluid" style="margin-top:60px;">
         <div class="row-fluid">
-             <form id="form">
+             <form id="newg" name="newg" enctype="multipart/form-data" method="post" action="insertar_grupo.php">
              	  <div class="span2"></div>
                   <div class="span8">
                         <p id="datos"><h3>Datos de Grupo</h3></p>
                         <p>Nombre: </p><p><input type="text" id="g_nombre"></input></p>
                         <p>Descripci&oacute;n: </p><p><textarea id="g_descripcion"></textarea></p>
+						
+						<?php
+						$cadena = "SELECT nom_sec FROM sections";
+						
+						 $conexion = mysql_connect ("localhost","proyecto","proyecto");
+        
+                         mysql_select_db("proyecto", $conexion);
+    
+                         $peticion = mysql_query($cadena);	
+                         mysql_close($conexion);						 
+						?>
                         <p>Secci&oacute;n: </p>
                         <p>
                          <select id="g_secciones">
                          	<option value="">Selecciona seccion</option>
-                            <option value="seccion_1">Seccion_1</option>
-                            <option value="seccion_2">Seccion_2</option>
-                            <option value="seccion_3">Seccion_3</option>
-                            <option value="seccion_4">Seccion_4</option>
-                            <option value="seccion_5">Seccion_5</option>
-                            <option value="seccion_6">Seccion_6</option>
-                            <option value="seccion_7">Seccion_7</option>
-                            <option value="seccion_8">Seccion_8</option>
+							<?php
+          	  while ($registro = mysql_fetch_array($peticion)){
+			 
+        ?>
+                            <option value="<?php echo $registro['nom_sec']; ?>"><?php echo $registro['nom_sec']; ?></option>  
+							 <?php 
+						    }
+						?>
                          </select>
-                        </p>
-                        
+                        </p>      					
+												
                         <p><h4>Imagen de Grupo:</h4> 
-                        	<input type="radio" name="img_avatar" style="margin-left:50px;"></input>
+                        	<input type="radio"  id="img_pre" style="margin-left:50px;"></input>
                         	<img src="../img/agt_announcements.png" style="width:60px; height:60px;">
-                            <input type="radio" name="img_avatar" style="margin-left:50px;"></input>
+                            <input type="radio" value="../img/grupo_01.jpg" id="img_avatar2" style="margin-left:50px;"></input>
                             <img src="../img/grupo_01.jpg">;
-                            <input type="radio" name="img_avatar" style="margin-left:50px;"></input>
+                            <input type="radio" value="../img/grupo_02.jpg" id="img_avatar3" style="margin-left:50px;"></input>
                             <img src="../img/grupo_02.jpg">
-                            <input type="radio" name="img_avatar" style="margin-left:50px;"></input>
+                            <input type="radio" value="../img/grupo_03.jpg" id="img_avatar4" style="margin-left:50px;"></input>
                             <img src="../img/grupo_03.jpg">
-                            <input type="radio" name="img_avatar" style="margin-left:50px;"></input>
+                            <input type="radio" value="../img/grupo_04.jpg" id="img_avatar5" style="margin-left:50px;"></input>
                             <img src="../img/grupo_04.jpg">
                         </p>
-                        <p>Subir Imagen:</p><p><input style="margin-top:7px;" type="text" id="u_nombre"></input><input class="btn btn-info" style="margin-left:10px;" type="button" value="Examinar..."></input></p>
-                        <p><input type="button" class="btn btn-danger" value="Guardar datos"></p>
+                        <p>Subir Imagen:</p><p><input id="uploadImage" name="uploadImage" type="file" onChange="ver(newg.uploadImage.value)" />
+                        <p><input type="button" onClick="validar_grupo(this.form)" class="btn btn-danger" value="Guardar datos"></p>
                         <div class="span2"></div>
 		</div>
 	</div>	
+	
+	<script>
+function ver(image){
+document.getElementById('image').innerHTML = "<img src='"+image+"'>" 
+}
+	
+	
   </body>
 </html>
