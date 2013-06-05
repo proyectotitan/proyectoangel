@@ -47,3 +47,9 @@ http://anantgarg.com/2009/05/13/gmail-facebook-style-jquery-chat/
 /////////////********************////////////////////////
 
 
+
+/////////////********************////////////////////////
+EN LO RELATIVO A SUBIR IMAGENES HAY QUE TENER EN CUENTA QUE SOLO PERMITE LA SUBIDA DE GIF, PNG Y JPEG los demas no hace nada^^
+TAMBIEN HAY QUE TENER EN CUENTA QUE LAS IMAGENES SE GUARDAN CON UN NOMBRE ALEATORIO.
+Y creo que ya nada mas cualquier duda o error avisadme
+/////////////********************////////////////////////

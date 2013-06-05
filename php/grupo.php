@@ -29,7 +29,7 @@
 				
 				if(esBlanco(form.upost.value))
 				{
-					errores=errores+"No s epuede subir un comentario en blanco";
+					errores=errores+"No se puede subir un comentario en blanco";
 					sw=1;					
 				}
 				
@@ -118,7 +118,7 @@
         $cadena2 = "SELECT nom_grup FROM pertenecen where nom_grup='{$_GET["grupo"]}' and nombre='{$_SESSION["usuario"]}'";
 		$cadena3 = "SELECT nom_grup FROM `grupos` WHERE seccion in (select seccion from grupos where nom_grup='{$_GET["grupo"]}')";
 		$cadena4 = "SELECT nombre FROM `pertenecen` WHERE nom_grup='{$_GET["grupo"]}'";
-		$cadena5 = "SELECT usuario.avatar, usuario.estado, mensajes.texto, mensajes.fecha, mensajes.nombre FROM usuario, mensajes WHERE mensajes.nom_grup='{$_GET["grupo"]}' GROUP BY mensajes.texto";
+		$cadena5 = "SELECT usuario.avatar, usuario.estado, mensajes.texto, mensajes.fecha, mensajes.nombre FROM usuario, mensajes WHERE mensajes.nom_grup='{$_GET["grupo"]}' GROUP BY mensajes.texto ORDER BY mensajes.fecha DESC";
         
         $conexion = mysql_connect ("localhost","proyecto","proyecto");
         
