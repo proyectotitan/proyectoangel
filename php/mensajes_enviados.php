@@ -115,8 +115,8 @@
 			<tr>
 				<td>
 					<div class="accordion-group">
-					<div class="accordion-heading">
-					<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse_<?php echo $registro['cod_env']; ?>" style="display:inline-block; text-decoration:none; ">
+					<div class="accordion-heading accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse_<?php echo $registro['cod_env']; ?>">
+					<a  style="display:inline-block; text-decoration:none; color: white;">
 					Mensaje enviado a <?php echo $registro['receptor']; ?> el <?php  echo $registro['fechen'];?>
 					
 					</a>
