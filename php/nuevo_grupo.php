@@ -174,7 +174,7 @@
                             <input type="radio" value="../img/grupo_04.jpg" id="img_avatar5" style="margin-left:50px;"></input>
                             <img src="../img/grupo_04.jpg">
                         </p>
-                        <p>Subir Imagen:</p><p><input id="uploadImage" name="uploadImage" type="file" onChange="ver(newg.uploadImage.value)" />
+                        <p>Subir Imagen:</p><p><input id="uploadImage" name="uploadImage" type="file" onChange="ver(newg.uploadImage.value)"/>
                         <p><input type="button" onClick="validar_grupo(this.form)" class="btn btn-danger" value="Guardar datos"></p>
                         <div class="span2"></div>
 		</div>
@@ -185,6 +185,6 @@ function ver(image){
 document.getElementById('image').innerHTML = "<img src='"+image+"'>" 
 }
 	
-	
+	</script>
   </body>
 </html>

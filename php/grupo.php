@@ -138,7 +138,8 @@
 						<img src="<?php echo $registro['imagen']; ?>" style="width: 60px"; height="60px"/>
 					</div>
 					<div class="span8">
-						<h1 align="center"><p align="center"><?php echo $registro['nom_grup']; ?></p></h1>
+						<h1 align="center"><p align="center"><?php echo $registro['nom_grup']; ?></p></h1><br/>
+                                                <img src="../img/fondo_sombra_crear_cuenta_basica.png" class="sombra_titulos">
 					</div>
         
 					<div class="span2">
