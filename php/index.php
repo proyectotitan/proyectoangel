@@ -210,10 +210,11 @@
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 <!------------------------------------------------------------------------------------------------------------------------------------- -->
 	
-    <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="overflow:auto; height:360px;">
+    <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="overflow:auto; height:381px;">
     <div class="modal-header" >
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i><img src="../img/iconos/glyphicons_197_remove.png" width="17" height="25"></i></button>
     <h3 id="myModalLabel">Registro de usuario</h3>
+    <img src="../img/fondo_sombra_crear_cuenta_basica.png" class="sombra_titulos_pupop"></img>
     </div>
 		<form id="form9" name="form9" action="registro.php" method="post">
 			<div class="modal-body">
