@@ -82,7 +82,7 @@
           <div class="nav-collapse collapse">
 		  		<ul class="nav">
 						<li>
-							<a href="inicio.html"><i class="icon-home"></i>&nbsp;Inicio</a>
+							<a href="inicio.php"><i class="icon-home"></i>&nbsp;Inicio</a>
 						</li>
 					</ul>
 			   	
@@ -104,9 +104,9 @@
                       <a data-toggle="dropdown" class="dropdown-toggle" role="button" id="drop2" href="#"><i class="icon-th-large"></i>&nbsp;Grupos<b class="caret"></b></a>
                       <ul aria-labelledby="drop2" role="menu" class="dropdown-menu">
                         <li><a href="#" tabindex="-1"></a></li>
-                        <li><a href="mis_grupos.html" tabindex="-1">Mis grupos</a></li>
+                        <li><a href="mis_grupos.php" tabindex="-1">Mis grupos</a></li>
                         <li><a href="nuevo_grupo.php" tabindex="-1">Nuevo grupo</a></li>
-												<li><a href="busca_grupos.html" tabindex="-1">Busca grupos</a></li>
+												<li><a href="busca_grupos.php" tabindex="-1">Busca grupos</a></li>
                       </ul>
                     </li>
 
@@ -117,7 +117,7 @@
                     <li class="dropdown" id="fat-menu" >
                       <a data-toggle="dropdown" class="dropdown-toggle" role="button" id="drop3" href="#"><i class="icon-asterisk"></i>&nbsp;Cuenta de (Nombre de usuario)<b class="caret"></b></a>
                       <ul aria-labelledby="drop3" role="menu" class="dropdown-menu">
-                        <li><a href="editar_perfil.html" tabindex="-1">Editar perfil</a></li>
+                        <li><a href="editar_perfil.php" tabindex="-1">Editar perfil</a></li>
                         <li class="divider"></li>
                         <li><a href="#" tabindex="-1"><i class="icon-off"></i>&nbsp;Cerrar sesi&oacute;n</a></li>
                       </ul>
@@ -134,8 +134,9 @@
              	  <div class="span2"></div>
                   <div class="span8">
                         <p id="datos"><h3>Datos de Grupo</h3></p>
-                        <p>Nombre: </p><p><input type="text" id="g_nombre"></input></p>
-                        <p>Descripci&oacute;n: </p><p><textarea id="g_descripcion"></textarea></p>
+                        <p>Nombre: </p><p><input type="text" name="g_nombre" id="g_nombre"></input></p>
+						<input type="hidden" id="g_mod" name="g_mod" value="<?php echo $_SESSION["usuario"]?>"/>
+                        <p>Descripci&oacute;n: </p><p><textarea name="g_descripcion" id="g_descripcion"></textarea></p>
 						
 						<?php
 						$cadena = "SELECT nom_sec FROM sections";
@@ -149,7 +150,7 @@
 						?>
                         <p>Secci&oacute;n: </p>
                         <p>
-                         <select id="g_secciones">
+                         <select id="g_secciones" name="g_secciones">
                          	<option value="">Selecciona seccion</option>
 							<?php
           	  while ($registro = mysql_fetch_array($peticion)){
@@ -162,18 +163,7 @@
                          </select>
                         </p>      					
 												
-                        <p><h4>Imagen de Grupo:</h4> 
-                        	<input type="radio"  id="img_pre" style="margin-left:50px;"></input>
-                        	<img src="../img/agt_announcements.png" style="width:60px; height:60px;">
-                            <input type="radio" value="../img/grupo_01.jpg" id="img_avatar2" style="margin-left:50px;"></input>
-                            <img src="../img/grupo_01.jpg">;
-                            <input type="radio" value="../img/grupo_02.jpg" id="img_avatar3" style="margin-left:50px;"></input>
-                            <img src="../img/grupo_02.jpg">
-                            <input type="radio" value="../img/grupo_03.jpg" id="img_avatar4" style="margin-left:50px;"></input>
-                            <img src="../img/grupo_03.jpg">
-                            <input type="radio" value="../img/grupo_04.jpg" id="img_avatar5" style="margin-left:50px;"></input>
-                            <img src="../img/grupo_04.jpg">
-                        </p>
+                      
                         <p>Subir Imagen:</p><p><input id="uploadImage" name="uploadImage" type="file" onChange="ver(newg.uploadImage.value)" />
                         <p><input type="button" onClick="validar_grupo(this.form)" class="btn btn-danger" value="Guardar datos"></p>
                         <div class="span2"></div>

@@ -19,6 +19,7 @@ gustos varchar (50),
 estado varchar (50),
 fecna date,
 sexo varchar (1),
+twiter varchar (50),
 sesion varchar (1)
 )";
 

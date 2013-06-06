@@ -12,21 +12,21 @@ mysql_select_db("proyecto",$conexion);
 // **COMIENZA EL INSERTADO DE DATOS USUARIO**
 // ******************************************
 
-mysql_query("INSERT INTO usuario (nombre, pass, correo, telefono, provincia, municipio, peticiones, privados, avatar, gustos, estado, fecna, sexo, sesion) VALUES('Super fuerza', 'Super', 'superfuerza@gmail.com','','Madrid', 'Leganes','0','0','../img/avatar.jpg','','super inteligencia, que te follen superfuerza','10/12/1990','H','0')");
+mysql_query("INSERT INTO usuario (nombre, pass, correo, telefono, provincia, municipio, peticiones, privados, avatar, gustos, estado, fecna, sexo, sesion) VALUES('Super fuerza', 'Super', 'superfuerza@gmail.com','','Madrid', 'Leganes','0','0','../img/avatar.jpg','','super inteligencia, que te follen superfuerza','10/12/1990','H','twiter','0')");
 
-mysql_query("INSERT INTO usuario (nombre, pass, correo, telefono, provincia, municipio, peticiones, privados, avatar, gustos, estado, fecna, sexo, sesion) VALUES('Roberto Sanchez Perez', 'Roberto', 'robertos@gmail.com','','Madrid', 'Getafe','0','0','../img/avatar.jpg','','sevilla sity vamoh alla','10/12/1990','H','0')");
+mysql_query("INSERT INTO usuario (nombre, pass, correo, telefono, provincia, municipio, peticiones, privados, avatar, gustos, estado, fecna, sexo, sesion) VALUES('Roberto Sanchez Perez', 'Roberto', 'robertos@gmail.com','','Madrid', 'Getafe','0','0','../img/avatar.jpg','','sevilla sity vamoh alla','10/12/1990','H','twiter','0')");
 
-mysql_query("INSERT INTO usuario (nombre, pass, correo, telefono, provincia, municipio, peticiones, privados, avatar, gustos, estado, fecna, sexo, sesion) VALUES('Marina Lopez Reverte', 'Marina', 'lokitah@gmail.com','','Madrid','Leganes','0','0','../img/avatar.jpg','','ey nigga','19/11/1994','M','0')");
+mysql_query("INSERT INTO usuario (nombre, pass, correo, telefono, provincia, municipio, peticiones, privados, avatar, gustos, estado, fecna, sexo, sesion) VALUES('Marina Lopez Reverte', 'Marina', 'lokitah@gmail.com','','Madrid','Leganes','0','0','../img/avatar.jpg','','ey nigga','19/11/1994','M','twiter','0')");
 
-mysql_query("INSERT INTO usuario (nombre, pass, correo, telefono, provincia, municipio, peticiones, privados, avatar, gustos, estado, fecna, sexo, sesion) VALUES('Beatriz Sotomonte Veraz', 'Beatriz', 'beatriz@gmail.com','345678989','Madrid','Fuenlabrada','0','0','../img/avatar.jpg','','Con los dedos de la mano, los dedos de los pies...','14/02/1991','M','0')");
+mysql_query("INSERT INTO usuario (nombre, pass, correo, telefono, provincia, municipio, peticiones, privados, avatar, gustos, estado, fecna, sexo, sesion) VALUES('Beatriz Sotomonte Veraz', 'Beatriz', 'beatriz@gmail.com','345678989','Madrid','Fuenlabrada','0','0','../img/avatar.jpg','','Con los dedos de la mano, los dedos de los pies...','14/02/1991','M','twiter','0')");
 
-mysql_query("INSERT INTO usuario (nombre, pass, correo, telefono, provincia, municipio, peticiones, privados, avatar, gustos, estado, fecna, sexo, sesion) VALUES('Juan Perez Perez', 'Juan', 'juanito@gmail.com','','Madrid', 'Madrid','0','0','../img/avatar.jpg','','mmm 64 lonchas de queso americano','18/10/1992','H','0')");
+mysql_query("INSERT INTO usuario (nombre, pass, correo, telefono, provincia, municipio, peticiones, privados, avatar, gustos, estado, fecna, sexo, sesion) VALUES('Juan Perez Perez', 'Juan', 'juanito@gmail.com','','Madrid', 'Madrid','0','0','../img/avatar.jpg','','mmm 64 lonchas de queso americano','18/10/1992','H','twiter','0')");
 
-mysql_query("INSERT INTO usuario (nombre, pass, correo, telefono, provincia, municipio, peticiones, privados, avatar, gustos, estado, fecna, sexo, sesion) VALUES('Luisa Gonzalez Martin', 'Luisa', 'luisinha@gmail.com','','Madrid', 'Getafe','0','0','../img/avatar.jpg','','Nos fuimos a pescar gambas... buaa','05/02/1989','M','0')");
+mysql_query("INSERT INTO usuario (nombre, pass, correo, telefono, provincia, municipio, peticiones, privados, avatar, gustos, estado, fecna, sexo, sesion) VALUES('Luisa Gonzalez Martin', 'Luisa', 'luisinha@gmail.com','','Madrid', 'Getafe','0','0','../img/avatar.jpg','','Nos fuimos a pescar gambas... buaa','05/02/1989','M','twiter','0')");
 
-mysql_query("INSERT INTO usuario (nombre, pass, correo, telefono, provincia, municipio, peticiones, privados, avatar, gustos, estado, fecna, sexo, sesion) VALUES('Marta Garcia Rodriguez', 'Marta', 'martita@gmail.com','','Madrid', 'Fuenlabrada','0','0','../img/avatar.jpg','','Ebrios patanes del jurado','11/11/1991','M','0')");
+mysql_query("INSERT INTO usuario (nombre, pass, correo, telefono, provincia, municipio, peticiones, privados, avatar, gustos, estado, fecna, sexo, sesion) VALUES('Marta Garcia Rodriguez', 'Marta', 'martita@gmail.com','','Madrid', 'Fuenlabrada','0','0','../img/avatar.jpg','','Ebrios patanes del jurado','11/11/1991','M','twiter','0')");
 
-mysql_query("INSERT INTO usuario (nombre, pass, correo, telefono, provincia, municipio, peticiones, privados, avatar, gustos, estado, fecna, sexo, sesion) VALUES('Miguel Reverte de la Fuente', 'Miguel', 'mdelafuente@gmail.com','','Madrid', 'Leganes','0','0','../img/avatar.jpg','','baauuula baaauuula','07/06/1993','H','0')");
+mysql_query("INSERT INTO usuario (nombre, pass, correo, telefono, provincia, municipio, peticiones, privados, avatar, gustos, estado, fecna, sexo, sesion) VALUES('Miguel Reverte de la Fuente', 'Miguel', 'mdelafuente@gmail.com','','Madrid', 'Leganes','0','0','../img/avatar.jpg','','baauuula baaauuula','07/06/1993','H','twiter','0')");
 
 // *******************************************
 // **COMIENZA EL INSERTADO DATOS CATEGORIAS**
