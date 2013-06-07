@@ -176,5 +176,6 @@ document.getElementById('image').innerHTML = "<img src='"+image+"'>"
 }
 	
 	</script>
+        <!--prueba-->
   </body>
 </html>

@@ -3061,7 +3061,6 @@ input[type="submit"].btn.btn-mini {
   -moz-border-radius: 0.7em 0.7em 0 0;
   -webkit-border-radius: 0.7em 0.7em 0 0;
   border-radius: 0.7em 0.7em 0 0;
-  border-bottom-color: transparent;
   cursor: default;
 }
 .nav-pills > li > a {
@@ -3186,6 +3185,9 @@ input[type="submit"].btn.btn-mini {
 .tab-content {
   overflow: auto;
   margin-top: -11px;
+  -moz-box-shadow: 1px 2px 10px #a6a6a6;
+  -webkit-box-shadow: 1px 2px 10px #a6a6a6;
+  box-shadow: -1px 2px 10px #a6a6a6;
 }
 .tabs-below > .nav-tabs,
 .tabs-right > .nav-tabs,
@@ -3199,7 +3201,6 @@ input[type="submit"].btn.btn-mini {
 .tab-content > .active{
     display: block;
     padding-top: 11px;
-    border-top: solid 1px #650506;
     margin-left: 1px;
     padding-left: 1%;
     padding-right: 1%;

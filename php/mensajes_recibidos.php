@@ -122,8 +122,8 @@
 					Mensaje de <?php echo $registro['emisor']; ?> el <?php  echo $registro['fechen'];?>
 					
 					</a>
-					<a title="Eliminar mensaje" rel="tooltip" href="#" class="pull-right" ><i class="icon-trash"></i></a>
-					<a title="Responder este mensaje" rel="tooltip" onClick="crear_respuesta('id_<?php echo $registro['cod_rec']; ?>', 'e_<?php echo $registro['cod_rec']; ?>')" href="#" class="pull-right" id="e_<?php echo $registro['cod_rec']; ?>"><i class="icon-share-alt" ></i></a>
+                                            <a title="Eliminar mensaje" rel="tooltip" href="#" class="pull-right" ><i class="icon-trash" style="margin-top: 8px; "></i></a>
+					<a title="Responder este mensaje" rel="tooltip" onClick="crear_respuesta('id_<?php echo $registro['cod_rec']; ?>', 'e_<?php echo $registro['cod_rec']; ?>')" href="#" class="pull-right" id="e_<?php echo $registro['cod_rec']; ?>"><i class="icon-share-alt" style="margin-top: 8px;"></i></a>
 					
 					</div>
 					<div id="collapse_<?php echo $registro['cod_rec']; ?>" class="accordion-body collapse" >
