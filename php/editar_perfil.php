@@ -112,7 +112,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#" style="margin-top: 2px"><img src="../img/mundo_blanco.PNG" width="25" height="25"> Hoy en el mundo</a>
+          <a class="brand" href="#" style="margin-top: 2px"><img src="../img/mundo_blanco.png" width="25" height="25"> Hoy en el mundo</a>
           <div class="nav-collapse collapse">
 		  		<ul class="nav">
 						<li>
@@ -283,8 +283,10 @@
 			</div>
 			<div class="modal-footer">
 			<button class="btn btn-danger" data-dismiss="modal" aria-hidden="true">NO</button>
-			<button class="btn btn-success" data-dismiss="modal" aria-hidden="true">SI</button>
-			</div>
+				<a href="eliminar_cuenta.php?nombre=<?php echo $registro['nombre']; ?>" title="Eliminar">
+            <button class="btn btn-success" data-dismiss="modal" aria-hidden="true">SI</button>
+			</a>
+            </div>
 		</form>
     </div>
     </div> <!-- /container -->
