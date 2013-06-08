@@ -47,6 +47,8 @@
 	<link href="../css/chat/chat.css" rel="stylesheet"/>
    
 <script type="text/javascript">
+    <?php if($_SESSION["inicio"]==1) {?>
+//    $("#contenedor").margin-top('13px');
     $porcentaje=0;
     function abrir_pagina(){
         $("#cargando").remove();
@@ -65,7 +67,7 @@
         var id = setInterval("barra()",35);
         setTimeout("clearInterval("+id+")",3895);     
     });
-    
+    <?php } ?>
 </script>		
 
 <script type="text/javascript">
@@ -324,7 +326,7 @@
 		<?php
           	  while ($registro = mysql_fetch_array($peticion)){
           ?>
-	<div class="container-fluid" style="margin-top:60px;">
+      <div class="container-fluid" id="contenedor" style="margin-top:60px;">
       <div class="row-fluid">
 				<div class="span4">
 					<div class="border1" style="margin-left:3px;"> 
@@ -362,7 +364,7 @@
 										<th>Top 10</th>
 										<th>Nombre de grupo</th>
 										<th>Creador</th>
-										<th>Fecha</th>
+                                                                                <th style="padding-right: 10%">Fecha</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -371,10 +373,10 @@
           	  while ($registro = mysql_fetch_array($top10)){
           ?>
     <tr>
-        <td><?php echo $filas; ?></td>
-        <td><a href="grupo.php?grupo=<?php echo $registro['nom_grup']; ?>"><?php echo $registro['nom_grup']; ?></a></td>
-        <td><a href="javascript:Abrir_ventana('v_amigo.php?usuario=<?php echo $registro['nombre_mod']; ?>')"><?php echo $registro['nombre_mod']; ?></a></td>
-        <td><?php echo $registro['fecha_creacion']; ?></td>
+        <td style="font-size: 18px"><strong><?php echo $filas; ?></strong></td>
+        <td><strong><a href="grupo.php?grupo=<?php echo $registro['nom_grup']; ?>"><?php echo $registro['nom_grup']; ?></a></strong></td>
+        <td><strong><a href="javascript:Abrir_ventana('v_amigo.php?usuario=<?php echo $registro['nombre_mod']; ?>')"><?php echo $registro['nombre_mod']; ?></a></strong></td>
+        <td><strong><?php echo $registro['fecha_creacion']; ?></strong></td>
     </tr> 
                                     
            <?php
