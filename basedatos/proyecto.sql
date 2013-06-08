@@ -125,7 +125,6 @@ nom_sec varchar2(20),
 constraint pk_secctions primary key (nom_sec)
 );
 
--------------antigua tabla de chat------------------------------------------
 drop table chat cascade constraint;
 create table chat
 (
@@ -138,21 +137,6 @@ constraint pk_id_chat primary key (cod_ch),
 constraint fk_from_usu foreign key (emi) references usuario,
 constraint fk_to_usu foreign key (recep) references usuario
 );
-------------nueva tabla de chat---------------------------------------------
-drop table chat cascade constraint
-create table chat
-(
-id INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
-from VARCHAR(255) NOT NULL DEFAULT '',
-to VARCHAR(255) NOT NULL DEFAULT '',
-message` TEXT NOT NULL,
-sent` DATETIME NOT NULL DEFAULT '0000-00-00 00:00:00',
-recd` INTEGER UNSIGNED NOT NULL DEFAULT 0,
-PRIMARY KEY (`id`),
-INDEX `to` (`to`),
-INDEX `from` (`from`)
-)
-----------------------------------------------------------------------------
 
 PROMPT ******************************************
 PROMPT **COMIENZA EL INSERTADO DE DATOS USUARIO**
