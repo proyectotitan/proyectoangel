@@ -23,13 +23,14 @@ $mail->Subject = 'PHPMailer mail() test';
 $mail->AltBody = 'This is a plain-text message body';
 //Attach an image file
 //$mail->AddAttachment('images/phpmailer_mini.gif');
-
+$mail->MsgHTML("<b>Hola</b>"); 
 //Send the message, check for errors
 if(!$mail->Send()) {
   echo "Mailer Error: " . $mail->ErrorInfo;
 } else {
   echo "Message sent!";
 }
+echo "Mailer Error: " . $mail->ErrorInfo;
 ?>
 </body>
 </html>

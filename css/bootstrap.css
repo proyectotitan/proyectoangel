@@ -163,7 +163,7 @@ a {
   text-decoration: none;
 }
 a:hover {
-  color: #005580;
+  color: #D10A0D;
   text-decoration: underline;
 }
 .img-rounded {
@@ -3183,6 +3183,7 @@ input[type="submit"].btn.btn-mini {
   clear: both;
 }
 .tab-content {
+  background: #ddd;
   overflow: auto;
   margin-top: -11px;
   -moz-box-shadow: 1px 2px 10px #a6a6a6;
