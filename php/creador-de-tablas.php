@@ -139,21 +139,6 @@ FOREIGN KEY (grup_ban) REFERENCES  grupos (nom_grup) ON DELETE CASCADE
 
 mysql_query($sql10,$conexion);
 
-$sql11= "CREATE TABLE `chat` (
-  `id` INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
-  `from` VARCHAR(255) NOT NULL DEFAULT '',
-  `to` VARCHAR(255) NOT NULL DEFAULT '',
-  `message` TEXT NOT NULL,
-  `sent` DATETIME NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `recd` INTEGER UNSIGNED NOT NULL DEFAULT 0,
-  PRIMARY KEY (`id`),
- INDEX `to` (`to`),
- INDEX `from` (`from`)
-)
-ENGINE = InnoDB;";
-
-mysql_query($sql11,$conexion);
-
 mysql_close($conexion);
 
 

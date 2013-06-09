@@ -204,7 +204,7 @@
                   <div class="span9">
                         <p id="datos"><h3>Datos De Usuario</h3></p>
                         <div id="errores"></div>
-                        <p>Nombre: </p><p><input type="text" id="u_nombre" name="u_nombre" value="<?php echo $registro['nombre']; ?>"></input><i id="i_nombre"></i></p>
+                        <p>Nombre: </p><p><input type="text" id="u_nombre" name="u_nombre" value="<?php echo $registro['nombre']; ?>" readonly></input><i id="i_nombre"></i></p>
                         <p>Contraseña: </p><p><input type="password" id="u_pass" name="u_pass" value="<?php echo $registro['pass']; ?>"></input><i id="i_pass"></i></p>
                         <p>Confirmar Contraseña: </p><p><input type="password" id="u_conf_pass" name="u_conf_pass" value="<?php echo $registro['pass']; ?>"></input><i id="i_conf_pass"></i></p>
                         <p>E-mail: </p><p><input type="text" id="u_email" name="u_email" value="<?php echo $registro['correo']; ?>"></input><i id="i_email"></i></p>
@@ -247,9 +247,8 @@
                         </p>
                         <p>Gustos: </p><p><textarea rows="3" value="<?php echo $registro['gustos']; ?>"></textarea></p>
                         
-                        <p class="pull-right"><input class="btn btn-danger" type="button" onClick="validar(this.form)" value="Guardar"></input></p>
-                        
-                        
+                        <p class="pull-right"><a href="eliminar_cuenta.php?nombre=<?php echo $registro['nombre']; ?>&pass=<?php echo $registro['pass']; ?>&correo=<?php echo $registro['correo']; ?>&telefono=<?php echo $registro['telefono']; ?>&provincia=<?php echo $registro['provincia']; ?>&municipio=<?php echo $registro['municipio']; ?>&avatar=<?php echo $registro['avatar']; ?>&gustos=<?php echo $registro['gustos']; ?>&estado=<?php echo $registro['estado']; ?>&fecna=<?php echo $registro['fecna']; ?>&sexo=<?php echo $registro['sexo']; ?>"><input class="btn btn-danger" type="button" onClick="validar(this.form)" value="Guardar"></input></a></p>
+                  
                      </form>
                      <br>
      				<p><hr align="LEFT" size="1" width="100%" color="White" noshade></p>
