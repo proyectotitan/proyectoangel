@@ -242,7 +242,7 @@ document.getElementById('image').innerHTML = "<img src='"+image+"'>"
                                         <td><?php echo $registromen['nombre']; ?></td>
                                         <td><?php echo $registromen['fecha']; ?></td>
                                         <td><input  value="<?php echo $registromen['cod_men']; ?>" type="checkbox"></td>
-                                        <td><a href="eliminar_un_men.php"><img src="../img/iconos/glyphicons_207_remove_2.png" style="width:14px; height:14px"></a></td>
+                                        <td><a href="eliminar_un_men.php?id=<?php echo $registromen['cod_men']; ?>&gnombre=<?php echo $_GET["grupo"]; ?>"><img src="../img/iconos/glyphicons_207_remove_2.png" style="width:14px; height:14px"></a></td>
 									</tr>
 									<?php
 								}
@@ -259,28 +259,41 @@ document.getElementById('image').innerHTML = "<img src='"+image+"'>"
                      <form id="form_ban" name="form_ban">        
                         <p id="banear"><h3>Banear</h3></p>
                         <p><a class="btn btn-inverse" data-toggle="modal" role="button" href="#myModal3">Banear todos los usuarios</a></p>
+						
+							<?php
+						$cadenaban = "SELECT nombre  FROM pertenecen WHERE nom_grup='{$_GET["grupo"]}' AND nombre <> '{$_SESSION["usuario"]}' AND nombre NOT IN (SELECT nom_ban FROM baneados)";					
+						
+						 $conexion = mysql_connect ("localhost","proyecto","proyecto");        
+                         mysql_select_db("proyecto", $conexion);    
+                         
+						 $datos_b= mysql_query($cadenaban);                         	
+												
+						mysql_close($conexion);
+						?>
+						
                         <table class="table table-hover">
 							 <thead>
 									<tr>
-										<th>Avatar</th>
+									
                                         <th>Nombre</th>
                                         <th></th>
                                         <th></th>
 									</tr>
 								</thead>
 								<tbody>
+								
+								<?php
+								while ($registroban = mysql_fetch_array($datos_b)){
+								?>
 									<tr>
-										<td><img src="../img/avatar.jpg" style="width:40px; height:40px"></td>
-                                        <td>Usuario 001</td>
+										
+                                        <td><?php echo $registroban['nombre']; ?></td>
                                         <td><input type="checkbox"></td>
-                                        <td><a href="#"><img src="../img/iconos/glyphicons_207_remove_2.png" style="width:14px; height:14px"></a></td>
+                                        <td><a href="banear_uno.php?id=<?php echo $registroban['nombre']; ?>&gnombre=<?php echo $_GET["grupo"]; ?>"><img src="../img/iconos/glyphicons_207_remove_2.png" style="width:14px; height:14px"></a></td>
 									</tr>
-									<tr>
-										<td><img src="../img/avatar.jpg" style="width:40px; height:40px"></td>
-                                        <td>Usuario 002</td>
-                                        <td><input type="checkbox"></td>
-                                        <td><a href="#"><img src="../img/iconos/glyphicons_207_remove_2.png" style="width:14px; height:14px"></a></td>
-									</tr>
+								<?php
+								}
+								?>
 								</tbody>
 							</table>
                             <p><a class="btn btn-danger" data-toggle="modal" role="button" href="#myModal4">Banear usuarios seleccionados</a></p>
@@ -293,28 +306,43 @@ document.getElementById('image').innerHTML = "<img src='"+image+"'>"
                         <form id="form_readmitir" name="form_readmitir">    
                         <p id="readmitir"><h3>Readmitir</h3></p>
                         <p><a class="btn btn-inverse" data-toggle="modal" role="button" href="#myModal5">Readmitir todos los usuarios</a></p>
+						
+								<?php
+						$cadenarea = "SELECT nom_ban  FROM baneados WHERE grup_ban='{$_GET["grupo"]}'";					
+						
+						 $conexion = mysql_connect ("localhost","proyecto","proyecto");        
+                         mysql_select_db("proyecto", $conexion);    
+                         
+						 $datos_r= mysql_query($cadenarea);                         	
+												
+						mysql_close($conexion);
+						?>
+						
+						
                         <table class="table table-hover">
 							 <thead>
 									<tr>
-										<th>Avatar</th>
+										
                                         <th>Nombre</th>
                                         <th></th>
                                         <th></th>
 									</tr>
 								</thead>
 								<tbody>
+								
+								<?php
+								while ($registrorea = mysql_fetch_array($datos_r)){
+								?>
+								
 									<tr>
-										<td><img src="../img/avatar.jpg" style="width:40px; height:40px"></td>
-                                        <td>Usuario 001</td>
+									
+									    <td><?php echo $registrorea['nom_ban']; ?></td>
                                         <td><input type="checkbox"></td>
-                                        <td><a href="#"><img src="../img/iconos/glyphicons_207_remove_2.png" style="width:14px; height:14px"></a></td>
+                                        <td><a href="readmitir_uno.php?id=<?php echo $registrorea['nom_ban']; ?>&gnombre=<?php echo $_GET["grupo"]; ?>"><img src="../img/iconos/glyphicons_207_remove_2.png" style="width:14px; height:14px"></a></td>
 									</tr>
-									<tr>
-										<td><img src="../img/avatar.jpg" style="width:40px; height:40px"></td>
-                                        <td>Usuario 002</td>
-                                        <td><input type="checkbox"></td>
-                                        <td><a href="#"><img src="../img/iconos/glyphicons_207_remove_2.png" style="width:14px; height:14px"></a></td>
-									</tr>
+							<?php
+								}
+								?>
 								</tbody>
 							</table>
                             <p><a class="btn btn-danger" data-toggle="modal" role="button" href="#myModal6">Readmitir usuarios seleccionados</a></p>
@@ -337,10 +365,9 @@ document.getElementById('image').innerHTML = "<img src='"+image+"'>"
 				<p>¿Estas completamente seguro de querer eliminar todos los mensajes de este grupo?</p>
                 <p>Se eliminaran todos los mensajes y nunca se podran volver a recuperar.</p>
 			</div>
-			<div class="modal-footer">
-			<button class="btn btn-danger" data-dismiss="modal" aria-hidden="true">NO</button>
-			<a href="borrar_todos_mensajes.php?gnombre=<?php echo $_GET["grupo"]; ?>" title="Eliminar">
-			<button class="btn btn-success" data-dismiss="modal" aria-hidden="true">SI</button>
+			<div class="modal-footer">			
+			<a href="borrar_todos_mensajes.php?gnombre=<?php echo $_GET["grupo"]; ?>" class="btn btn-success" > Si, borrar.
+			
 			</a>
 			</div>
 		</form>
@@ -380,8 +407,8 @@ document.getElementById('image').innerHTML = "<img src='"+image+"'>"
                 <p>Se bloqueara el acceso todos los usuarios y no podran acceder a tu grupo.</p>
 			</div>
 			<div class="modal-footer">
-			<button class="btn btn-danger" data-dismiss="modal" aria-hidden="true">NO</button>
-			<button class="btn btn-success" data-dismiss="modal" aria-hidden="true">SI</button>
+		<a href="banear_todos.php?gnombre=<?php echo $_GET["grupo"]; ?>" class="btn btn-success" > Si, banear. 
+		</a>
 			</div>
 		</form>
     </div>
@@ -420,8 +447,8 @@ document.getElementById('image').innerHTML = "<img src='"+image+"'>"
                 <p>Todos los usuarios volveran a poder escribir mensajes en tu grupo.</p>
 			</div>
 			<div class="modal-footer">
-			<button class="btn btn-danger" data-dismiss="modal" aria-hidden="true">NO</button>
-			<button class="btn btn-success" data-dismiss="modal" aria-hidden="true">SI</button>
+			<a href="readmitir_todos.php?gnombre=<?php echo $_GET["grupo"]; ?>" class="btn btn-success" > Si, readmitir. 
+			</a>
 			</div>
 		</form>
     </div>
