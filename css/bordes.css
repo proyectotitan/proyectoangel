@@ -116,5 +116,11 @@ thead{
         -moz-box-shadow: rgba(0, 0, 0, 0.4) 4px 4px 8px;
         box-shadow: rgba(0, 0, 0, 0.4) 4px 4px 8px;
         z-index: 11;
-        
+    }
+    .transparente{
+        background-color:#333333;
+        filter:alpha(opacity=70);
+        -moz-opacity:.70;
+        opacity:.70;
+        color: white;
     }

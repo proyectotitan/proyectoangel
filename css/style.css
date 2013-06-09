@@ -9,7 +9,7 @@ img {
 	height: 50px;
 	width:1000px; 
 	text-align: center;
-  width:auto;
+        width:auto;
 	
 }
 .dock-container {
@@ -63,10 +63,21 @@ a.dock-item2 {
 }
 .dock-item2 span {
 	display: none;
-	padding-left: 20px;
+        padding: 7%;
+        width: 100%;
+        background: #000;
+        filter: alpha(opacity=70);
+        float: left;
+        -moz-opacity: .70;
+        opacity: .70;
+        -moz-border-radius: 1em 1em 1em 1em;
+        -webkit-border-radius: 1em 1em 1em 1em;
+        border-radius: 1em 1em 1em 1em;
+        color: #fff;
+        margin: auto 0;
 }
 .dock-item2 img {
 	border: none; 
-	margin: 5px 10px 0px; 
+	margin: 15px 10px 0px; 
 	width: 100%; 
 }

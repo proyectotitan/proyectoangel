@@ -306,9 +306,9 @@
 		<?php
         $cadena = "SELECT privados, peticiones, avatar FROM usuario where nombre='{$_SESSION["usuario"]}'";
         $cadena2 = "SELECT nom_grup, nombre_mod, fecha_creacion FROM `grupos` ORDER BY visitas, nom_grup LIMIT 10 ";
-		$cadena3 = "SELECT nom_grup FROM `grupos` WHERE nom_grup IN (SELECT nom_grup FROM `pertenecen` WHERE nombre='{$_SESSION["usuario"]}')";
-		$cadena4 = "SELECT nom_grup FROM `grupos`";
-		$cadena5 = "SELECT nombre FROM `usuario` WHERE nombre != '{$_SESSION["usuario"]}'";
+        $cadena3 = "SELECT nom_grup, imagen FROM `grupos` WHERE nom_grup IN (SELECT nom_grup FROM `pertenecen` WHERE nombre='{$_SESSION["usuario"]}')";
+        $cadena4 = "SELECT nom_grup FROM `grupos`";
+        $cadena5 = "SELECT nombre FROM `usuario` WHERE nombre != '{$_SESSION["usuario"]}'";
         
         $conexion = mysql_connect ("localhost","proyecto","proyecto");
         
@@ -397,7 +397,7 @@
 			  {
           	  while ($registro = mysql_fetch_array($grupo_b)){		 
           ?>
-							<a class="dock-item2" href="grupo.php?grupo=<?php echo $registro['nom_grup']; ?>"><span><?php echo $registro['nom_grup']; ?></span><img src="../img/agt_announcements.png" alt="home" /></a> 
+          <a class="dock-item2" href="grupo.php?grupo=<?php echo $registro['nom_grup']; ?>"><span><?php echo $registro['nom_grup']; ?></span><img src="<?php echo $registro['imagen']; ?>" alt="<?php echo $registro['nom_grup']; ?>" class="img-circle"/></a> 
            <?php
 				  }
 			  }
@@ -428,7 +428,7 @@
           	  while ($registro = mysql_fetch_array($grupos)){
           ?>
                                    
-                <option value="<?php echo $registro['nom_grup']; ?>"><?php echo $registro['nom_grup']; ?></option>
+                                 <option value="<?php echo $registro['nom_grup']; ?>"><span class="transparente"><?php echo $registro['nom_grup']; ?></span></option>
            <?php
                }             
             ?>
