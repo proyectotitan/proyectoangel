@@ -35,7 +35,7 @@
     <script src="../js/bootstrap-collapse.js"></script>
     <script src="../js/bootstrap-carousel.js"></script>
 	<script src="../js/bootstrap-typeahead.js"></script>
-    <script type="text/javascript" src="../js/chat.js"></script>
+    <script src="../js/chat.js"></script>
     <script src="../js/twitter.js"></script>
 
     
@@ -44,8 +44,7 @@
     <link href="../css/bootstrap-responsive.css" rel="stylesheet"/>
 	<link href="../css/bordes.css" rel="stylesheet"/>
 	<link href="../css/blitzer/jquery-ui-css.css" rel="stylesheet"/>
-    <link type="text/css" rel="stylesheet" media="all" href="../css/chat/chat.css" />
-	<link type="text/css" rel="stylesheet" media="all" href="../css/chat/screen.css" />
+	<link href="../css/chat/chat.css" rel="stylesheet"/>
  
 	<!--[if lte IE 7]>
 	<link type="text/css" rel="stylesheet" media="all" href="../css/chat/screen_ie.css" />
