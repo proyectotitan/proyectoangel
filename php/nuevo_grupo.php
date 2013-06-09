@@ -78,7 +78,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#" style="margin-top: 2px"><img src="../img/mundo_blanco.PNG" width="25" height="25"> Hoy en el mundo</a>
+          <a class="brand" href="#" style="margin-top: 2px"><img src="../img/mundo_blanco.png" width="25" height="25"> Hoy en el mundo</a>
           <div class="nav-collapse collapse">
 		  		<ul class="nav">
 						<li>
@@ -94,8 +94,8 @@
 												<li class="dropdown-submenu">
                         <a href="#" tabindex="-1">Buz&oacute;n</a>
                         <ul class="dropdown-menu">
-													<li><a href="mensajes_recibidos.html" tabindex="-1">Mensajes recibidos</a></li>
-													<li><a href="mensajes_enviados.html" tabindex="-1">Mensajes enviados</a></li>
+													<li><a href="mensajes_recibidos.php" tabindex="-1">Mensajes recibidos</a></li>
+													<li><a href="mensajes_enviados.php" tabindex="-1">Mensajes enviados</a></li>
                     		</ul>
                  		 </li>
                       </ul>
