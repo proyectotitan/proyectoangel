@@ -66,12 +66,12 @@
                     <li class="dropdown" >
                       <a data-toggle="dropdown" class="dropdown-toggle" role="button" href="#" id="drop1"><i class="icon-envelope"></i>&nbsp;Mensajes <b class="caret"></b></a>
                       <ul aria-labelledby="drop1" role="menu" class="dropdown-menu">
-                        <li><a href="javascript:Abrir_ventana('mensaje_nuevo.html')" tabindex="-1">Enviar mensaje nuevo</a></li>
+                        <li><a href="javascript:Abrir_ventana('mensaje_nuevo.php')" tabindex="-1">Enviar mensaje nuevo</a></li>
 												<li class="dropdown-submenu">
                         <a href="#" tabindex="-1">Buz&oacute;n</a>
                         <ul class="dropdown-menu">
-													<li><a href="mensajes_recibidos.html" tabindex="-1">Mensajes recibidos</a></li>
-													<li><a href="mensajes_enviados.html" tabindex="-1">Mensajes enviados</a></li>
+													<li><a href="mensajes_recibidos.php" tabindex="-1">Mensajes recibidos</a></li>
+													<li><a href="mensajes_enviados.php" tabindex="-1">Mensajes enviados</a></li>
                     		</ul>
                  		 </li>
                          <li><a href="javascript:Abrir_ventana('chat.html')"><i class="icon-comment"></i>&nbsp;Chat</a></li>
@@ -82,9 +82,9 @@
                       <a data-toggle="dropdown" class="dropdown-toggle" role="button" id="drop2" href="#"><i class="icon-th-large"></i>&nbsp;Grupos<b class="caret"></b></a>
                       <ul aria-labelledby="drop2" role="menu" class="dropdown-menu">
                         <li><a href="#" tabindex="-1"></a></li>
-                        <li><a href="mis_grupos.html" tabindex="-1">Mis grupos</a></li>
-                        <li><a href="nuevo_grupo.html" tabindex="-1">Nuevo grupo</a></li>
-												<li><a href="busca_grupos.html" tabindex="-1">Busca grupos</a></li>
+                        <li><a href="mis_grupos.php" tabindex="-1">Mis grupos</a></li>
+                        <li><a href="nuevo_grupo.php" tabindex="-1">Nuevo grupo</a></li>
+												<li><a href="busca_grupos.php" tabindex="-1">Busca grupos</a></li>
                       </ul>
                       </ul>
                     </li>
@@ -95,7 +95,7 @@
                     <li class="dropdown" id="fat-menu">
                       <a data-toggle="dropdown" class="dropdown-toggle" role="button" id="drop3" href="#"><i class="icon-asterisk"></i>&nbsp;Cuenta de (Nombre de usuario)<b class="caret"></b></a>
                       <ul aria-labelledby="drop3" role="menu" class="dropdown-menu">
-                        <li><a href="editar_perfil.html" tabindex="-1">Editar perfil</a></li>
+                        <li><a href="editar_perfil.php" tabindex="-1">Editar perfil</a></li>
                         <li class="divider"></li>
                         <li><a href="cerrar_sesion.php" tabindex="-1"><i class="icon-off"></i>&nbsp;Cerrar sesi&oacute;n</a></li>
                       </ul>
@@ -129,6 +129,7 @@
 		$t_grupos = mysql_query($cadena3);
 		$t_usuarios = mysql_query($cadena4);
 		$l_mensajes = mysql_query($cadena5);
+		mysql_query("UPDATE grupos SET visitas=visitas+1 WHERE nom_grup='{$_GET["grupo"]}'");
       	mysql_close($conexion);  
       ?>
 		<?php
@@ -148,11 +149,17 @@
 				if ($registro2=="")
 				{
 		?>
-						<a href="#"><h5><img src="../img/iconos/glyphicons_043_group.png" style="width: 20px"; height="20px"/> &nbsp;Unirse al grupo</h5></a>
+						<a href="unir_grupo.php?ng=<?php echo $_GET["grupo"]; ?>"><h5><img src="../img/iconos/glyphicons_043_group.png" style="width: 20px"; height="20px"/> &nbsp;Unirse al grupo</h5></a>
         <?php
 				}
-			
+			else{
 		?>
+			<a href="salir_grupo.php?ng=<?php echo $_GET["grupo"]; ?>"><h5><img src="../img/iconos/glyphicons_197_remove.png" style="width: 20px"; height="20px"/> &nbsp;Salirse del grupo</h5></a>
+		
+		 <?php
+				}
+		?>
+		
 					</div>
 					<div class="span12">
 						<h4 align="center"><p align="center"><?php echo $registro['descripcion_g']; ?></p></h4>
