@@ -247,7 +247,7 @@
                         </p>
                         <p>Gustos: </p><p><textarea rows="3" value="<?php echo $registro['gustos']; ?>"></textarea></p>
                         
-                        <p class="pull-right"><a href="eliminar_cuenta.php?nombre=<?php echo $registro['nombre']; ?>&pass=<?php echo $registro['pass']; ?>&correo=<?php echo $registro['correo']; ?>&telefono=<?php echo $registro['telefono']; ?>&provincia=<?php echo $registro['provincia']; ?>&municipio=<?php echo $registro['municipio']; ?>&avatar=<?php echo $registro['avatar']; ?>&gustos=<?php echo $registro['gustos']; ?>&estado=<?php echo $registro['estado']; ?>&fecna=<?php echo $registro['fecna']; ?>&sexo=<?php echo $registro['sexo']; ?>"><input class="btn btn-danger" type="button" onClick="validar(this.form)" value="Guardar"></input></a></p>
+                        <p class="pull-right"><a href="update_cuenta.php?nombre=<?php echo $registro['nombre']; ?>&pass=<?php echo $registro['pass']; ?>&correo=<?php echo $registro['correo']; ?>&telefono=<?php echo $registro['telefono']; ?>&provincia=<?php echo $registro['provincia']; ?>&municipio=<?php echo $registro['municipio']; ?>&avatar=<?php echo $registro['avatar']; ?>&gustos=<?php echo $registro['gustos']; ?>&estado=<?php echo $registro['estado']; ?>&fecna=<?php echo $registro['fecna']; ?>&sexo=<?php echo $registro['sexo']; ?>"><input class="btn btn-danger" type="button" onClick="validar(this.form)" value="Guardar"></input></a></p>
                   
                      </form>
                      <br>
