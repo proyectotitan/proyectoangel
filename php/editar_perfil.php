@@ -214,18 +214,9 @@
                         <p id="estado"><h3>Estado y Avatar</h3></p>
                         <p>Estado: </p><p><input type="text" id="u_estado" name="u_estado" value="<?php echo $registro['estado']; ?>"></input></p>
                         <p><h4>Imagen de Avatar:</h4> 
-                        	<input type="radio" name="img_avatar" style="margin-left:50px;"></input>
-                        	<img src="../img/avatar.jpg">
-                            <input type="radio" name="img_avatar" style="margin-left:50px;"></input>
-                            <img src="../img/avatar1.jpg">;
-                            <input type="radio" name="img_avatar" style="margin-left:50px;"></input>
-                            <img src="../img/avatar2.png">
-                            <input type="radio" name="img_avatar" style="margin-left:50px;"></input>
-                            <img src="../img/avatar3.jpg">
-                            <input type="radio" name="img_avatar" style="margin-left:50px;"></input>
-                            <img src="../img/avatar4.jpg">
+                        	
                         </p>
-                        <p>Subir Imagen:</p><p><input style="margin-top:7px;" type="text" id="u_imagen"></input><input class="btn btn-info" style="margin-left:10px;" type="button" value="Examinar..."></input></p>
+                        <p>Subir Imagen:</p><p><input id="uploadImage" name="uploadImage" type="file" onChange="ver(newg.uploadImage.value)"/>
                         
                         <hr align="LEFT" size="1" width="100%" color="White" noshade>
                         
@@ -289,6 +280,12 @@
 		</form>
     </div>
     </div> <!-- /container -->
+  
+  <script>
+	function ver(image){
+document.getElementById('image').innerHTML = "<img src='"+image+"'>" 
+}	
+	</script>
   
   </body>
 </html>
