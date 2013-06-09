@@ -7,7 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-
+<?php
+	session_start();
+	if ($_SESSION["usuario"]=="")
+		header("Location: index.php");
+?>
 
 	<script type="text/javascript">
 		
@@ -15,15 +19,6 @@
 			{
 				var errores= "";
 				var sw=0;
-				
-				if(esBlanco(form.g_nombre.value))
-				{
-					errores=errores+"<p>El nombre no puede estar en blanco</p>";
-					sw=1;
-					var x;
-					x=$(document);
-					x.ready(imagen_errores("i_nombre", "Es necesario introducir un nombre de grupo"));
-				}
 				
 				if(esBlanco(form.g_descripcion.value))
 				{
@@ -81,11 +76,11 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#" style="margin-top: 2px"><img src="../img/mundo_blanco.PNG" width="25" height="25"> Hoy en el mundo</a>
+          <a class="brand" href="#" style="margin-top: 2px"><img src="../img/mundo_blanco.png" width="25" height="25"> Hoy en el mundo</a>
           <div class="nav-collapse collapse">
 		  		<ul class="nav">
 						<li>
-							<a href="inicio.html"><i class="icon-home"></i>&nbsp;Inicio</a>
+							<a href="inicio.php"><i class="icon-home"></i>&nbsp;Inicio</a>
 						</li>
 					</ul>
 			   	
@@ -93,12 +88,12 @@
                     <li class="dropdown">
                       <a data-toggle="dropdown" class="dropdown-toggle" role="button" href="#" id="drop1"><i class="icon-envelope"></i>&nbsp;Mensajes <b class="caret"></b></a>
                       <ul aria-labelledby="drop1" role="menu" class="dropdown-menu">
-                        <li><a href="javascript:Abrir_ventana('mensaje_nuevo.html')" tabindex="-1">Enviar mensaje nuevo</a></li>
+                        <li><a href="javascript:Abrir_ventana('mensaje_nuevo.php')" tabindex="-1">Enviar mensaje nuevo</a></li>
 												<li class="dropdown-submenu">
                         <a href="#" tabindex="-1">Buz&oacute;n</a>
                         <ul class="dropdown-menu">
-													<li><a href="mensajes_recibidos.html" tabindex="-1">Mensajes recibidos</a></li>
-													<li><a href="mensajes_enviados.html" tabindex="-1">Mensajes enviados</a></li>
+													<li><a href="mensajes_recibidos.php" tabindex="-1">Mensajes recibidos</a></li>
+													<li><a href="mensajes_enviados.php" tabindex="-1">Mensajes enviados</a></li>
                     		</ul>
                  		 </li>
                       </ul>
@@ -107,8 +102,8 @@
                       <a data-toggle="dropdown" class="dropdown-toggle" role="button" id="drop2" href="#"><i class="icon-th-large"></i>&nbsp;Grupos<b class="caret"></b></a>
                       <ul aria-labelledby="drop2" role="menu" class="dropdown-menu">
                         <li><a href="#" tabindex="-1"></a></li>
-                        <li><a href="mis_grupos.html" tabindex="-1">Mis grupos</a></li>
-                        <li><a href="nuevo_grupo.html" tabindex="-1">Nuevo grupo</a></li>
+                        <li><a href="mis_grupos.php" tabindex="-1">Mis grupos</a></li>
+                        <li><a href="nuevo_grupo.php" tabindex="-1">Nuevo grupo</a></li>
 												<li><a href="busca_grupos.html" tabindex="-1">Busca grupos</a></li>
                       </ul>
                     </li>
@@ -120,7 +115,7 @@
                     <li class="dropdown" id="fat-menu" >
                       <a data-toggle="dropdown" class="dropdown-toggle" role="button" id="drop3" href="#"><i class="icon-asterisk"></i>&nbsp;Cuenta de (Nombre de usuario)<b class="caret"></b></a>
                       <ul aria-labelledby="drop3" role="menu" class="dropdown-menu">
-                        <li><a href="editar_perfil.html" tabindex="-1">Editar perfil</a></li>
+                        <li><a href="editar_perfil.php" tabindex="-1">Editar perfil</a></li>
                         <li class="divider"></li>
                         <li><a href="#" tabindex="-1"><i class="icon-off"></i>&nbsp;Cerrar sesi&oacute;n</a></li>
                       </ul>
@@ -137,8 +132,24 @@
             <div class="span1">
        	   		<img src="../img/agt_announcements.png" style="width: 60px"; height="60px" style="align:center">
             </div>
+			
+			<?php
+						$cadena = "SELECT nom_sec FROM sections";
+						$cadena1="SELECT nom_grup, descripcion_g FROM grupos where nom_grup='{$_GET["grupo"]}'";
+						
+						 $conexion = mysql_connect ("localhost","proyecto","proyecto");
+        
+                         mysql_select_db("proyecto", $conexion);
+    
+                         $peticion = mysql_query($cadena);
+						 $datos_g= mysql_query($cadena1);
+                         mysql_close($conexion);	
+						$registro1 = mysql_fetch_array($datos_g);
+						?>
+			
+			
             <div class="span7">
-       	   		<h2>Nombre de grupo.</h2>
+       	   		<h2><?php echo $registro1['nom_grup']; ?></h2>
             </div>
           <div class="span12">  
               <div class="span3" style="margin-top:17px;">  
@@ -156,15 +167,24 @@
    
               <form id="form_datos" name="form_datos" enctype="multipart/form-data" method="post" action="upload_grupo.php">
                   <div class="span9">
+				  
+				  
                         <p id="datos"><h3>Datos de Grupo</h3></p>
                         <div id="errores"></div>
-                        <p>Nombre: </p><p><input type="text" id="g_nombre"></input><i id="i_nombre"></i></p>
-                        <p>Descripci&oacute;n: </p><p><textarea id="g_descripcion"></textarea><i id="i_descripcion"></i></p>
+						<input type="hidden" value="<?php echo $registro1['nom_grup']; ?>" name="n_hiden" id="n_hiden"></input>
+                        <p>Descripci&oacute;n: </p><p><textarea   name="g_descripcion" id="g_descripcion"><?php echo $registro1['descripcion_g']; ?></textarea><i id="i_descripcion"></i></p>
                         <p>Secci&oacute;n: </p>
                         <p>
-                         <select id="g_secciones">
-                             <option value="seccion_1">Seccion_1</option>
-                           
+											
+                         <select name="g_secciones" id="g_secciones">
+                              <?php
+                           while ($registro = mysql_fetch_array($peticion)){
+			 
+        ?>
+                            <option value="<?php echo $registro['nom_sec']; ?>"><?php echo $registro['nom_sec']; ?></option>  
+							 <?php 
+						    }
+						?>
                          </select>
                         </p>                        
                        
@@ -189,32 +209,44 @@ document.getElementById('image').innerHTML = "<img src='"+image+"'>"
                     <form id="form_mensajes" name="form_mensajes">    
                         <p id="mensajes"><h3>Mensajes</h3></p>
                         <p><a class="btn btn-inverse" data-toggle="modal" role="button" href="#myModal">Eliminar todos los mensajes</a></p>
+						
+						<?php
+						$cadenamen = "SELECT cod_men, texto, nombre, fecha  FROM mensajes WHERE nom_grup='{$_GET["grupo"]}'";					
+						
+						 $conexion = mysql_connect ("localhost","proyecto","proyecto");        
+                         mysql_select_db("proyecto", $conexion);    
+                         
+						 $datos_m= mysql_query($cadenamen);                         	
+												
+						mysql_close($conexion);
+						?>
+						
+						
                         
                         <table class="table table-hover">
 							 <thead>
 									<tr>
 										<th>Mensaje</th>
                                         <th>Usuario</th>
-                                        <th>Hora</th>
+                                        <th>Fecha</th>
                                         <th></th>
                                         <th></th>
 									</tr>
 								</thead>
 								<tbody>
+								<?php
+								while ($registromen = mysql_fetch_array($datos_m)){
+								?>
 									<tr>
-										<td>Contenido de un mensaje 001</td>
-                                        <td>Usuario emisor 001</td>
-                                        <td>07/06/2012 12:20pm</td>
-                                        <td><input type="checkbox"></td>
-                                        <td><a href="#"><img src="../img/iconos/glyphicons_207_remove_2.png" style="width:14px; height:14px"></a></td>
+										<td><?php echo $registromen['texto']; ?></td>
+                                        <td><?php echo $registromen['nombre']; ?></td>
+                                        <td><?php echo $registromen['fecha']; ?></td>
+                                        <td><input  value="<?php echo $registromen['cod_men']; ?>" type="checkbox"></td>
+                                        <td><a href="eliminar_un_men.php"><img src="../img/iconos/glyphicons_207_remove_2.png" style="width:14px; height:14px"></a></td>
 									</tr>
-									<tr>
-										<td>Contenido de un mensaje 002</td>
-                                        <td>Usuario emisor 002</td>
-                                        <td>17/12/2012 06:37pm</td>
-                                        <td><input type="checkbox"></td>
-                                        <td><a href="#"><img src="../img/iconos/glyphicons_207_remove_2.png" style="width:14px; height:14px"></a></td>
-									</tr>
+									<?php
+								}
+								?>
 								</tbody>
 							</table>
                             <p><a class="btn btn-danger" data-toggle="modal" role="button" href="#myModal2">Eliminar mensajes seleccionados</a></p>
@@ -307,7 +339,9 @@ document.getElementById('image').innerHTML = "<img src='"+image+"'>"
 			</div>
 			<div class="modal-footer">
 			<button class="btn btn-danger" data-dismiss="modal" aria-hidden="true">NO</button>
+			<a href="borrar_todos_mensajes.php?gnombre=<?php echo $_GET["grupo"]; ?>" title="Eliminar">
 			<button class="btn btn-success" data-dismiss="modal" aria-hidden="true">SI</button>
+			</a>
 			</div>
 		</form>
     </div>
