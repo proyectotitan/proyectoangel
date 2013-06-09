@@ -28,7 +28,7 @@ $nom_img=$destino . '/' .$cad.'.'.$tipo;
 
 else{
 
-$nom_img="../img/agt_announcements";
+$nom_img="../img/agt_announcements.png";
 
 }
 
