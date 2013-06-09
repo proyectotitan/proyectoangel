@@ -112,18 +112,19 @@
 		 mysql_query("UPDATE usuario SET privados=0 WHERE nombre='{$_SESSION["usuario"]}'");
 		 mysql_close($conexion);
 		 if( $mensajes!="")
+                        $m_modales=$mensajes;
 		  	while ($registro = mysql_fetch_array($mensajes)){
           ?>
 			<tr>
 				<td>
 					<div class="accordion-group">
-					<div class="accordion-heading">
-					<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse_<?php echo $registro['cod_rec']; ?>" style="display:inline-block; text-decoration:none; ">
-					Mensaje de <?php echo $registro['emisor']; ?> el <?php  echo $registro['fechen'];?>
+					<div class="accordion-heading accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse_<?php echo $registro['cod_rec']; ?>">
+					<a  style="display:inline-block; text-decoration:none; color: white;">
+					Mensaje recibido de <?php echo $registro['emisor']; ?> el <?php  echo $registro['fechen'];?>
 					
 					</a>
-                                            <a title="Eliminar mensaje" rel="tooltip" href="#" class="pull-right" ><i class="icon-trash" style="margin-top: 8px; "></i></a>
-					<a title="Responder este mensaje" rel="tooltip" onClick="crear_respuesta('id_<?php echo $registro['cod_rec']; ?>', 'e_<?php echo $registro['cod_rec']; ?>')" href="#" class="pull-right" id="e_<?php echo $registro['cod_rec']; ?>"><i class="icon-share-alt" style="margin-top: 8px;"></i></a>
+					<a href="#eliminar_<?php echo $registro['cod_rec']; ?>" data-toggle="modal" role="button" title="Eliminar mensaje" rel="tooltip" class="pull-right" style="vertical-align:middle;"><i class="icon-trash"></i></a>
+					<a title="Responder este mensaje" rel="tooltip" onClick="crear_respuesta('id_<?php echo $registro['cod_rec']; ?>', 'e_<?php echo $registro['cod_rec']; ?>')" href="#" class="pull-right" id="e_<?php echo $registro['cod_rec']; ?>"><i class="icon-share-alt" ></i></a>
 					
 					</div>
 					<div id="collapse_<?php echo $registro['cod_rec']; ?>" class="accordion-body collapse" >
@@ -139,8 +140,22 @@
 		</table>
 	</div>
 	</div>
-</div>    
-
+</div>  
+    <?php while ($registro = mysql_fetch_array($m_modales)){ ?>
+<div id="eliminar_<?php echo $registro['cod_rec']; ?>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="overflow:auto; height:auto;">
+        <div class="modal-header" >
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i><img src="../img/iconos/glyphicons_197_remove.png" width="17" height="25"></i></button>
+        <h3 id="myModalLabel">Eliminar mensaje.</h3>
+        </div>
+        <div class="modal-body">
+            <p>¿Estas seguro de eliminar el mensaje?</p>
+            <div class="modal-footer" id="mod">
+                <button class="btn btn-danger" data-dismiss="modal" aria-hidden="true">Cerrar</button>
+                <a href="eliminar_amigo.php?usuario=<?php echo $registro2['nombre'];?>" class="btn btn-success">Eliminar mensaje</a>
+            </div>
+        </div>
+    </div>
+   <?php } ?>
     <script src="../js/jquery.js"></script>
 	  <script src="../js/responder.js"></script>
     <script src="../js/bootstrap-transition.js"></script>

@@ -52,12 +52,12 @@
 	<![endif]-->
    
 <script type="text/javascript">
-    <?php if($_SESSION["inicio"]==1) {?>
-//    $("#contenedor").margin-top('13px');
+    
     $porcentaje=0;
     function abrir_pagina(){
         $("#cargando").remove();
         $("#cabecera").addClass("navbar-fixed-top");
+        $("#cabecera").removeClass("arreglo_cabecera_margen");
     }
     function barra(){
       $porcentaje++;
@@ -69,10 +69,13 @@
         }
     $(document).ready(function()
     {
+        var sesion=<?php echo $_SESSION["inicio"]; ?>;
+        if (sesion===1){
+        $("#cabecera").removeClass("navbar-fixed-top");
+        $("#cabecera").addClass("arreglo_cabecera_margen");
         var id = setInterval("barra()",35);
-        setTimeout("clearInterval("+id+")",3895);     
+        setTimeout("clearInterval("+id+")",3895);     }
     });
-    <?php } ?>
 </script>		
 
 <script type="text/javascript">
@@ -250,7 +253,7 @@
       <?php $_SESSION["inicio"]=0; }?>
   
   
-    <div  id="cabecera" class="navbar navbar-inverse">
+    <div  id="cabecera" class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
           <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -258,7 +261,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#" style="margin-top: 2px"><img src="../img/mundo_blanco.PNG" width="25" height="25"> Hoy en el mundo</a>
+          <a class="brand" href="#" style="margin-top: 2px"><img src="../img/mundo_blanco.png" width="25" height="25"> Hoy en el mundo</a>
           <div class="nav-collapse collapse">
 		  		<ul class="nav">
 						<li class="active">
