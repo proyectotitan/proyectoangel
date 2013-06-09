@@ -305,7 +305,7 @@
 		
 		<?php
         $cadena = "SELECT privados, peticiones, avatar FROM usuario where nombre='{$_SESSION["usuario"]}'";
-        $cadena2 = "SELECT nom_grup, nombre_mod, fecha_creacion FROM `grupos` ORDER BY visitas, nom_grup LIMIT 10 ";
+        $cadena2 = "SELECT nom_grup, nombre_mod, fecha_creacion FROM `grupos` ORDER BY visitas desc, nom_grup LIMIT 10 ";
         $cadena3 = "SELECT nom_grup, imagen FROM `grupos` WHERE nom_grup IN (SELECT nom_grup FROM `pertenecen` WHERE nombre='{$_SESSION["usuario"]}')";
         $cadena4 = "SELECT nom_grup FROM `grupos`";
         $cadena5 = "SELECT nombre FROM `usuario` WHERE nombre != '{$_SESSION["usuario"]}'";
