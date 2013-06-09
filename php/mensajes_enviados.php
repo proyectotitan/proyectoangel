@@ -121,7 +121,6 @@
 					
 					</a>
 					<a title="Eliminar mensaje" rel="tooltip" href="#" class="pull-right" style="vertical-align:middle;"><i class="icon-trash"></i></a>
-					<a title="Responder este mensaje" rel="tooltip" onClick="crear_respuesta('id_<?php echo $registro['cod_env']; ?>', 'e_<?php echo $registro['cod_env']; ?>')" href="#" class="pull-right" id="e_<?php echo $registro['cod_env']; ?>"><i class="icon-share-alt" ></i></a>
 					
 					</div>
 					<div id="collapse_<?php echo $registro['cod_env']; ?>" class="accordion-body collapse" >
