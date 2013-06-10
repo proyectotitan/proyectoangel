@@ -153,7 +153,7 @@
                       <ul aria-labelledby="drop3" role="menu" class="dropdown-menu">
                         <li><a href="editar_perfil.php" tabindex="-1">Editar perfil</a></li>
                         <li class="divider"></li>
-                        <li><a href="#" tabindex="-1"><i class="icon-off"></i>&nbsp;Cerrar sesi&oacute;n</a></li>
+                        <li><a href="cerrar_sesion.php" tabindex="-1"><i class="icon-off"></i>&nbsp;Cerrar sesi&oacute;n</a></li>
                       </ul>
                     </li>
                   </ul>
@@ -200,7 +200,7 @@
                   </div>
               </div>
        	      
-              <form id="form" method="post" action="update_cuenta.php">
+              <form id="form" name="form" enctype="multipart/form-data" method="post" action="update_cuenta.php">
                   <div class="span9">
                         <p id="datos"><h3>Datos De Usuario</h3></p>
                         <div id="errores"></div>
