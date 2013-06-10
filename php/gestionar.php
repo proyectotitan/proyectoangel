@@ -38,6 +38,28 @@
 				else
 				form.submit();
 			}
+			
+		function borrar_m()
+			{
+			
+				document.form_mensajes.submit();
+			}
+			
+		function banear_m()
+			{
+			
+				document.form_ban.submit();
+			}
+
+        			
+		function read_m()
+			{
+			
+				document.form_readmitir.submit();
+			}	
+			
+			
+			
 	</script>
 
 
@@ -113,11 +135,11 @@
                   </li>
 									<ul class="nav pull-right">
                     <li class="dropdown" id="fat-menu" >
-                      <a data-toggle="dropdown" class="dropdown-toggle" role="button" id="drop3" href="#"><i class="icon-asterisk"></i>&nbsp;Cuenta de (Nombre de usuario)<b class="caret"></b></a>
+                      <a data-toggle="dropdown" class="dropdown-toggle" role="button" id="drop3" href="#"><i class="icon-asterisk"></i>&nbsp;Cuenta de <?php echo $_SESSION["usuario"]?><b class="caret"></b></a>
                       <ul aria-labelledby="drop3" role="menu" class="dropdown-menu">
                         <li><a href="editar_perfil.php" tabindex="-1">Editar perfil</a></li>
                         <li class="divider"></li>
-                        <li><a href="#" tabindex="-1"><i class="icon-off"></i>&nbsp;Cerrar sesi&oacute;n</a></li>
+                        <li><a href="cerrar_sesion.php" tabindex="-1"><i class="icon-off"></i>&nbsp;Cerrar sesi&oacute;n</a></li>
                       </ul>
                     </li>
                   </ul>
@@ -126,16 +148,10 @@
       </div>
     </div>
 			
-      <div class="container-fluid" style="margin-top:60px;">
-        <div class="row-fluid">
-            <div class="span4"></div>
-            <div class="span1">
-       	   		<img src="../img/agt_announcements.png" style="width: 60px"; height="60px" style="align:center">
-            </div>
 			
 			<?php
 						$cadena = "SELECT nom_sec FROM sections";
-						$cadena1="SELECT nom_grup, descripcion_g FROM grupos where nom_grup='{$_GET["grupo"]}'";
+						$cadena1="SELECT nom_grup, descripcion_g, imagen FROM grupos where nom_grup='{$_GET["grupo"]}'";
 						
 						 $conexion = mysql_connect ("localhost","proyecto","proyecto");
         
@@ -146,6 +162,15 @@
                          mysql_close($conexion);	
 						$registro1 = mysql_fetch_array($datos_g);
 						?>
+			
+      <div class="container-fluid" style="margin-top:60px;">
+        <div class="row-fluid">
+            <div class="span4"></div>
+            <div class="span1">
+       	   		<img src="<?php echo $registro1['imagen']; ?>" style="width: 60px"; height="60px" style="align:center">
+            </div>
+			
+			
 			
 			
             <div class="span7">
@@ -206,7 +231,7 @@ document.getElementById('image').innerHTML = "<img src='"+image+"'>"
    <!---+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-          FORMULARIO DE MENSAJES           +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-->
                         
                         <hr align="LEFT" size="1" width="100%" color="White" noshade>
-                    <form id="form_mensajes" name="form_mensajes">    
+                    <form id="form_mensajes" name="form_mensajes" method="post" action="borrar_men_mark.php">    
                         <p id="mensajes"><h3>Mensajes</h3></p>
                         <p><a class="btn btn-inverse" data-toggle="modal" role="button" href="#myModal">Eliminar todos los mensajes</a></p>
 						
@@ -220,8 +245,7 @@ document.getElementById('image').innerHTML = "<img src='"+image+"'>"
 												
 						mysql_close($conexion);
 						?>
-						
-						
+									
                         
                         <table class="table table-hover">
 							 <thead>
@@ -240,8 +264,9 @@ document.getElementById('image').innerHTML = "<img src='"+image+"'>"
 									<tr>
 										<td><?php echo $registromen['texto']; ?></td>
                                         <td><?php echo $registromen['nombre']; ?></td>
-                                        <td><?php echo $registromen['fecha']; ?></td>
-                                        <td><input  value="<?php echo $registromen['cod_men']; ?>" type="checkbox"></td>
+                                        <td><?php echo $registromen['fecha']; ?></td>	
+										<input  name="nombreg" id="nombreg"  type="hidden" value="<?php echo $_GET["grupo"]; ?>"/>
+                                        <td><input type="checkbox" name="chk_group[]" value="<?php echo $registromen['cod_men']; ?>" /></td>
                                         <td><a href="eliminar_un_men.php?id=<?php echo $registromen['cod_men']; ?>&gnombre=<?php echo $_GET["grupo"]; ?>"><img src="../img/iconos/glyphicons_207_remove_2.png" style="width:14px; height:14px"></a></td>
 									</tr>
 									<?php
@@ -249,14 +274,14 @@ document.getElementById('image').innerHTML = "<img src='"+image+"'>"
 								?>
 								</tbody>
 							</table>
-                            <p><a class="btn btn-danger" data-toggle="modal" role="button" href="#myModal2">Eliminar mensajes seleccionados</a></p>
+                            <p><a class="btn btn-danger" data-toggle="modal" role="button"  href="#myModal2">Eliminar mensajes seleccionados</a></p>
                          </form>   
                             
   <!-- ----------------------------------------------------------------------------------------------------------------------------------- -->
    
    <!---+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-          FORMULARIO DE BANEAR           +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-->                          
                              <hr align="LEFT" size="1" width="100%" color="White" noshade>
-                     <form id="form_ban" name="form_ban">        
+                     <form id="form_ban" name="form_ban" method="post" action="banear_mark.php">        
                         <p id="banear"><h3>Banear</h3></p>
                         <p><a class="btn btn-inverse" data-toggle="modal" role="button" href="#myModal3">Banear todos los usuarios</a></p>
 						
@@ -288,7 +313,8 @@ document.getElementById('image').innerHTML = "<img src='"+image+"'>"
 									<tr>
 										
                                         <td><?php echo $registroban['nombre']; ?></td>
-                                        <td><input type="checkbox"></td>
+										<input  name="nombregb" id="nombregb"  type="hidden" value="<?php echo $_GET["grupo"]; ?>"/>
+                                        <td><input type="checkbox" name="chk_groupb[]" value="<?php echo $registroban['nombre']; ?>"></td>
                                         <td><a href="banear_uno.php?id=<?php echo $registroban['nombre']; ?>&gnombre=<?php echo $_GET["grupo"]; ?>"><img src="../img/iconos/glyphicons_207_remove_2.png" style="width:14px; height:14px"></a></td>
 									</tr>
 								<?php
@@ -303,7 +329,7 @@ document.getElementById('image').innerHTML = "<img src='"+image+"'>"
    
    <!---+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-          FORMULARIO DE READMITIR         +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-->                          
                             <hr align="LEFT" size="1" width="100%" color="White" noshade>
-                        <form id="form_readmitir" name="form_readmitir">    
+                        <form id="form_readmitir" name="form_readmitir" method="post" action="readmitir_mark.php">    
                         <p id="readmitir"><h3>Readmitir</h3></p>
                         <p><a class="btn btn-inverse" data-toggle="modal" role="button" href="#myModal5">Readmitir todos los usuarios</a></p>
 						
@@ -337,7 +363,8 @@ document.getElementById('image').innerHTML = "<img src='"+image+"'>"
 									<tr>
 									
 									    <td><?php echo $registrorea['nom_ban']; ?></td>
-                                        <td><input type="checkbox"></td>
+                                        <td><input type="checkbox" name="chk_groupr[]" value="<?php echo $registrorea['nom_ban']; ?>"></td>
+										<input  name="nombregr" id="nombregr"  type="hidden" value="<?php echo $_GET["grupo"]; ?>"/>
                                         <td><a href="readmitir_uno.php?id=<?php echo $registrorea['nom_ban']; ?>&gnombre=<?php echo $_GET["grupo"]; ?>"><img src="../img/iconos/glyphicons_207_remove_2.png" style="width:14px; height:14px"></a></td>
 									</tr>
 							<?php
@@ -376,19 +403,20 @@ document.getElementById('image').innerHTML = "<img src='"+image+"'>"
     
     <!-------------------------------------------   MYMODAL2 ELIMINAR MENSAJES SELECCIONADOS  -------------------------------------------------- -->
 	
-    <div id="myModal2" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="overflow:auto; height:240px;">
+    <div  id="myModal2" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="overflow:auto; height:240px;">
     <div class="modal-header" >
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i><img src="../img/iconos/glyphicons_197_remove.png" width="17" height="25"></i></button>
     <h3 id="myModalLabel">Eliminar mensajes seleccionados</h3>
     </div>
-		<form id="elimform">
+		<form name="elimform" id="elimform" >
 			<div class="modal-body">
+			
 				<p>¿Estas completamente seguro de querer eliminar los mensajes seleccionados de este grupo?</p>
                 <p>Se eliminaran los mensajes seleccionados y nunca se podran volver a recuperar.</p>
 			</div>
 			<div class="modal-footer">
-			<button class="btn btn-danger" data-dismiss="modal" aria-hidden="true">NO</button>
-			<button class="btn btn-success" data-dismiss="modal" aria-hidden="true">SI</button>
+			
+			<a type="submit" class="btn btn-success"  onClick="borrar_m()" >Si, borrar </a>
 			</div>
 		</form>
     </div>
@@ -427,8 +455,7 @@ document.getElementById('image').innerHTML = "<img src='"+image+"'>"
                 <p>Se bloqueara el acceso a los usuarios seleccionados y no podran acceder a tu grupo.</p>
 			</div>
 			<div class="modal-footer">
-			<button class="btn btn-danger" data-dismiss="modal" aria-hidden="true">NO</button>
-			<button class="btn btn-success" data-dismiss="modal" aria-hidden="true">SI</button>
+			<a type="submit" class="btn btn-success"  onClick="banear_m()" >Si, banear </a>
 			</div>
 		</form>
     </div>
@@ -467,8 +494,7 @@ document.getElementById('image').innerHTML = "<img src='"+image+"'>"
                 <p>Los usuarios seleccionados volveran a poder escribir mensajes en tu grupo.</p>
 			</div>
 			<div class="modal-footer">
-			<button class="btn btn-danger" data-dismiss="modal" aria-hidden="true">NO</button>
-			<button class="btn btn-success" data-dismiss="modal" aria-hidden="true">SI</button>
+			<a type="submit" class="btn btn-success"  onClick="read_m()" >Si, readmitir </a>
 			</div>
 		</form>
     </div>

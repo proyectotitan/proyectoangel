@@ -54,7 +54,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#" style="margin-top: 2px"><img src="../img/mundo_blanco.PNG" width="20" height="20"> Hoy en el mundo</a>
+          <a class="brand" href="#" style="margin-top: 2px"><img src="../img/mundo_blanco.png" width="20" height="20"> Hoy en el mundo</a>
           <div class="nav-collapse collapse">
 		  
 			   	<ul class="nav">
@@ -93,7 +93,7 @@
                   </li>
 									<ul class="nav pull-right">
                     <li class="dropdown" id="fat-menu">
-                      <a data-toggle="dropdown" class="dropdown-toggle" role="button" id="drop3" href="#"><i class="icon-asterisk"></i>&nbsp;Cuenta de (Nombre de usuario)<b class="caret"></b></a>
+                      <a data-toggle="dropdown" class="dropdown-toggle" role="button" id="drop3" href="#"><i class="icon-asterisk"></i>&nbsp;Cuenta de <?php echo $_SESSION["usuario"]?><b class="caret"></b></a>
                       <ul aria-labelledby="drop3" role="menu" class="dropdown-menu">
                         <li><a href="editar_perfil.php" tabindex="-1">Editar perfil</a></li>
                         <li class="divider"></li>
@@ -116,6 +116,7 @@
     <?php
         $cadena = "SELECT nom_grup, imagen, descripcion_g FROM grupos where nom_grup='{$_GET["grupo"]}'";
         $cadena2 = "SELECT nom_grup FROM pertenecen where nom_grup='{$_GET["grupo"]}' and nombre='{$_SESSION["usuario"]}'";
+		$cadenaban = "SELECT grup_ban FROM baneados where grup_ban='{$_GET["grupo"]}' and nom_ban='{$_SESSION["usuario"]}'";
 		$cadena3 = "SELECT nom_grup FROM `grupos` WHERE seccion in (select seccion from grupos where nom_grup='{$_GET["grupo"]}')";
 		$cadena4 = "SELECT nombre FROM `pertenecen` WHERE nom_grup='{$_GET["grupo"]}'";
 		$cadena5 = "SELECT usuario.avatar, usuario.estado, mensajes.texto, mensajes.fecha, mensajes.nombre FROM usuario, mensajes WHERE mensajes.nom_grup='{$_GET["grupo"]}' GROUP BY mensajes.texto ORDER BY mensajes.fecha DESC";
@@ -129,6 +130,7 @@
 		$t_grupos = mysql_query($cadena3);
 		$t_usuarios = mysql_query($cadena4);
 		$l_mensajes = mysql_query($cadena5);
+		$x_ban = mysql_query($cadenaban);
 		mysql_query("UPDATE grupos SET visitas=visitas+1 WHERE nom_grup='{$_GET["grupo"]}'");
       	mysql_close($conexion);  
       ?>
@@ -151,13 +153,22 @@
 		?>
 						<a href="unir_grupo.php?ng=<?php echo $_GET["grupo"]; ?>"><h5><img src="../img/iconos/glyphicons_043_group.png" style="width: 20px"; height="20px"/> &nbsp;Unirse al grupo</h5></a>
         <?php
-				}
-			else{
+				}		else{	
+		$registroban = mysql_fetch_array($x_ban);
+		if ($registroban!=""){
+		?>	
+		<p>Estas baneado y mientras dure el bloque no podras escribir mensajes.</p>
+				
+        <?php		
+		}
+			else{			
 		?>
+				
+		
 			<a href="salir_grupo.php?ng=<?php echo $_GET["grupo"]; ?>"><h5><img src="../img/iconos/glyphicons_197_remove.png" style="width: 20px"; height="20px"/> &nbsp;Salirse del grupo</h5></a>
 		
 		 <?php
-				}
+				}}
 		?>
 		
 					</div>
@@ -201,9 +212,15 @@
 					<div class="span4"></div>
 					<div class="span4">
          <?php			
-				if ($registro2!="")
-			{
+				
+				if ($registro2!="" )
+			{      
+				   if ($registroban!=""){}else{
+			
 		?>
+		
+		
+		
 						<form id="comment" name="comment"  method="post" action="post.php">
 							<textarea id="upost" name="upost" ></textarea><br>
 							<input type="hidden" id="n_grup" name="n_grup" value="<?php echo $_GET["grupo"]?>"/>
@@ -212,7 +229,7 @@
 							
 						</form>
          <?php
-			}
+			}}
 		 ?>
 					</div>
 					<div class="span4"></div>

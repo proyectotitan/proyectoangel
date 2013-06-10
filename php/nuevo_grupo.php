@@ -115,7 +115,7 @@
                   </li>
 									<ul class="nav pull-right">
                     <li class="dropdown" id="fat-menu" >
-                      <a data-toggle="dropdown" class="dropdown-toggle" role="button" id="drop3" href="#"><i class="icon-asterisk"></i>&nbsp;Cuenta de (Nombre de usuario)<b class="caret"></b></a>
+                      <a data-toggle="dropdown" class="dropdown-toggle" role="button" id="drop3" href="#"><i class="icon-asterisk"></i>&nbsp;Cuenta de <?php echo $_SESSION["usuario"]?><b class="caret"></b></a>
                       <ul aria-labelledby="drop3" role="menu" class="dropdown-menu">
                         <li><a href="editar_perfil.php" tabindex="-1">Editar perfil</a></li>
                         <li class="divider"></li>

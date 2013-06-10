@@ -37,7 +37,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#" style="margin-top: 2px"><img src="../img/mundo_blanco.PNG" width="20" height="20"> Hoy en el mundo</a>
+          <a class="brand" href="#" style="margin-top: 2px"><img src="../img/mundo_blanco.png" width="20" height="20"> Hoy en el mundo</a>
           <div class="nav-collapse collapse">
 		  
 			   	<ul class="nav">
@@ -73,11 +73,11 @@
                   </li>
 									<ul class="nav pull-right">
                     <li class="dropdown" id="fat-menu">
-                      <a data-toggle="dropdown" class="dropdown-toggle" role="button" id="drop3" href="#"><i class="icon-asterisk"></i>&nbsp;Cuenta de (Nombre de usuario)<b class="caret"></b></a>
+                      <a data-toggle="dropdown" class="dropdown-toggle" role="button" id="drop3" href="#"><i class="icon-asterisk"></i>&nbsp;Cuenta de <?php echo $_SESSION["usuario"]?><b class="caret"></b></a>
                       <ul aria-labelledby="drop3" role="menu" class="dropdown-menu">
                         <li><a href="editar_perfil.php" tabindex="-1">Editar perfil</a></li>
                         <li class="divider"></li>
-                        <li><a href="#" tabindex="-1"><i class="icon-off"></i>&nbsp;Cerrar sesi&oacute;n</a></li>
+                        <li><a href="cerrar_sesion.php" tabindex="-1"><i class="icon-off"></i>&nbsp;Cerrar sesi&oacute;n</a></li>
                       </ul>
                     </li>
                   </ul>

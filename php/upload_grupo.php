@@ -37,6 +37,6 @@ mysql_query("UPDATE grupos SET descripcion_g='{$_POST['g_descripcion']}',seccion
 }
 
 mysql_close($conexion);
-header("Location: inicio.php");
+header("Location: gestionar.php?grupo={$_POST['n_hiden']}");
 
 ?>
