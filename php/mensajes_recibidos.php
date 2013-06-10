@@ -23,7 +23,8 @@
 <?php	
     $conexion = mysql_connect ("localhost","proyecto","proyecto");        
 	mysql_select_db("proyecto", $conexion);
-	$mensajes=mysql_query("SELECT cod_rec, emisor, fechen, contenido FROM mens_recibido WHERE receptor='{$_SESSION["usuario"]}'");
+	$mensajes=mysql_query("SELECT cod_rec, emisor, fechen, contenido FROM mens_recibido WHERE receptor='{$_SESSION["usuario"]}' order by fechen desc");
+        $codigos=mysql_query("SELECT cod_rec, fechen FROM mens_recibido WHERE receptor='{$_SESSION["usuario"]}' order by fechen desc");
 	
 ?>
   <body>
@@ -112,7 +113,6 @@
 		 mysql_query("UPDATE usuario SET privados=0 WHERE nombre='{$_SESSION["usuario"]}'");
 		 mysql_close($conexion);
 		 if( $mensajes!="")
-                        $m_modales=$mensajes;
 		  	while ($registro = mysql_fetch_array($mensajes)){
           ?>
 			<tr>
@@ -141,17 +141,18 @@
 	</div>
 	</div>
 </div>  
-    <?php while ($registro = mysql_fetch_array($m_modales)){ ?>
+    <?php while ($registro = mysql_fetch_array($codigos)){ ?>
 <div id="eliminar_<?php echo $registro['cod_rec']; ?>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="overflow:auto; height:auto;">
         <div class="modal-header" >
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i><img src="../img/iconos/glyphicons_197_remove.png" width="17" height="25"></i></button>
         <h3 id="myModalLabel">Eliminar mensaje.</h3>
+        <img src="../img/fondo_sombra_crear_cuenta_basica.png" class="sombra_titulos_pupop"></img>
         </div>
         <div class="modal-body">
             <p>¿Estas seguro de eliminar el mensaje?</p>
             <div class="modal-footer" id="mod">
                 <button class="btn btn-danger" data-dismiss="modal" aria-hidden="true">Cerrar</button>
-                <a href="eliminar_amigo.php?usuario=<?php echo $registro2['nombre'];?>" class="btn btn-success">Eliminar mensaje</a>
+                <a href="eliminar_mensaje.php?cod_mensaje=<?php echo $registro['cod_rec']; ?> &cod_p=1" class="btn btn-success" data-loading-text="Eliminando...">Eliminar mensaje</a>
             </div>
         </div>
     </div>

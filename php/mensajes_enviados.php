@@ -23,8 +23,9 @@
 <?php	
     $conexion = mysql_connect ("localhost","proyecto","proyecto");        
 	mysql_select_db("proyecto", $conexion);
-	$mensajes=mysql_query("SELECT cod_env, receptor, fechen, contenido FROM mens_enviado WHERE emisor='{$_SESSION["usuario"]}'");
-	mysql_close($conexion);
+	$mensajes=mysql_query("SELECT cod_env, receptor, fechen, contenido FROM mens_enviado WHERE emisor='{$_SESSION["usuario"]}' order by fechen desc ");
+	$codigos=mysql_query("SELECT cod_env, fechen FROM mens_enviado WHERE emisor='{$_SESSION["usuario"]}' order by fechen desc");
+        mysql_close($conexion);
 ?>
   <body>
 
@@ -104,7 +105,7 @@
 		<table class="table"> 
 		<thead>
 			<tr>
-				<th><div align="center">Lista de mensajes enviados</div></th>
+                            <th><div align="center">Lista de mensajes enviados</div></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -120,7 +121,7 @@
 					Mensaje enviado a <?php echo $registro['receptor']; ?> el <?php  echo $registro['fechen'];?>
 					
 					</a>
-					<a title="Eliminar mensaje" rel="tooltip" href="#" class="pull-right" style="vertical-align:middle;"><i class="icon-trash"></i></a>
+					<a href="#eliminar_<?php echo $registro['cod_env']; ?>" data-toggle="modal" role="button" title="Eliminar mensaje" rel="tooltip" class="pull-right" style="vertical-align:middle;"><i class="icon-trash"></i></a>
 					
 					</div>
 					<div id="collapse_<?php echo $registro['cod_env']; ?>" class="accordion-body collapse" >
@@ -137,7 +138,22 @@
 	</div>
 	</div>
 </div>    
-
+<?php while ($registro = mysql_fetch_array($codigos)){ ?>
+<div id="eliminar_<?php echo $registro['cod_env']; ?>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="overflow:auto; height:auto;">
+        <div class="modal-header" >
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i><img src="../img/iconos/glyphicons_197_remove.png" width="17" height="25"></i></button>
+        <h3 id="myModalLabel">Eliminar mensaje.</h3>
+        <img src="../img/fondo_sombra_crear_cuenta_basica.png" class="sombra_titulos_pupop"></img>
+        </div>
+        <div class="modal-body">
+            <p>¿Estas seguro de eliminar el mensaje?</p>
+            <div class="modal-footer" id="mod">
+                <button class="btn btn-danger" data-dismiss="modal" aria-hidden="true">Cerrar</button>
+                <a href="eliminar_mensaje.php?cod_mensaje=<?php echo $registro['cod_env']; ?> &cod_p=2" class="btn btn-success" data-loading-text="Eliminando...">Eliminar mensaje</a>
+            </div>
+        </div>
+    </div>
+   <?php } ?>
     <script src="../js/jquery.js"></script>
 	  <script src="../js/responder.js"></script>
     <script src="../js/bootstrap-transition.js"></script>
