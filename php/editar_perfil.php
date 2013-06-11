@@ -107,7 +107,7 @@
           <div class="nav-collapse collapse">
 		  		<ul class="nav">
 						<li>
-							<a href="inicio.html"><i class="icon-home"></i>&nbsp;Inicio</a>
+							<a href="inicio.php"><i class="icon-home"></i>&nbsp;Inicio</a>
 						</li>
 					</ul>
 			   	
