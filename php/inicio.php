@@ -366,8 +366,8 @@
 						 <table width="0%" class="table table-hover">
 							 <thead>
 									<tr>
-										<th>Top 10</th>
-										<th>Nombre de grupo</th>
+										<th>Top</th>
+										<th>Grupos</th>
 										<th>Creador</th>
                                                                                 <th style="padding-right: 10%">Fecha</th>
 									</tr>
