@@ -287,7 +287,11 @@
         while ($registro4 = mysql_fetch_array($t_usuarios)){
     ?>
                 <tr>
+                 <?php if ($registro4['nombre'] != $_SESSION["usuario"]){?>   
                   <td><a href="javascript:Abrir_ventana('v_amigo.php?usuario=<?php echo $registro4['nombre']; ?>')"><?php echo $registro4['nombre']; ?></a></td>
+                 <?php }else { ?>
+                  <td><?php echo $registro4['nombre']; ?></td>
+                 <?php } ?>
                 </tr>
     <?php
 		}
