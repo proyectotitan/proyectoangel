@@ -137,7 +137,7 @@
 		$cadenaban = "SELECT grup_ban FROM baneados where grup_ban='{$_GET["grupo"]}' and nom_ban='{$_SESSION["usuario"]}'";
 		$cadena3 = "SELECT nom_grup FROM `grupos` WHERE seccion in (select seccion from grupos where nom_grup='{$_GET["grupo"]}')";
 		$cadena4 = "SELECT nombre FROM `pertenecen` WHERE nom_grup='{$_GET["grupo"]}'";
-		$cadena5 = "SELECT usuario.avatar, usuario.estado, mensajes.texto, mensajes.fecha, mensajes.nombre FROM usuario, mensajes WHERE mensajes.nom_grup='{$_GET["grupo"]}' GROUP BY mensajes.texto ORDER BY mensajes.cod_men DESC";
+		$cadena5 = "SELECT usuario.avatar, usuario.estado, mensajes.texto, mensajes.fecha, mensajes.nombre FROM usuario, mensajes WHERE mensajes.nom_grup='{$_GET["grupo"]}' AND usuario.nombre= mensajes.nombre GROUP BY mensajes.texto ORDER BY mensajes.cod_men DESC";
         
         $conexion = mysql_connect ("localhost","proyecto","proyecto");
         
@@ -204,7 +204,7 @@
 									<tr>
 										<td style="background:#CCCCCC">
 											<div class="span1">
-												<img src="../img/avatar.jpg" style="width: 60px"; height="60px">
+												<img src="<?php echo $registro5['avatar'];?>" style="width: 60px"; height="60px">
 											</div>
 											<div class="span4">
 												<h5><?php echo $registro5['nombre'];?></h5>
