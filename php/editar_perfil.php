@@ -107,7 +107,7 @@
           <div class="nav-collapse collapse">
 		  		<ul class="nav">
 						<li>
-							<a href="inicio.html"><i class="icon-home"></i>&nbsp;Inicio</a>
+							<a href="inicio.php"><i class="icon-home"></i>&nbsp;Inicio</a>
 						</li>
 					</ul>
 			   	
@@ -131,11 +131,9 @@
                         <li><a href="#" tabindex="-1"></a></li>
                         <li><a href="mis_grupos.php" tabindex="-1">Mis grupos</a></li>
                         <li><a href="nuevo_grupo.php" tabindex="-1">Nuevo grupo</a></li>
-												<li><a href="busca_grupos.html" tabindex="-1">Busca grupos</a></li>
                       </ul>
                     </li>
 
-                    <li><a href="javascript:Abrir_ventana('chat.html')"><i class="icon-comment"></i>&nbsp;Chat</a></li>
             </ul>
                   </li>
 									<ul class="nav pull-right">
