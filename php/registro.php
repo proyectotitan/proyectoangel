@@ -1,8 +1,7 @@
 <?php
 
-$conexion = mysql_connect ("localhost","proyecto","proyecto");
-
-mysql_select_db("proyecto",$conexion);
+$conexion = mysql_connect ("mysql.hostinger.es","u155657675_proye","proyecto");
+mysql_select_db("u155657675_proye",$conexion);
 
 $insertado=mysql_query("INSERT INTO usuario (nombre,pass,correo, peticiones, privados, avatar) VALUES ('{$_POST['r_usuario']}','{$_POST['r_pass']}','{$_POST['r_email']}', '0', '0', '../img/avatar.jpg')");
 

@@ -1,12 +1,14 @@
 <?php
 
-$conexion = mysql_connect ("localhost","proyecto","proyecto");
+$conexion = mysql_connect ("mysql.hostinger.es","u155657675_proye","proyecto");
+
+
 
 if(!$conexion){
 	die("No he podido conectar por la siguiente razon".mysql_error());
 	}
 	
-mysql_select_db("proyecto",$conexion);
+mysql_select_db("u155657675_proye",$conexion);
 
 // ******************************************
 // **COMIENZA EL INSERTADO DE DATOS USUARIO**

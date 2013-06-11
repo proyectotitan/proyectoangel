@@ -31,8 +31,8 @@ $nom_img="../img/avatar.jpg";
 
 }
 	
-	$conexion = mysql_connect ("localhost","proyecto","proyecto");        
-    mysql_select_db("proyecto", $conexion);
+	$conexion = mysql_connect ("mysql.hostinger.es","u155657675_proye","proyecto");
+        mysql_select_db("u155657675_proye",$conexion);
     
 	mysql_query("UPDATE usuario SET pass='{$_POST['u_pass']}', correo='{$_POST['u_email']}', telefono='{$_POST['u_telefono']}', provincia='{$_POST['u_prov']}', municipio='{$_POST['u_muni']}', avatar='$nom_img', gustos='{$_POST['gustos']}', estado='{$_POST['u_estado']}', fecna='{$_POST['u_fecna']}', sexo='{$_POST['sexo']}'  WHERE nombre ='{$_POST['u_nombre']}'");
    

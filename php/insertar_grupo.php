@@ -35,9 +35,8 @@ $nom_img="../img/agt_announcements.png";
 $fecha=strftime( "%Y-%m-%d", time() );
 
 
-$conexion = mysql_connect ("localhost","proyecto","proyecto");
-
-mysql_select_db("proyecto",$conexion);
+$conexion = mysql_connect ("mysql.hostinger.es","u155657675_proye","proyecto");
+mysql_select_db("u155657675_proye",$conexion);
 
 
 mysql_query("INSERT INTO grupos (nom_grup, descripcion_g, fecha_creacion, nombre_mod, imagen, seccion, visitas) VALUES ('{$_POST['g_nombre']}','{$_POST['g_descripcion']}','$fecha','{$_POST['g_mod']}','$nom_img','{$_POST['g_secciones']}','0')");

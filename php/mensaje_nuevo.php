@@ -11,8 +11,8 @@
 	session_start();
 	if ($_SESSION["usuario"]=="")
 		header("Location: index.php");
-	$conexion = mysql_connect ("localhost","proyecto","proyecto");        
-	mysql_select_db("proyecto", $conexion);
+	$conexion = mysql_connect ("mysql.hostinger.es","u155657675_proye","proyecto");
+        mysql_select_db("u155657675_proye",$conexion);
 	$amigos = mysql_query("SELECT amigo1 FROM amigos WHERE amigo2 = '{$_SESSION["usuario"]}'UNION SELECT amigo2 FROM amigos WHERE amigo1 = '{$_SESSION["usuario"]}'");
 ?>
     <script src="../js/jquery.js"></script>

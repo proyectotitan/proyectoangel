@@ -155,9 +155,9 @@
         $cadena = "SELECT nombre, pass, correo, telefono, provincia, municipio, avatar, gustos, estado,fecna, sexo FROM usuario where nombre='{$_SESSION["usuario"]}'";
         
         
-        $conexion = mysql_connect ("localhost","proyecto","proyecto");
-        
-        mysql_select_db("proyecto", $conexion);
+       $conexion = mysql_connect ("mysql.hostinger.es","u155657675_proye","proyecto");
+
+mysql_select_db("u155657675_proye",$conexion);
     
         $peticion = mysql_query($cadena);
     

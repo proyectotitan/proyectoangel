@@ -3,8 +3,9 @@
     if ($_SESSION["usuario"]=="")
 	header("Location: index.php");
 	
-	$conexion = mysql_connect ("localhost","proyecto","proyecto");        
-    mysql_select_db("proyecto", $conexion);
+	$conexion = mysql_connect ("mysql.hostinger.es","u155657675_proye","proyecto");
+
+mysql_select_db("u155657675_proye",$conexion);
 	
 	$h_b=mysql_query("SELECT nombre  FROM pertenecen WHERE nom_grup='{$_GET["gnombre"]}' AND nombre <> '{$_SESSION["usuario"]}' AND nombre NOT IN (SELECT nom_ban FROM baneados)");
 	

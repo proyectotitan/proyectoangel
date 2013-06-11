@@ -21,8 +21,8 @@
     
   </head>
 <?php	
-    $conexion = mysql_connect ("localhost","proyecto","proyecto");        
-	mysql_select_db("proyecto", $conexion);
+       $conexion = mysql_connect ("mysql.hostinger.es","u155657675_proye","proyecto");
+        mysql_select_db("u155657675_proye",$conexion);
 	$mensajes=mysql_query("SELECT cod_env, receptor, fechen, contenido FROM mens_enviado WHERE emisor='{$_SESSION["usuario"]}' order by cod_env desc ");
 	$codigos=mysql_query("SELECT cod_env, fechen FROM mens_enviado WHERE emisor='{$_SESSION["usuario"]}' order by fechen desc");
         mysql_close($conexion);

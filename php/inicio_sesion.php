@@ -1,8 +1,8 @@
 <?php
 
-$conexion = mysql_connect ("localhost","proyecto","proyecto");
+$conexion = mysql_connect ("mysql.hostinger.es","u155657675_proye","proyecto");
 
-mysql_select_db("proyecto",$conexion);
+mysql_select_db("u155657675_proye",$conexion);
 
 $usuario = $_POST['s_usuario'];
 

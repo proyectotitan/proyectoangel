@@ -139,9 +139,9 @@
 		$cadena4 = "SELECT nombre FROM `pertenecen` WHERE nom_grup='{$_GET["grupo"]}'";
 		$cadena5 = "SELECT usuario.avatar, usuario.estado, mensajes.texto, mensajes.fecha, mensajes.nombre FROM usuario, mensajes WHERE mensajes.nom_grup='{$_GET["grupo"]}' AND usuario.nombre= mensajes.nombre GROUP BY mensajes.texto ORDER BY mensajes.cod_men DESC";
         
-        $conexion = mysql_connect ("localhost","proyecto","proyecto");
-        
-        mysql_select_db("proyecto", $conexion);
+       $conexion = mysql_connect ("mysql.hostinger.es","u155657675_proye","proyecto");
+
+mysql_select_db("u155657675_proye",$conexion);
     
         $peticion = mysql_query($cadena);
 		$c_peticiones = mysql_query($cadena2);

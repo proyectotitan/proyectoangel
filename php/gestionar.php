@@ -151,9 +151,9 @@
 						$cadena = "SELECT nom_sec FROM sections";
 						$cadena1="SELECT nom_grup, descripcion_g, imagen FROM grupos where nom_grup='{$_GET["grupo"]}'";
 						
-						 $conexion = mysql_connect ("localhost","proyecto","proyecto");
-        
-                         mysql_select_db("proyecto", $conexion);
+						 $conexion = mysql_connect ("mysql.hostinger.es","u155657675_proye","proyecto");
+
+mysql_select_db("u155657675_proye",$conexion);
     
                          $peticion = mysql_query($cadena);
 						 $datos_g= mysql_query($cadena1);
@@ -236,8 +236,9 @@ document.getElementById('image').innerHTML = "<img src='"+image+"'>"
 						<?php
 						$cadenamen = "SELECT cod_men, texto, nombre, fecha  FROM mensajes WHERE nom_grup='{$_GET["grupo"]}'";					
 						
-						 $conexion = mysql_connect ("localhost","proyecto","proyecto");        
-                         mysql_select_db("proyecto", $conexion);    
+						$conexion = mysql_connect ("mysql.hostinger.es","u155657675_proye","proyecto");
+
+mysql_select_db("u155657675_proye",$conexion);    
                          
 						 $datos_m= mysql_query($cadenamen);                         	
 												
@@ -286,8 +287,9 @@ document.getElementById('image').innerHTML = "<img src='"+image+"'>"
 							<?php
 						$cadenaban = "SELECT nombre  FROM pertenecen WHERE nom_grup='{$_GET["grupo"]}' AND nombre <> '{$_SESSION["usuario"]}' AND nombre NOT IN (SELECT nom_ban FROM baneados)";					
 						
-						 $conexion = mysql_connect ("localhost","proyecto","proyecto");        
-                         mysql_select_db("proyecto", $conexion);    
+						 $conexion = mysql_connect ("mysql.hostinger.es","u155657675_proye","proyecto");
+
+mysql_select_db("u155657675_proye",$conexion);   
                          
 						 $datos_b= mysql_query($cadenaban);                         	
 												
@@ -334,8 +336,9 @@ document.getElementById('image').innerHTML = "<img src='"+image+"'>"
 								<?php
 						$cadenarea = "SELECT nom_ban  FROM baneados WHERE grup_ban='{$_GET["grupo"]}'";					
 						
-						 $conexion = mysql_connect ("localhost","proyecto","proyecto");        
-                         mysql_select_db("proyecto", $conexion);    
+						$conexion = mysql_connect ("mysql.hostinger.es","u155657675_proye","proyecto");
+
+mysql_select_db("u155657675_proye",$conexion);   
                          
 						 $datos_r= mysql_query($cadenarea);                         	
 												

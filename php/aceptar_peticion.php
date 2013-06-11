@@ -4,9 +4,9 @@ session_start();
 if ($_SESSION["usuario"]=="")
 	header("Location: index.php");
 
-$conexion = mysql_connect ("localhost","proyecto","proyecto");
+$conexion = mysql_connect ("mysql.hostinger.es","u155657675_proye","proyecto");
 
-mysql_select_db("proyecto",$conexion);
+mysql_select_db("u155657675_proye",$conexion);
 
 mysql_query("INSERT INTO amigos (amigo1, amigo2) VALUES('{$_GET["peticion"]}', '{$_SESSION["usuario"]}')");
 

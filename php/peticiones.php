@@ -80,8 +80,8 @@
     
 	<?php
 		$cadena = "SELECT cod_pet, texto, env FROM peticiones where rec='{$_SESSION["usuario"]}'";
-		$conexion = mysql_connect ("localhost","proyecto","proyecto");
-		mysql_select_db("proyecto", $conexion);
+		$conexion = mysql_connect ("mysql.hostinger.es","u155657675_proye","proyecto");
+                mysql_select_db("u155657675_proye",$conexion);
 		$peticion = mysql_query($cadena);
 		$peticion2 = mysql_query($cadena);
     	mysql_close($conexion);
@@ -122,8 +122,8 @@
    <?php
      while ($registro = mysql_fetch_array($peticion2)){
 		$cadena = "SELECT correo, telefono,	provincia, municipio, avatar, gustos, estado, fecna  FROM usuario WHERE nombre='{$registro["env"]}'";
-		$conexion = mysql_connect ("localhost","proyecto","proyecto");
-		mysql_select_db("proyecto", $conexion);
+		$conexion = mysql_connect ("mysql.hostinger.es","u155657675_proye","proyecto");
+                mysql_select_db("u155657675_proye",$conexion);
 		$datos = mysql_query($cadena);
     	mysql_close($conexion);
    ?>

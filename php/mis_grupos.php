@@ -114,8 +114,8 @@
 	<?php
 	$moderador=$_SESSION["usuario"];
 	$cadena = "SELECT  nom_grup, descripcion_g FROM grupos  where nombre_mod='$moderador'";
-	$conexion = mysql_connect ("localhost","proyecto","proyecto");
-	mysql_select_db("proyecto", $conexion);
+	$conexion = mysql_connect ("mysql.hostinger.es","u155657675_proye","proyecto");
+        mysql_select_db("u155657675_proye",$conexion);
 	$peticion = mysql_query($cadena);
 	
 	?>

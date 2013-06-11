@@ -4,9 +4,8 @@ session_start();
 if ($_SESSION["usuario"]=="")
 	header("Location: index.php");
 
-$conexion = mysql_connect ("localhost","proyecto","proyecto");
-
-mysql_select_db("proyecto",$conexion);
+$conexion = mysql_connect ("mysql.hostinger.es","u155657675_proye","proyecto");
+mysql_select_db("u155657675_proye",$conexion);
 
 mysql_query("DELETE FROM `peticiones` WHERE env = '{$_GET["peticion"]}' and rec = '{$_SESSION["usuario"]}'");
 echo mysql_error();

@@ -1,8 +1,7 @@
 <?php
 
-$conexion = mysql_connect ("localhost","proyecto","proyecto");
-
-mysql_select_db("proyecto",$conexion);
+$conexion = mysql_connect ("mysql.hostinger.es","u155657675_proye","proyecto");
+mysql_select_db("u155657675_proye",$conexion);
 
 $fecha=strftime( "%Y-%m-%d-%H-%M-%S", time() );
 

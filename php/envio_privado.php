@@ -3,8 +3,9 @@
 	if ($_SESSION["usuario"]=="")
 		header("Location: index.php");
 		
-	$conexion = mysql_connect ("localhost","proyecto","proyecto");        
-	mysql_select_db("proyecto", $conexion);
+	$conexion = mysql_connect ("mysql.hostinger.es","u155657675_proye","proyecto");
+
+mysql_select_db("u155657675_proye",$conexion);
 	mysql_query("INSERT INTO `mens_enviado`(`contenido`, `fechen`, `emisor`, `receptor`) 
 	VALUES ('{$_POST['mensaje']}', sysdate(), '{$_SESSION["usuario"]}', '{$_POST['amigos']}');");
 	mysql_query("INSERT INTO `mens_recibido`(`contenido`, `fechen`, `emisor`, `receptor`) 

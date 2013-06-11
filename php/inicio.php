@@ -315,9 +315,9 @@
         $cadena4 = "SELECT nom_grup FROM grupos";
         $cadena5 = "SELECT nombre FROM `usuario` WHERE nombre != '{$_SESSION["usuario"]}'";
         
-        $conexion = mysql_connect ("localhost","proyecto","proyecto");
-        
-        mysql_select_db("proyecto", $conexion);
+       $conexion = mysql_connect ("mysql.hostinger.es","u155657675_proye","proyecto");
+
+mysql_select_db("u155657675_proye",$conexion);
     
         $peticion = mysql_query($cadena);
 		$top10 = mysql_query($cadena2);

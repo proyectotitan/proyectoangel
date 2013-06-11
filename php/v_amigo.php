@@ -33,8 +33,8 @@
      <?php
       $cadena = "SELECT amigo1 FROM amigos WHERE (amigo1='{$_GET["usuario"]}' or amigo2='{$_GET["usuario"]}') and (amigo1='{$_SESSION["usuario"]}' or amigo2='{$_SESSION["usuario"]}')"; 
       $cadena2 = "SELECT nombre, correo, telefono, provincia, municipio, avatar, gustos, estado, fecna, peticiones  FROM usuario WHERE nombre='{$_GET["usuario"]}'";    
-      $conexion = mysql_connect ("localhost","proyecto","proyecto");        
-      mysql_select_db("proyecto", $conexion);    
+      $conexion = mysql_connect ("mysql.hostinger.es","u155657675_proye","proyecto");
+      mysql_select_db("u155657675_proye",$conexion);    
       $c_amigo = mysql_query($cadena);
 	  $datos_usuario = mysql_query($cadena2);
 	  $registro2 = mysql_fetch_array($datos_usuario);	
