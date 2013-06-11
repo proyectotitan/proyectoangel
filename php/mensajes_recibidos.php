@@ -123,12 +123,17 @@
 					Mensaje recibido de <?php echo $registro['emisor']; ?> el <?php  echo $registro['fechen'];?>
 					
 					</a>
-					<a href="#eliminar_<?php echo $registro['cod_rec']; ?>" data-toggle="modal" role="button" title="Eliminar mensaje" rel="tooltip" class="pull-right" style="vertical-align:middle;"><i class="icon-trash"></i></a>
-					<a title="Responder este mensaje" rel="tooltip" onClick="crear_respuesta('id_<?php echo $registro['cod_rec']; ?>', 'e_<?php echo $registro['cod_rec']; ?>')" href="#" class="pull-right" id="e_<?php echo $registro['cod_rec']; ?>"><i class="icon-share-alt" ></i></a>
+					
 					
 					</div>
 					<div id="collapse_<?php echo $registro['cod_rec']; ?>" class="accordion-body collapse" >
 					<div class="accordion-inner">
+                                            <a href="#eliminar_<?php echo $registro['cod_rec']; ?>" data-toggle="modal" role="button" title="Eliminar mensaje" rel="tooltip" class="pull-right" style="vertical-align:middle;">
+                                                <img src="../img/iconos/glyphicons_016_bin.png" style="width: 12px; margin-left: 15px;"/>
+                                            </a>
+					<a title="Responder este mensaje" rel="tooltip" onClick="crear_respuesta('id_<?php echo $registro['cod_rec']; ?>')" href="#" class="pull-right" id="e_<?php echo $registro['cod_rec']; ?>">
+                                            <img src="../img/iconos/glyphicons_152_new_window.png" style="width: 17px;">
+                                        </a>
 					<?php echo $registro['contenido']; ?>
 					<div id="id_<?php echo $registro['cod_rec']; ?>"></div>
 					</div>
