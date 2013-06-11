@@ -12,6 +12,7 @@
 	session_start();
 	if ($_SESSION["usuario"]=="")
 		header("Location: index.php");
+        $conf=$_GET['mensaje_conf'];
 ?>
 
     <link href="../css/bootstrap.css" rel="stylesheet">
@@ -88,8 +89,14 @@
 		
 		
 <div class="container-fluid" style="margin-top:60px;">
+    <?php if ($conf!=""){ ?>
+            <div class="alert alert-block">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <h4>Mensaje respondido correctamente</h4>
+            </div>
+        <?php } ?>
 	<div class="row-fluid">
-    
+        
     	<div class="span3">  
                   <div class="bs-docs-sidebar">
                     <ul class="nav nav-list bs-docs-sidenav affix">
@@ -97,7 +104,9 @@
                         <li class="active"><a href="mensajes_recibidos.php"><i class="icon-chevron-right"></i>Mensajes recibidos</a></li>
                         <li><a href="mensajes_enviados.php"><i class="icon-chevron-right"></i>Mensajes enviados</a></li>
                     </ul>
+                      
                   </div>
+            
               </div>	
         
         <div class="span9">

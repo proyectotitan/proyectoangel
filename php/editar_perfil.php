@@ -252,10 +252,11 @@
     ?>
   <!------------------------------------------------------------------------------------------------------------------------------------- -->
 	
-    <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="overflow:auto; height:230px;">
+    <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="overflow:auto;">
     <div class="modal-header" >
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i><img src="../img/iconos/glyphicons_197_remove.png" width="17" height="25"></i></button>
     <h3 id="myModalLabel">Eliminacion de usuario</h3>
+    <img src="../img/fondo_sombra_crear_cuenta_basica.png" class="sombra_titulos_pupop"></img>
     </div>
 		<form id="elimform">
 			<div class="modal-body">
