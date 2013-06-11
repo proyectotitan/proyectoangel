@@ -7,6 +7,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
+		
+		<!-- Carga de scripts -->
+		
+	<script src="../js/jquery.js"></script>
+	<script src="../js/responder.js"></script>
+    <script src="../js/bootstrap-transition.js"></script>
+    <script src="../js/bootstrap-alert.js"></script>
+	<script src="../js/abrir_ventana.js"></script>
+    <script src="../js/bootstrap-modal.js"></script>
+    <script src="../js/bootstrap-dropdown.js"></script>
+    <script src="../js/bootstrap-scrollspy.js"></script>
+    <script src="../js/bootstrap-tab.js"></script>
+    <script src="../js/bootstrap-tooltip.js"></script>
+    <script src="../js/bootstrap-popover.js"></script>
+
+    <script src="../js/bootstrap-button.js"></script>
+    <script src="../js/bootstrap-collapse.js"></script>
+    <script src="../js/bootstrap-carousel.js"></script>
+    <script src="../js/bootstrap-typeahead.js"></script>
+	
+	
     
 <?php
 	session_start();
@@ -119,7 +140,7 @@
 		$cadenaban = "SELECT grup_ban FROM baneados where grup_ban='{$_GET["grupo"]}' and nom_ban='{$_SESSION["usuario"]}'";
 		$cadena3 = "SELECT nom_grup FROM `grupos` WHERE seccion in (select seccion from grupos where nom_grup='{$_GET["grupo"]}')";
 		$cadena4 = "SELECT nombre FROM `pertenecen` WHERE nom_grup='{$_GET["grupo"]}'";
-		$cadena5 = "SELECT usuario.avatar, usuario.estado, mensajes.texto, mensajes.fecha, mensajes.nombre FROM usuario, mensajes WHERE mensajes.nom_grup='{$_GET["grupo"]}' GROUP BY mensajes.texto ORDER BY mensajes.fecha DESC";
+		$cadena5 = "SELECT usuario.avatar, usuario.estado, mensajes.texto, mensajes.fecha, mensajes.nombre FROM usuario, mensajes WHERE mensajes.nom_grup='{$_GET["grupo"]}' GROUP BY mensajes.texto ORDER BY mensajes.cod_men DESC";
         
         $conexion = mysql_connect ("localhost","proyecto","proyecto");
         
@@ -277,25 +298,7 @@
 				</div>
 			</div>
 		</div>
-		
-		<!-- Carga de scripts -->
-		
-	<script src="../js/jquery.js"></script>
-	<script src="../js/responder.js"></script>
-    <script src="../js/bootstrap-transition.js"></script>
-    <script src="../js/bootstrap-alert.js"></script>
-	<script src="../js/abrir_ventana.js"></script>
-    <script src="../js/bootstrap-modal.js"></script>
-    <script src="../js/bootstrap-dropdown.js"></script>
-    <script src="../js/bootstrap-scrollspy.js"></script>
-    <script src="../js/bootstrap-tab.js"></script>
-    <script src="../js/bootstrap-tooltip.js"></script>
-    <script src="../js/bootstrap-popover.js"></script>
-
-    <script src="../js/bootstrap-button.js"></script>
-    <script src="../js/bootstrap-collapse.js"></script>
-    <script src="../js/bootstrap-carousel.js"></script>
-    <script src="../js/bootstrap-typeahead.js"></script>
+	
 
   </body>
 </html>
