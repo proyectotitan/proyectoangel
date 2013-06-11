@@ -63,7 +63,7 @@
       if($porcentaje<=100)
           $("#numero_por").replaceWith("<span id='numero_por'>"+$porcentaje+"%</span>");
       $("#barra_carga").width(''+$porcentaje+'%');
-     if($porcentaje===95)
+     if($porcentaje===90)
           setTimeout(abrir_pagina,2000);    
         }
     $(document).ready(function()
@@ -459,32 +459,7 @@ mysql_select_db("u155657675_proye",$conexion);
                  
                  
 					 <div class="span12" style="margin-top:7%;">
-					 	<div id="main_container" class="pull-right" style="overflow-x: auto; height:180px; width: 52%;">
-						<table width="100%" class="table" style= "border-top:1px solid #000000; background-color:#FFFFFF; width: 100%; margin-right:11px;">
-							 <thead>
-									<tr>
-										<th>Amigos conectados</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td><a href="#" onClick="javascript:chatWith('Amigo_1')">Amigo 1</a></td>
-									</tr>
-									<tr>
-										<td><a href="#" onClick="javascript:chatWith('Amigo_2')">Amigo 2</a></td>
-									</tr>
-									<tr>
-										<td><a href="#" onClick="javascript:chatWith('Amigo_3')">Amigo 3</a></td>
-									</tr>
-								<tr>
-										<td><a href="#" onClick="javascript:chatWith('Amigo_4')">Amigo 4</a></td>
-									</tr>
-                                    <tr>
-										<td><a href="#" onClick="javascript:chatWith('Amigo_5')">Amigo 5</a></td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
+					 	
 					 </div>
 	 		 </div>
 		</div>
