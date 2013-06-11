@@ -158,7 +158,9 @@
 				  $num_men = mysql_fetch_array($num_mensajes)
 				  ?>
                   <td><?php echo $num_men['cuenta'];  $aux=$registro5['nom_grup']; ?></td>
-                  <td><a href="grupo.php?grupo=<?php echo $registro5['nom_grup'];?>" title="Ver"><img src="../img/iconos/glyphicons_027_search.png" style="width:15px; height:15px;"/></a>  &nbsp; <a href="gestionar.php?grupo=<?php echo $registro5['nom_grup'];?>" title="Gestionar"><img src="../img/iconos/glyphicons_030_pencil.png" style="width:15px; height:15px;"/></a> &nbsp; <a class="btn btn-danger" data-toggle="modal" role="button" href="#myModal"> <img src="../img/iconos/glyphicons_207_remove_2.png" style="width:13px; height:13px;"/></a></td>
+                  <td><a href="grupo.php?grupo=<?php echo $registro5['nom_grup'];?>" title="Ver"><img src="../img/iconos/glyphicons_027_search.png" style="width:15px; height:15px;"/></a>  &nbsp;
+                      <a href="gestionar.php?grupo=<?php echo $registro5['nom_grup'];?>" title="Gestionar"><img src="../img/iconos/glyphicons_030_pencil.png" style="width:15px; height:15px;"/></a> &nbsp;
+                      <a  data-toggle="modal" role="button" href="#myModal" title="Eliminar"> <img src="../img/iconos/glyphicons_207_remove_2.png" style="width:13px; height:13px;"/></a></td>
 				  
                 </tr>
 				<?php
@@ -176,17 +178,19 @@
 	
 	      <!-------------------------------------------   MYMODAL ELIMINAR GRUPO  -------------------------------------------------- -->
 	
-    <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="overflow:auto; height:240px;">
+    <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="overflow:auto;">
     <div class="modal-header" >
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i><img src="../img/iconos/glyphicons_197_remove.png" width="17" height="25"></i></button>
     <h3 id="myModalLabel">Eliminar todos los mensajes</h3>
+    <img src="../img/fondo_sombra_crear_cuenta_basica.png" class="sombra_titulos_pupop"></img>
     </div>
 		
 			<div class="modal-body">
 				<p>¿Estas completamente seguro de querer eliminar este grupo?</p>
                 <p>Se eliminaran todos los datos y nunca se podran volver a recuperar.</p>
 			</div>
-			<div class="modal-footer">			
+			<div class="modal-footer">		
+                         <button class="btn btn-danger" data-dismiss="modal" aria-hidden="true">Cerrar</button>   
 			<a href="eliminar_grupo.php?grupo=<?php echo $aux;?>"  class="btn btn-success" > Si, borrar.			
 			</a>
 			</div>

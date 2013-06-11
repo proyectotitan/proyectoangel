@@ -382,17 +382,19 @@ document.getElementById('image').innerHTML = "<img src='"+image+"'>"
       
       <!-------------------------------------------   MYMODAL ELIMINAR TODOS LOS MENSAJES  -------------------------------------------------- -->
 	
-    <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="overflow:auto; height:240px;">
+    <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="overflow:auto;">
     <div class="modal-header" >
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i><img src="../img/iconos/glyphicons_197_remove.png" width="17" height="25"></i></button>
     <h3 id="myModalLabel">Eliminar todos los mensajes</h3>
+    <img src="../img/fondo_sombra_crear_cuenta_basica.png" class="sombra_titulos_pupop"></img>
     </div>
 		<form id="elimform">
 			<div class="modal-body">
 				<p>¿Estas completamente seguro de querer eliminar todos los mensajes de este grupo?</p>
                 <p>Se eliminaran todos los mensajes y nunca se podran volver a recuperar.</p>
 			</div>
-			<div class="modal-footer">			
+			<div class="modal-footer">	
+                        <button class="btn btn-danger" data-dismiss="modal" aria-hidden="true">Cerrar</button>    
 			<a href="borrar_todos_mensajes.php?gnombre=<?php echo $_GET["grupo"]; ?>" class="btn btn-success" > Si, borrar.
 			
 			</a>
@@ -403,10 +405,11 @@ document.getElementById('image').innerHTML = "<img src='"+image+"'>"
     
     <!-------------------------------------------   MYMODAL2 ELIMINAR MENSAJES SELECCIONADOS  -------------------------------------------------- -->
 	
-    <div  id="myModal2" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="overflow:auto; height:240px;">
+    <div  id="myModal2" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="overflow:auto; ">
     <div class="modal-header" >
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i><img src="../img/iconos/glyphicons_197_remove.png" width="17" height="25"></i></button>
     <h3 id="myModalLabel">Eliminar mensajes seleccionados</h3>
+    <img src="../img/fondo_sombra_crear_cuenta_basica.png" class="sombra_titulos_pupop"></img>
     </div>
 		<form name="elimform" id="elimform" >
 			<div class="modal-body">
@@ -415,7 +418,7 @@ document.getElementById('image').innerHTML = "<img src='"+image+"'>"
                 <p>Se eliminaran los mensajes seleccionados y nunca se podran volver a recuperar.</p>
 			</div>
 			<div class="modal-footer">
-			
+			<button class="btn btn-danger" data-dismiss="modal" aria-hidden="true">Cerrar</button>
 			<a type="submit" class="btn btn-success"  onClick="borrar_m()" >Si, borrar </a>
 			</div>
 		</form>
@@ -424,10 +427,11 @@ document.getElementById('image').innerHTML = "<img src='"+image+"'>"
     
     <!----------------------------------------------   MYMODAL3 BANEAR TODOS LOS USUARIOS  ----------------------------------------------------- -->
 	
-    <div id="myModal3" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="overflow:auto; height:240px;">
+    <div id="myModal3" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="overflow:auto; ">
     <div class="modal-header" >
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i><img src="../img/iconos/glyphicons_197_remove.png" width="17" height="25"></i></button>
     <h3 id="myModalLabel">Banear todos los usuarios</h3>
+    <img src="../img/fondo_sombra_crear_cuenta_basica.png" class="sombra_titulos_pupop"></img>
     </div>
 		<form id="elimform">
 			<div class="modal-body">
@@ -435,6 +439,7 @@ document.getElementById('image').innerHTML = "<img src='"+image+"'>"
                 <p>Se bloqueara el acceso todos los usuarios y no podran acceder a tu grupo.</p>
 			</div>
 			<div class="modal-footer">
+                <button class="btn btn-danger" data-dismiss="modal" aria-hidden="true">Cerrar</button>            
 		<a href="banear_todos.php?gnombre=<?php echo $_GET["grupo"]; ?>" class="btn btn-success" > Si, banear. 
 		</a>
 			</div>
@@ -448,6 +453,7 @@ document.getElementById('image').innerHTML = "<img src='"+image+"'>"
     <div class="modal-header" >
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i><img src="../img/iconos/glyphicons_197_remove.png" width="17" height="25"></i></button>
     <h3 id="myModalLabel">Banear usuarios seleccionados</h3>
+    <img src="../img/fondo_sombra_crear_cuenta_basica.png" class="sombra_titulos_pupop"></img>
     </div>
 		<form id="elimform">
 			<div class="modal-body">
@@ -455,6 +461,7 @@ document.getElementById('image').innerHTML = "<img src='"+image+"'>"
                 <p>Se bloqueara el acceso a los usuarios seleccionados y no podran acceder a tu grupo.</p>
 			</div>
 			<div class="modal-footer">
+                        <button class="btn btn-danger" data-dismiss="modal" aria-hidden="true">Cerrar</button>    
 			<a type="submit" class="btn btn-success"  onClick="banear_m()" >Si, banear </a>
 			</div>
 		</form>
@@ -463,10 +470,11 @@ document.getElementById('image').innerHTML = "<img src='"+image+"'>"
     
     <!-------------------------------------------------   MYMODAL5 READMITIR TODOS LOS USUARIOS  -------------------------------------------------- -->
 	
-    <div id="myModal5" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="overflow:auto; height:240px;">
+    <div id="myModal5" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="overflow:auto; ">
     <div class="modal-header" >
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i><img src="../img/iconos/glyphicons_197_remove.png" width="17" height="25"></i></button>
     <h3 id="myModalLabel">Readmitir a todos los usuarios</h3>
+    <img src="../img/fondo_sombra_crear_cuenta_basica.png" class="sombra_titulos_pupop"></img>
     </div>
 		<form id="elimform">
 			<div class="modal-body">
@@ -474,6 +482,7 @@ document.getElementById('image').innerHTML = "<img src='"+image+"'>"
                 <p>Todos los usuarios volveran a poder escribir mensajes en tu grupo.</p>
 			</div>
 			<div class="modal-footer">
+                        <button class="btn btn-danger" data-dismiss="modal" aria-hidden="true">Cerrar</button>    
 			<a href="readmitir_todos.php?gnombre=<?php echo $_GET["grupo"]; ?>" class="btn btn-success" > Si, readmitir. 
 			</a>
 			</div>
@@ -483,10 +492,11 @@ document.getElementById('image').innerHTML = "<img src='"+image+"'>"
     
     <!-------------------------------------------   MYMODAL6 READMITIR USUARIOS SELECCIONADOS  -------------------------------------------------- -->
 	
-    <div id="myModal6" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="overflow:auto; height:240px;">
+    <div id="myModal6" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="overflow:auto; ">
     <div class="modal-header" >
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i><img src="../img/iconos/glyphicons_197_remove.png" width="17" height="25"></i></button>
     <h3 id="myModalLabel">Readmitir a los usuarios seleccionados</h3>
+    <img src="../img/fondo_sombra_crear_cuenta_basica.png" class="sombra_titulos_pupop"></img>
     </div>
 		<form id="elimform">
 			<div class="modal-body">
@@ -494,6 +504,7 @@ document.getElementById('image').innerHTML = "<img src='"+image+"'>"
                 <p>Los usuarios seleccionados volveran a poder escribir mensajes en tu grupo.</p>
 			</div>
 			<div class="modal-footer">
+                        <button class="btn btn-danger" data-dismiss="modal" aria-hidden="true">Cerrar</button>    
 			<a type="submit" class="btn btn-success"  onClick="read_m()" >Si, readmitir </a>
 			</div>
 		</form>
