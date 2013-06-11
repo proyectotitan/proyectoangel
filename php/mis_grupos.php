@@ -7,6 +7,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
+	
+			<!-- Carga de scripts -->
+		
+	<script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap-transition.js"></script>
+    <script src="../js/bootstrap-alert.js"></script>
+	<script src="../js/abrir_ventana.js"></script>
+    <script src="../js/bootstrap-modal.js"></script>
+    <script src="../js/bootstrap-dropdown.js"></script>
+    <script src="../js/bootstrap-scrollspy.js"></script>
+    <script src="../js/bootstrap-tab.js"></script>
+    <script src="../js/bootstrap-tooltip.js"></script>
+    <script src="../js/bootstrap-popover.js"></script>
+    <script src="../js/bootstrap-button.js"></script>
+    <script src="../js/bootstrap-collapse.js"></script>
+    <script src="../js/bootstrap-carousel.js"></script>
+    <script src="../js/bootstrap-typeahead.js"></script>
+	
+	
 
     <!-- Le styles -->
 
@@ -138,8 +157,8 @@
 				  $num_mensajes=mysql_query("SELECT count(distinct(cod_men)) AS cuenta FROM mensajes WHERE nom_grup='$aux2'");
 				  $num_men = mysql_fetch_array($num_mensajes)
 				  ?>
-                  <td><?php echo $num_men['cuenta'];?></td>
-                  <td><a href="grupo.php?grupo=<?php echo $registro5['nom_grup'];?>" title="Ver"><img src="../img/iconos/glyphicons_027_search.png" style="width:15px; height:15px;"/></a>  &nbsp; <a href="gestionar.php?grupo=<?php echo $registro5['nom_grup'];?>" title="Gestionar"><img src="../img/iconos/glyphicons_030_pencil.png" style="width:15px; height:15px;"/></a> &nbsp; <a href="eliminar_grupo.php?grupo=<?php echo $registro5['nom_grup'];?>" title="Eliminar"> <img src="../img/iconos/glyphicons_207_remove_2.png" style="width:13px; height:13px;"/></a></td>
+                  <td><?php echo $num_men['cuenta'];  $aux=$registro5['nom_grup']; ?></td>
+                  <td><a href="grupo.php?grupo=<?php echo $registro5['nom_grup'];?>" title="Ver"><img src="../img/iconos/glyphicons_027_search.png" style="width:15px; height:15px;"/></a>  &nbsp; <a href="gestionar.php?grupo=<?php echo $registro5['nom_grup'];?>" title="Gestionar"><img src="../img/iconos/glyphicons_030_pencil.png" style="width:15px; height:15px;"/></a> &nbsp; <a class="btn btn-danger" data-toggle="modal" role="button" href="#myModal"> <img src="../img/iconos/glyphicons_207_remove_2.png" style="width:13px; height:13px;"/></a></td>
 				  
                 </tr>
 				<?php
@@ -153,22 +172,30 @@
 	  	</div>
 	</div>
 		
-		<!-- Carga de scripts -->
+
+	
+	      <!-------------------------------------------   MYMODAL ELIMINAR GRUPO  -------------------------------------------------- -->
+	
+    <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="overflow:auto; height:240px;">
+    <div class="modal-header" >
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i><img src="../img/iconos/glyphicons_197_remove.png" width="17" height="25"></i></button>
+    <h3 id="myModalLabel">Eliminar todos los mensajes</h3>
+    </div>
 		
-	<script src="../js/jquery.js"></script>
-    <script src="../js/bootstrap-transition.js"></script>
-    <script src="../js/bootstrap-alert.js"></script>
-	<script src="../js/abrir_ventana.js"></script>
-    <script src="../js/bootstrap-modal.js"></script>
-    <script src="../js/bootstrap-dropdown.js"></script>
-    <script src="../js/bootstrap-scrollspy.js"></script>
-    <script src="../js/bootstrap-tab.js"></script>
-    <script src="../js/bootstrap-tooltip.js"></script>
-    <script src="../js/bootstrap-popover.js"></script>
-    <script src="../js/bootstrap-button.js"></script>
-    <script src="../js/bootstrap-collapse.js"></script>
-    <script src="../js/bootstrap-carousel.js"></script>
-    <script src="../js/bootstrap-typeahead.js"></script>
+			<div class="modal-body">
+				<p>¿Estas completamente seguro de querer eliminar este grupo?</p>
+                <p>Se eliminaran todos los datos y nunca se podran volver a recuperar.</p>
+			</div>
+			<div class="modal-footer">			
+			<a href="eliminar_grupo.php?grupo=<?php echo $aux;?>"  class="btn btn-success" > Si, borrar.			
+			</a>
+			</div>
+		
+    </div>
+    </div> <!-- /container -->
+	
+	
+	
 
   </body>
 </html>

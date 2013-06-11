@@ -34,7 +34,7 @@ $nom_img="../img/avatar.jpg";
 	$conexion = mysql_connect ("localhost","proyecto","proyecto");        
     mysql_select_db("proyecto", $conexion);
     
-	mysql_query("UPDATE usuario SET pass='{$_POST['pass']}', correo='{$_POST['correo']}', telefono='{$_POST['telefono']}', provincia='{$_POST['provincia']}', municipio='{$_POST['municipio']}', avatar='$nom_img', gustos='{$_POST['gustos']}', estado='{$_POST['estado']}', fecna='{$_POST['fecna']}', sexo='{$_POST['sexo']}'  WHERE nombre ='{$_POST['nombre']}'");
+	mysql_query("UPDATE usuario SET pass='{$_POST['u_pass']}', correo='{$_POST['u_email']}', telefono='{$_POST['u_telefono']}', provincia='{$_POST['u_prov']}', municipio='{$_POST['u_muni']}', avatar='$nom_img', gustos='{$_POST['gustos']}', estado='{$_POST['u_estado']}', fecna='{$_POST['u_fecna']}', sexo='{$_POST['sexo']}'  WHERE nombre ='{$_POST['u_nombre']}'");
    
     mysql_close($conexion); 
     header("Location: inicio.php");

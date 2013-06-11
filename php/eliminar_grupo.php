@@ -9,3 +9,4 @@
     
     mysql_close($conexion); 
     header("Location: mis_grupos.php");
+?>

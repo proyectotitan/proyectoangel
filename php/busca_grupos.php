@@ -9,7 +9,11 @@
     <meta name="author" content="">
 
     <!-- Le styles -->
-
+<?php
+	session_start();
+	if ($_SESSION["usuario"]=="")
+		header("Location: index.php");
+?>
    
 
     <script src="../js/jquery.js"></script>

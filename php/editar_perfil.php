@@ -20,15 +20,6 @@
 				var errores= "";
 				var sw=0;
 				
-				if(esBlanco(form.u_nombre.value))
-				{
-					errores=errores+"<p>El nombre no puede estar en blanco</p>";
-					sw=1;
-					var x;
-					x=$(document);
-					x.ready(imagen_errores("i_nombre", "Es necesario introducir un nombre de usuario"));
-				}
-				
 				if(esBlanco(form.u_pass.value))
 				{
 					errores=errores+"<p>Es necesario introducir una contraseña</p>";
@@ -124,12 +115,12 @@
                     <li class="dropdown">
                       <a data-toggle="dropdown" class="dropdown-toggle" role="button" href="#" id="drop1"><i class="icon-envelope"></i>&nbsp;Mensajes <b class="caret"></b></a>
                       <ul aria-labelledby="drop1" role="menu" class="dropdown-menu">
-                        <li><a href="javascript:Abrir_ventana('mensaje_nuevo.html')" tabindex="-1">Enviar mensaje nuevo</a></li>
+                        <li><a href="javascript:Abrir_ventana('mensaje_nuevo.php')" tabindex="-1">Enviar mensaje nuevo</a></li>
 												<li class="dropdown-submenu">
                         <a href="#" tabindex="-1">Buz&oacute;n</a>
                         <ul class="dropdown-menu">
-													<li><a href="mensajes_recibidos.html" tabindex="-1">Mensajes recibidos</a></li>
-													<li><a href="mensajes_enviados.html" tabindex="-1">Mensajes enviados</a></li>
+													<li><a href="mensajes_recibidos.php" tabindex="-1">Mensajes recibidos</a></li>
+													<li><a href="mensajes_enviados.php" tabindex="-1">Mensajes enviados</a></li>
                     		</ul>
                  		 </li>
                       </ul>
@@ -138,8 +129,8 @@
                       <a data-toggle="dropdown" class="dropdown-toggle" role="button" id="drop2" href="#"><i class="icon-th-large"></i>&nbsp;Grupos<b class="caret"></b></a>
                       <ul aria-labelledby="drop2" role="menu" class="dropdown-menu">
                         <li><a href="#" tabindex="-1"></a></li>
-                        <li><a href="mis_grupos.html" tabindex="-1">Mis grupos</a></li>
-                        <li><a href="nuevo_grupo.html" tabindex="-1">Nuevo grupo</a></li>
+                        <li><a href="mis_grupos.php" tabindex="-1">Mis grupos</a></li>
+                        <li><a href="nuevo_grupo.php" tabindex="-1">Nuevo grupo</a></li>
 												<li><a href="busca_grupos.html" tabindex="-1">Busca grupos</a></li>
                       </ul>
                     </li>
@@ -204,7 +195,7 @@
                   <div class="span9">
                         <p id="datos"><h3>Datos De Usuario</h3></p>
                         <div id="errores"></div>
-                        <p>Nombre: </p><p><input type="text" id="u_nombre" name="u_nombre" value="<?php echo $registro['nombre']; ?>" readonly></input><i id="i_nombre"></i></p>
+                        <p>Nombre: </p><p><input readonly="true" type="text" id="u_nombre" name="u_nombre" value="<?php echo $registro['nombre']; ?>" ></input><i id="i_nombre"></i></p>
                         <p>Contraseña: </p><p><input type="password" id="u_pass" name="u_pass" value="<?php echo $registro['pass']; ?>"></input><i id="i_pass"></i></p>
                         <p>Confirmar Contraseña: </p><p><input type="password" id="u_conf_pass" name="u_conf_pass" value="<?php echo $registro['pass']; ?>"></input><i id="i_conf_pass"></i></p>
                         <p>E-mail: </p><p><input type="text" id="u_email" name="u_email" value="<?php echo $registro['correo']; ?>"></input><i id="i_email"></i></p>
@@ -227,16 +218,16 @@
                         <hr align="LEFT" size="1" width="100%" color="White" noshade>
                         
                         <p id="otros"><h3>Otros Datos</h3></p>
-                        <p>Telefono: </p><p><input type="text" id="u_telefono" name="telefono" value="<?php echo $registro['telefono']; ?>"></input></p>
+                        <p>Telefono: </p><p><input type="text" id="u_telefono" name="u_telefono" value="<?php echo $registro['telefono']; ?>"></input></p>
                         <p>Fecha de nacimiento: </p><p><input type="text" id="u_fecna" name="u_fecna" value="<?php echo $registro['fecna']; ?>"></input></p>
                         <p>Sexo: </p>
                         <p>
-                        	<input type="radio" name="sexo" style="margin-left:50px;"></input>
+                        	<input type="radio"  value="H" name="sexo" style="margin-left:50px;"></input>
                         	Hombre:
-                            <input type="radio" name="sexo" style="margin-left:50px;"></input>
+                            <input type="radio" value="M" name="sexo" style="margin-left:50px;"></input>
                             Mujer:
                         </p>
-                        <p>Gustos: </p><p><textarea rows="3" value="<?php echo $registro['gustos']; ?>"></textarea></p>
+                        <p>Gustos: </p><p><textarea id="gustos" name="gustos" rows="3"><?php echo $registro['gustos']; ?></textarea></p>
                         
                         <p class="pull-right"><input class="btn btn-danger" type="button" onClick="validar(this.form)" value="Guardar"></input></p>
                   
