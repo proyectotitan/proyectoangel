@@ -398,21 +398,14 @@
                     
           
 		  <?php
-		  	if (mysql_fetch_array($grupo_b)!="")
-			  {
+		  	
           	  while ($registro = mysql_fetch_array($grupo_b)){		 
           ?>
           <a class="dock-item2" href="grupo.php?grupo=<?php echo $registro['nom_grup']; ?>"><span><?php echo $registro['nom_grup']; ?></span><img src="<?php echo $registro['imagen']; ?>" alt="<?php echo $registro['nom_grup']; ?>" class="img-circle"/></a> 
            <?php
 				  }
-			  }
-			  else
-			  {
-		    ?>
-            <a class="dock-item2" href="busca_grupos.php"><span>Buscar grupos</span><img src="../img/iconos/glyphicons_027_search.png" alt="home" /></a>
-			<?php  
-			  }
-            ?>
+			  ?>
+           
 							 
 								
 						</div>
