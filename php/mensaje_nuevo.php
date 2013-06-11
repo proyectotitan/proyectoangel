@@ -274,7 +274,7 @@
         </p>
         
         <p>Escribe tu mensaje</p>
-        
+        <input type="hidden" name="responder" value="2" />
         <p><textarea id="mensaje" name="mensaje" style="width:400px;height:100px;border: 2px" ></textarea><i id="i_mensaje"></i></p>
 		
         <input class="btn btn-success" type="button" onClick="validar(this.form)" value="Enviar"></input>

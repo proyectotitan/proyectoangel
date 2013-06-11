@@ -24,7 +24,7 @@
     $conexion = mysql_connect ("localhost","proyecto","proyecto");        
 	mysql_select_db("proyecto", $conexion);
 	$mensajes=mysql_query("SELECT cod_rec, emisor, fechen, contenido FROM mens_recibido WHERE receptor='{$_SESSION["usuario"]}' order by fechen desc");
-        $codigos=mysql_query("SELECT cod_rec, fechen FROM mens_recibido WHERE receptor='{$_SESSION["usuario"]}' order by fechen desc");
+        $codigos=mysql_query("SELECT cod_rec, fechen FROM mens_recibido WHERE receptor='{$_SESSION["usuario"]}' order by cod_rec desc");
 	
 ?>
   <body>
@@ -131,7 +131,8 @@
                                             <a href="#eliminar_<?php echo $registro['cod_rec']; ?>" data-toggle="modal" role="button" title="Eliminar mensaje" rel="tooltip" class="pull-right" style="vertical-align:middle;">
                                                 <img src="../img/iconos/glyphicons_016_bin.png" style="width: 12px; margin-left: 15px;"/>
                                             </a>
-					<a title="Responder este mensaje" rel="tooltip" onClick="crear_respuesta('id_<?php echo $registro['cod_rec']; ?>')" href="#" class="pull-right" id="e_<?php echo $registro['cod_rec']; ?>">
+                                            
+					<a title="Responder este mensaje" rel="tooltip" onClick="crear_respuesta('id_<?php echo $registro['cod_rec']; ?>', '<?php echo $registro['emisor']; ?>')" href="#" class="pull-right" id="e_<?php echo $registro['cod_rec']; ?>">
                                             <img src="../img/iconos/glyphicons_152_new_window.png" style="width: 17px;">
                                         </a>
 					<?php echo $registro['contenido']; ?>

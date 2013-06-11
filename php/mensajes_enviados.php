@@ -23,7 +23,7 @@
 <?php	
     $conexion = mysql_connect ("localhost","proyecto","proyecto");        
 	mysql_select_db("proyecto", $conexion);
-	$mensajes=mysql_query("SELECT cod_env, receptor, fechen, contenido FROM mens_enviado WHERE emisor='{$_SESSION["usuario"]}' order by fechen desc ");
+	$mensajes=mysql_query("SELECT cod_env, receptor, fechen, contenido FROM mens_enviado WHERE emisor='{$_SESSION["usuario"]}' order by cod_env desc ");
 	$codigos=mysql_query("SELECT cod_env, fechen FROM mens_enviado WHERE emisor='{$_SESSION["usuario"]}' order by fechen desc");
         mysql_close($conexion);
 ?>
@@ -121,11 +121,12 @@
 					Mensaje enviado a <?php echo $registro['receptor']; ?> el <?php  echo $registro['fechen'];?>
 					
 					</a>
-					<a href="#eliminar_<?php echo $registro['cod_env']; ?>" data-toggle="modal" role="button" title="Eliminar mensaje" rel="tooltip" class="pull-right" style="vertical-align:middle;"><i class="icon-trash"></i></a>
-					
 					</div>
 					<div id="collapse_<?php echo $registro['cod_env']; ?>" class="accordion-body collapse" >
 					<div class="accordion-inner">
+                                            <a href="#eliminar_<?php echo $registro['cod_env']; ?>" data-toggle="modal" role="button" title="Eliminar mensaje" rel="tooltip" class="pull-right" style="vertical-align:middle;">
+                                                <img src="../img/iconos/glyphicons_016_bin.png" style="width: 12px; margin-left: 15px;"/>
+                                            </a>
 					<?php echo $registro['contenido']; ?>
 					<div id="id_<?php echo $registro['cod_env']; ?>"></div>
 					</div>

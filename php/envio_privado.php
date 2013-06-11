@@ -5,15 +5,16 @@
 		
 	$conexion = mysql_connect ("localhost","proyecto","proyecto");        
 	mysql_select_db("proyecto", $conexion);
-	
 	mysql_query("INSERT INTO `mens_enviado`(`contenido`, `fechen`, `emisor`, `receptor`) 
 	VALUES ('{$_POST['mensaje']}', sysdate(), '{$_SESSION["usuario"]}', '{$_POST['amigos']}');");
 	mysql_query("INSERT INTO `mens_recibido`(`contenido`, `fechen`, `emisor`, `receptor`) 
 	VALUES ('{$_POST['mensaje']}', sysdate(), '{$_SESSION["usuario"]}', '{$_POST['amigos']}');");
 	$n_privados = mysql_query("SELECT privados FROM usuario where nombre='{$_POST['amigos']}';");
-    $nu_privados = mysql_fetch_array($n_privados);;
+        $nu_privados = mysql_fetch_array($n_privados);
 	mysql_query("UPDATE `usuario` SET `privados`='{$nu_privados['privados']}'+1 where nombre='{$_POST['amigos']}';");
-	$error = mysql_error();
+        echo $error = mysql_error();
+        if($_POST['responder']==1)
+            header("Location: mensajes_recibidos.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
