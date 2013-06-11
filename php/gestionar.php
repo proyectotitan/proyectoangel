@@ -267,7 +267,7 @@ document.getElementById('image').innerHTML = "<img src='"+image+"'>"
                                         <td><?php echo $registromen['fecha']; ?></td>	
 										<input  name="nombreg" id="nombreg"  type="hidden" value="<?php echo $_GET["grupo"]; ?>"/>
                                         <td><input type="checkbox" name="chk_group[]" value="<?php echo $registromen['cod_men']; ?>" /></td>
-                                        <td><a href="eliminar_un_men.php?id=<?php echo $registromen['cod_men']; ?>&gnombre=<?php echo $_GET["grupo"]; ?>"><img src="../img/iconos/glyphicons_207_remove_2.png" style="width:14px; height:14px"></a></td>
+                                        <td><a href="eliminar_un_men.php?id=<?php echo $registromen['cod_men']; ?>&gnombre=<?php echo $_GET["grupo"]; ?>"><img src="../img/iconos/glyphicons_207_remove_2.png" title="Eliminar mensaje" style="width:14px; height:14px"></a></td>
 									</tr>
 									<?php
 								}
