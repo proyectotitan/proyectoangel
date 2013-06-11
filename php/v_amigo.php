@@ -91,7 +91,7 @@
     <div class="container-fluid">
     	<div class="row-fluid">
             
-     <h3><img src="<?php echo $registro2['avatar']; ?>" style="width: 40px"; height="40px">&nbsp;&nbsp;<?php echo $registro2['nombre'];?>
+     <h3><img src="<?php echo $registro2['avatar']; ?>" style="width: 40px; height: 40px">&nbsp;&nbsp;<?php echo $registro2['nombre'];?>
      
 	<?php
 		if ($registro['amigo1']!="")
@@ -115,6 +115,7 @@
         <div class="modal-header" >
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i><img src="../img/iconos/glyphicons_197_remove.png" width="17" height="25"></i></button>
         <h3 id="myModalLabel">Enviar petici&oacute;n de amistad.</h3>
+        <img src="../img/fondo_sombra_crear_cuenta_basica.png" class="sombra_titulos_pupop"></img>
         </div>
         <div class="modal-body">
                 <p>¿Estas completamente seguro de querer agregar a <?php echo $registro2['nombre'];?> a tus amigos?</p>
@@ -133,6 +134,7 @@
         <div class="modal-header" >
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i><img src="../img/iconos/glyphicons_197_remove.png" width="17" height="25"></i></button>
         <h3 id="myModalLabel">Eliminar amigo.</h3>
+        <img src="../img/fondo_sombra_crear_cuenta_basica.png" class="sombra_titulos_pupop"></img>
         </div>
         <div class="modal-body">
             <p>¿Estas completamente seguro de querer eliminar a <?php echo $registro2['nombre'];?> de tu lista de amigos?</p>
