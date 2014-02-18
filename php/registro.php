@@ -4,7 +4,7 @@ $conexion = mysql_connect ("localhost","proyecto","proyecto");
 
 mysql_select_db("proyecto",$conexion);
 
-$insertado=mysql_query("INSERT INTO usuario (nombre,pass,correo) VALUES ('{$_POST['r_usuario']}','{$_POST['r_pass']}','{$_POST['r_email']}')");
+$insertado=mysql_query("INSERT INTO usuario (nombre,pass,correo, peticiones, privados, avatar) VALUES ('{$_POST['r_usuario']}','{$_POST['r_pass']}','{$_POST['r_email']}', '0', '0', '../img/avatar.jpg')");
 
 if(!$insertado){
 $x=mysql_errno();
@@ -17,6 +17,15 @@ $error="El usuario ya existe, debes registrarte con otro nombre";
 else
 {
 $error="";
+
+
+$para = 'osquitarbs@gmail.com';
+$titulo = 'El título';
+$mensaje = 'Hola';
+
+mail($para, $titulo, $mensaje);
+
+
 }
 //mysql_error muestra el error producido
 

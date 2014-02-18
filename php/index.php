@@ -117,6 +117,7 @@
 				else
 				form.submit();
 			}	
+			
 		</script>
   </head>
 
@@ -167,7 +168,7 @@
 			</div>
 			<div class="span6">
 				<h4>Aun no tienes cuenta en Hoy en el mundo? Rellena nuestro formulario de registro de manera rapida y accede a nuestra web para que puedas disfrutar de millones de temas y crear tus temas propios.</h4>
-		  <a href="#myModal" role="button" class="btn btn-danger" data-toggle="modal">Registrate</a><br></br>
+		  <a href="#myModal" role="button" id="b_registrar" class="btn btn-danger" data-toggle="modal">Registrate</a><br></br>
 			</div>
 		</div>
 		<div class="span1">

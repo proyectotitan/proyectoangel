@@ -9,7 +9,8 @@ function borrar_respuesta(id_mensaje, enlace, span)
 {
 	alert("hola");
 	$("#form_res").remove();
-	$("#"+enlace+"").remove();	
+	$("#"+enlace+"").remove();
+	$("#"+span+"").html('<a title="Responder este mensaje" rel="tooltip" onClick="crear_respuesta('+id_mensaje+', '+enlace+', '+span+')" href="#" class="pull-right" id="'+enlace+'"><i class="icon-share-alt" ></i></a>');		
 	
 }
 

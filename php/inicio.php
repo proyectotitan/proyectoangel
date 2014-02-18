@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-  <?php
-  session_start(); 
-  ?>
+ <?php
+	session_start();
+	if ($_SESSION["usuario"]=="")
+		header("Location: index.php");
+	?>
   
     <meta charset="utf-8">
     <title>Inicio</title>
@@ -209,6 +211,7 @@
   </head>
 
   <body>
+  
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
@@ -254,11 +257,11 @@
                   </li>
 									<ul class="nav pull-right">
                     <li class="dropdown" id="fat-menu">
-                      <a data-toggle="dropdown" class="dropdown-toggle" role="button" id="drop3" href="#"><i class="icon-asterisk"></i>&nbsp;Cuenta de (Nombre de usuario)<b class="caret"></b></a>
+                      <a data-toggle="dropdown" class="dropdown-toggle" role="button" id="drop3" href="#"><i class="icon-asterisk"></i>&nbsp;Cuenta de (<?php echo $_SESSION["usuario"];?>)<b class="caret"></b></a>
                       <ul aria-labelledby="drop3" role="menu" class="dropdown-menu">
-                        <li><a href="editar_perfil.html" tabindex="-1">Editar perfil</a></li>
+                        <li><a href="editar_perfil.php" tabindex="-1">Editar perfil</a></li>
                         <li class="divider"></li>
-                        <li><a href="#" tabindex="-1"><i class="icon-off"></i>&nbsp;Cerrar sesi&oacute;n</a></li>
+                        <li><a href="cerrar_sesion.php" tabindex="-1"><i class="icon-off"></i>&nbsp;Cerrar sesi&oacute;n</a></li>
                       </ul>
                     </li>
                   </ul>
@@ -267,20 +270,38 @@
       </div>
     </div>
 		
-		<!-- Empiezan los divs fluidos -->
-		
+		<?php
+        $cadena = "SELECT privados, peticiones, avatar FROM usuario where nombre='{$_SESSION["usuario"]}'";
+        
+        
+        $conexion = mysql_connect ("localhost","proyecto","proyecto");
+        
+        mysql_select_db("proyecto", $conexion);
+    
+        $peticion = mysql_query($cadena);
+    
+      ?>
+		<?php
+          	  while ($registro = mysql_fetch_array($peticion)){
+          ?>
 		<div class="container-fluid" style="margin-top:60px;">
       <div class="row-fluid">
 				<div class="span4">
-					<div class="border1" style="margin-left:3px;">
-						<p>Nombre de usuario</p>
-						<p><img src="../img/avatar.jpg" style="width: 60px"; height="60px"></p>
-						<p>Mensajes sin leer:</p>
-						<p>Peticiones de amistad:</p>
+					<div class="border1" style="margin-left:3px;"> 
+						<p><h4><?php echo $_SESSION["usuario"];?></h4></p>
+						<p><img src="<?php echo $registro['avatar']; ?>" style="width: 60px"; height="60px"></p>
+						<p>Mensajes sin leer: &nbsp;<?php echo $registro['privados']; ?></p>
+						<p>Peticiones de amistad: &nbsp; <?php echo $registro['peticiones']; ?></p>
 						</div>
 						<div class="span12">
 								<object type="application/x-shockwave-flash" style="outline:none;" data="http://hosting.gmodules.com/ig/gadgets/file/112581010116074801021/hamster.swf?" width="300" height="225"><param name="movie" value="http://hosting.gmodules.com/ig/gadgets/file/112581010116074801021/hamster.swf?"></param><param name="AllowScriptAccess" value="always"></param><param name="wmode" value="opaque"></param></object>
 					</div>
+             <?php
+                 
+                }
+      		  mysql_close($conexion);
+             
+            ?>
 	
 				</div>
 				<div class="span4">
