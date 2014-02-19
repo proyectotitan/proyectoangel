@@ -310,6 +310,18 @@
 					 	<input type="text" id="mensaje_t" value="" onKeyUp="twitear()" style="margin-top:8px;"></input>
 						<a target="_blank" id="twt" class="btn btn-primary" href="https://twitter.com/intent/tweet?text=Bienvenido a hoy en el mundo @HoyenelMundo&amp">Twittear</a>
 					 </div>
+                     
+          <?php
+			$cadena = "SELECT * FROM `grupos` ORDER BY visitas, nom_grup LIMIT 10 ";
+			
+			$conexion = mysql_connect ("localhost","proyecto","proyecto");
+			
+			mysql_select_db("proyecto", $conexion);
+		
+			$peticion = mysql_query($cadena);
+		
+		  ?>
+                     
 					<div class="span12" style="margin-top:20px;">
 						 <table width="0%" class="table table-hover">
 							 <thead>
@@ -321,82 +333,51 @@
 									</tr>
 								</thead>
 								<tbody>
+          <?php
+		  		$filas=1;
+          	  while ($registro = mysql_fetch_array($peticion)){
+          ?>
 									<tr>
-										<td>1</td>
-										<td>La mejor musica rock</td>
-										<td>Pablito</td>
-										<td>24/10/2012</td>
-									</tr>
-									<tr>
-										<td>2</td>
-										<td>Musica akternativa</td>
-										<td>Thornton</td>
-										<td>21/04/2011</td>
-									</tr>
-									<tr>
-										<td>3</td>
-										<td>Peliculas de terror</td>
-										<td>Larry the Bird</td>
-										<td>21/04/2011</td>
-									</tr>
-									<tr>
-										<td>4</td>
-										<td>Peliculas de terror</td>
-										<td>Larry the Bird</td>
-										<td>21/04/2011</td>
-									</tr>
-									<tr>
-										<td>5</td>
-										<td>Peliculas de terror</td>
-										<td>Larry the Bird</td>
-										<td>21/04/2011</td>
-									</tr>
-									<tr>
-										<td>6</td>
-										<td>Peliculas de terror</td>
-										<td>Larry the Bird</td>
-										<td>21/04/2011</td>
-									</tr>
-									<tr>
-										<td>7</td>
-										<td>Peliculas de terror</td>
-										<td>Larry the Bird</td>
-										<td>21/04/2011</td>
-									</tr>
-									<tr>
-										<td>8</td>
-										<td>Peliculas de terror</td>
-										<td>Larry the Bird</td>
-										<td>21/04/2011</td>
-									</tr>
-									<tr>
-										<td>9</td>
-										<td>Peliculas de terror</td>
-										<td>Larry the Bird</td>
-										<td>21/04/2011</td>
-									</tr>
-									<tr>
-										<td>10</td>
-										<td>Peliculas de terror</td>
-										<td>Larry the Bird</td>
-										<td>21/04/2011</td>
-									</tr>
+										<td><?php echo $filas; ?></td>
+										<td><?php echo $registro['nom_grup']; ?></td>
+										<td><?php echo $registro['nombre_mod']; ?></td>
+										<td><?php echo $registro['fecha_creacion']; ?></td>
+									</tr> 
+                                    
+           <?php
+                 $filas++;
+                }
+      		  mysql_close($conexion);
+             
+            ?>
 								</tbody>
       			</table>
 					</div>
                     <div class="span12" style="margin-top:20px;">
                     <div class="dock" id="dock2">
   						<div class="dock-container2">
-							<a class="dock-item2" href="grupo.html"><span>Grupo_1</span><img src="../img/agt_announcements.png" alt="home" /></a> 
-							<a class="dock-item2" href="grupo.html"><span>Grupo_2</span><img src="../img/agt_announcements.png" alt="contact" /></a> 
-							<a class="dock-item2" href="grupo.html"><span>Grupo_3</span><img src="../img/agt_announcements.png" alt="portfolio" /></a> 
-							<a class="dock-item2" href="grupo.html"><span>Grupo_4</span><img src="../img/agt_announcements.png" alt="music" /></a> 
-							<a class="dock-item2" href="grupo.html"><span>Grupo_5</span><img src="../img/agt_announcements.png" alt="video" /></a> 
-							<a class="dock-item2" href="grupo.html"><span>Grupo_6</span><img src="../img/agt_announcements.png" alt="history" /></a> 
-							<a class="dock-item2" href="grupo.html"><span>Grupo_7</span><img src="../img/agt_announcements.png" alt="calendar" /></a> 
-							<a class="dock-item2" href="grupo.html"><span>Grupo_8</span><img src="../img/agt_announcements.png" alt="links" /></a> 
-							<a class="dock-item2" href="grupo.html"><span>Grupo_9</span><img src="../img/agt_announcements.png" alt="rss" /></a> 
-							<a class="dock-item2" href="grupo.html"><span>Grupo_10</span><img src="../img/agt_announcements.png" alt="rss" /></a>		
+           <?php
+        $cadena = "SELECT * FROM `grupos` WHERE nom_grup IN (SELECT nom_grup FROM `pertenecen` WHERE nombre='{$_SESSION["usuario"]}')";
+        
+        
+        $conexion = mysql_connect ("localhost","proyecto","proyecto");
+        
+        mysql_select_db("proyecto", $conexion);
+    
+        $peticion = mysql_query($cadena);
+    
+      ?>  
+		  <?php
+          	  while ($registro = mysql_fetch_array($peticion)){
+          ?>
+							<a class="dock-item2" href="grupo.html"><span><?php echo $registro['nom_grup']; ?></span><img src="../img/agt_announcements.png" alt="home" /></a> 
+           <?php
+                }
+      		  mysql_close($conexion);
+             
+            ?>
+							 
+								
 						</div>
 					</div>
                   </div>
@@ -407,20 +388,33 @@
                  <div class="span12" style="margin-top: 15px">
                  <div class="pull-right" style="margin-right:11px;">
                         <div class="ui-widget">
-      
+       <?php
+			$cadena = "SELECT nom_grup FROM `grupos`";
+			
+			
+			$conexion = mysql_connect ("localhost","proyecto","proyecto");
+			
+			mysql_select_db("proyecto", $conexion);
+		
+			$peticion = mysql_query($cadena);
+		
+		  ?>
                         <form id="bus_grupo">
                             <label>Buscardor de Grupos:</label>
                             <p>
-                            	<select id="b_grupos">
-                                    <option value="">Select one...</option>
-                                    <option value="Grupo_1">Grupo_1</option>
-                                    <option value="Grupo_2">Grupo_2</option>
-                                    <option value="Grupo_3">Grupo_3</option>
-                                    <option value="Grupo_4">Grupo_4</option>
-                                    <option value="Grupo_5">Grupo_5</option>
-                                    <option value="Grupo_6">Grupo_6</option>
-                                    <option value="Grupo_7">Grupo_7</option>
-                                    <option value="Grupo_8">Grupo_8</option>
+                            	<select id="b_grupos" name="b_gupos">
+                                 <option value=""></option>
+          <?php
+          	  while ($registro = mysql_fetch_array($peticion)){
+          ?>
+                                   
+                <option value="<?php echo $registro['nom_grup']; ?>"><?php echo $registro['nom_grup']; ?></option>
+           <?php
+                 
+                }
+      		  mysql_close($conexion);
+             
+            ?>
                             	</select>
                             </p>
                             <p><input type="button" class="btn-danger" value="Buscar Grupo"></p>
