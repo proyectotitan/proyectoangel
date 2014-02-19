@@ -293,15 +293,16 @@
 						<p>Mensajes sin leer: &nbsp;<?php echo $registro['privados']; ?></p>
 						<p>Peticiones de amistad: &nbsp; <?php echo $registro['peticiones']; ?></p>
 						</div>
-						<div class="span12">
-								<object type="application/x-shockwave-flash" style="outline:none;" data="http://hosting.gmodules.com/ig/gadgets/file/112581010116074801021/hamster.swf?" width="300" height="225"><param name="movie" value="http://hosting.gmodules.com/ig/gadgets/file/112581010116074801021/hamster.swf?"></param><param name="AllowScriptAccess" value="always"></param><param name="wmode" value="opaque"></param></object>
-					</div>
-             <?php
+        <?php
                  
                 }
       		  mysql_close($conexion);
              
             ?>
+						<div class="span12">
+								<object type="application/x-shockwave-flash" style="outline:none;" data="http://hosting.gmodules.com/ig/gadgets/file/112581010116074801021/hamster.swf?" width="300" height="225"><param name="movie" value="http://hosting.gmodules.com/ig/gadgets/file/112581010116074801021/hamster.swf?"></param><param name="AllowScriptAccess" value="always"></param><param name="wmode" value="opaque"></param></object>
+					</div>
+             
 	
 				</div>
 				<div class="span4">
@@ -406,6 +407,7 @@
                  <div class="span12" style="margin-top: 15px">
                  <div class="pull-right" style="margin-right:11px;">
                         <div class="ui-widget">
+      
                         <form id="bus_grupo">
                             <label>Buscardor de Grupos:</label>
                             <p>
@@ -429,19 +431,33 @@
                     <div class="span12" style="margin-top: 7px">
                 	 <div class="pull-right" style="margin-right:11px;">
                         <div class="ui-widget">
-                        <form id="bus_amigos">
+           <?php
+			$cadena = "SELECT nombre FROM `usuario` WHERE nombre != '{$_SESSION["usuario"]}'";
+			
+			
+			$conexion = mysql_connect ("localhost","proyecto","proyecto");
+			
+			mysql_select_db("proyecto", $conexion);
+		
+			$peticion = mysql_query($cadena);
+		
+		  ?>
+                        <form id="bus_amigos" name="bus_amigos">
                             <label>Buscardor de Amigos:</label>
                             <p>
                                 <select id="b_amigos">
-                                    <option value="">Select one...</option>
-                                    <option value="Amigo_1">Amigo_1</option>
-                                    <option value="Amigo_2">Amigo_2</option>
-                                    <option value="Amigo_3">Amigo_3</option>
-                                    <option value="Amigo_4">Amigo_4</option>
-                                    <option value="Amigo_5">Amigo_5</option>
-                                    <option value="Amigo_6">Amigo_6</option>
-                                    <option value="Amigo_7">Amigo_7</option>
-                                    <option value="Amigo_8">Amigo_8</option>
+                                 <option value=""></option>
+          <?php
+          	  while ($registro = mysql_fetch_array($peticion)){
+          ?>
+                                   
+                <option value="<?php echo $registro['nombre']; ?>"><?php echo $registro['nombre']; ?></option>
+           <?php
+                 
+                }
+      		  mysql_close($conexion);
+             
+            ?>
                                 </select>
                             </p>
                             <input type="button" class="btn-danger" value="Buscar Amigo">
