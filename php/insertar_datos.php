@@ -42,25 +42,25 @@ mysql_query("INSERT INTO sections (nom_sec) VALUES('frikeo')");
 // **COMIENZA EL INSERTADO DE DATOS GRUPOS**
 // *****************************************
 
-mysql_query("INSERT INTO grupos (nom_grup, descripcion_g, fecha_creacion, nombre_mod, imagen, seccion, visitas) VALUES('Los mejores coches', 'Aqui se hablará de cuales son los mejores coches del mercado.', '01/01/2012', 'Roberto Sanchez Perez','imagen', 'Motor','20')");
+mysql_query("INSERT INTO grupos (nom_grup, descripcion_g, fecha_creacion, nombre_mod, imagen, seccion, visitas) VALUES('Los mejores coches', 'Aqui se hablará de cuales son los mejores coches del mercado.', '01/01/2012', 'Roberto Sanchez Perez','../img/agt_announcements.png', 'Motor','20')");
 
-mysql_query("INSERT INTO grupos (nom_grup, descripcion_g, fecha_creacion, nombre_mod, imagen, seccion, visitas) VALUES('Rock and roll', 'En este grupo se hablará de los mejores grupos de rock de la historia.', '21/01/2012', 'Marina Lopez Reverte','imagen', 'Musica','20')");
+mysql_query("INSERT INTO grupos (nom_grup, descripcion_g, fecha_creacion, nombre_mod, imagen, seccion, visitas) VALUES('Rock and roll', 'En este grupo se hablará de los mejores grupos de rock de la historia.', '21/01/2012', 'Marina Lopez Reverte','../img/agt_announcements.png', 'Musica','20')");
 
-mysql_query("INSERT INTO grupos (nom_grup, descripcion_g, fecha_creacion, nombre_mod, imagen, seccion, visitas) VALUES('que miedo!', 'En este grupo se hablara de los mejores relatos y peliculas de horror', '14/03/2012', 'Beatriz Sotomonte Veraz','imagen', 'Varios','20')");
+mysql_query("INSERT INTO grupos (nom_grup, descripcion_g, fecha_creacion, nombre_mod, imagen, seccion, visitas) VALUES('que miedo!', 'En este grupo se hablara de los mejores relatos y peliculas de horror', '14/03/2012', 'Beatriz Sotomonte Veraz','../img/agt_announcements.png', 'Varios','20')");
 
-mysql_query("INSERT INTO grupos (nom_grup, descripcion_g, fecha_creacion, nombre_mod, imagen, seccion, visitas) VALUES('Los mejores campings', 'Podreis dar vuestra opinion sobre los diferentes campings del mundo donde hayais estado.', '07/06/2009', 'Marta Garcia Rodriguez','imagen', 'Turismo','20')");
+mysql_query("INSERT INTO grupos (nom_grup, descripcion_g, fecha_creacion, nombre_mod, imagen, seccion, visitas) VALUES('Los mejores campings', 'Podreis dar vuestra opinion sobre los diferentes campings del mundo donde hayais estado.', '07/06/2009', 'Marta Garcia Rodriguez','../img/agt_announcements.png', 'Turismo','20')");
 
-mysql_query("INSERT INTO grupos (nom_grup, descripcion_g, fecha_creacion, nombre_mod, imagen, seccion, visitas) VALUES('Warhammer Fantasy', 'Se hablara del rico mundo del warhammer.', '20/10/2012', 'Super fuerza','imagen', 'frikeo','20')");
+mysql_query("INSERT INTO grupos (nom_grup, descripcion_g, fecha_creacion, nombre_mod, imagen, seccion, visitas) VALUES('Warhammer Fantasy', 'Se hablara del rico mundo del warhammer.', '20/10/2012', 'Super fuerza','../img/agt_announcements.png', 'frikeo','20')");
 
-mysql_query("INSERT INTO grupos (nom_grup, descripcion_g, fecha_creacion, nombre_mod, imagen, seccion, visitas) VALUES('kebabis', 'Se hablara del rico mundo del doble kebab doble solo carne y salsa.', '20/10/2012', 'Super fuerza','imagen', 'Varios','20')");
+mysql_query("INSERT INTO grupos (nom_grup, descripcion_g, fecha_creacion, nombre_mod, imagen, seccion, visitas) VALUES('kebabis', 'Se hablara del rico mundo del doble kebab doble solo carne y salsa.', '20/10/2012', 'Super fuerza','../img/agt_announcements.png', 'Varios','20')");
 
-mysql_query("INSERT INTO grupos (nom_grup, descripcion_g, fecha_creacion, nombre_mod, imagen, seccion, visitas) VALUES('pico y pala', 'Estrategias para pico-palear de sol a sol', '20/10/2012', 'Roberto Sanchez Perez','imagen', 'Varios','20')");
+mysql_query("INSERT INTO grupos (nom_grup, descripcion_g, fecha_creacion, nombre_mod, imagen, seccion, visitas) VALUES('pico y pala', 'Estrategias para pico-palear de sol a sol', '20/10/2012', 'Roberto Sanchez Perez','../img/agt_announcements.png', 'Varios','20')");
 
-mysql_query("INSERT INTO grupos (nom_grup, descripcion_g, fecha_creacion, nombre_mod, imagen, seccion, visitas) VALUES('Al duro banco', 'Los jugadores de futbol mas malos', '20/10/2012', 'Super fuerza','imagen', 'Varios','20')");
+mysql_query("INSERT INTO grupos (nom_grup, descripcion_g, fecha_creacion, nombre_mod, imagen, seccion, visitas) VALUES('Al duro banco', 'Los jugadores de futbol mas malos', '20/10/2012', 'Super fuerza','../img/agt_announcements.png', 'Varios','20')");
 
-mysql_query("INSERT INTO grupos (nom_grup, descripcion_g, fecha_creacion, nombre_mod, imagen, seccion, visitas) VALUES('Turismo rural', 'Las mejores ofertas de casas rurales', '20/10/2012', 'Marina Lopez Reverte','imagen', 'Turismo','20')");
+mysql_query("INSERT INTO grupos (nom_grup, descripcion_g, fecha_creacion, nombre_mod, imagen, seccion, visitas) VALUES('Turismo rural', 'Las mejores ofertas de casas rurales', '20/10/2012', 'Marina Lopez Reverte','../img/agt_announcements.png', 'Turismo','20')");
 
-mysql_query("INSERT INTO grupos (nom_grup, descripcion_g, fecha_creacion, nombre_mod, imagen, seccion, visitas) VALUES('Pezuneo', 'Se hablara de los reyes de la Pezuña, los mas topejos', '20/10/2012', 'Miguel Reverte de la Fuente','imagen', 'frikeo','20')");
+mysql_query("INSERT INTO grupos (nom_grup, descripcion_g, fecha_creacion, nombre_mod, imagen, seccion, visitas) VALUES('Pezuneo', 'Se hablara de los reyes de la Pezuña, los mas topejos', '20/10/2012', 'Miguel Reverte de la Fuente','../img/agt_announcements.png', 'frikeo','20')");
 
 // *******************************************
 // **COMIENZA EL INSERTADO DE DATOS MENSAJES**

@@ -312,7 +312,7 @@
 					 </div>
                      
           <?php
-			$cadena = "SELECT * FROM `grupos` ORDER BY visitas, nom_grup LIMIT 10 ";
+			$cadena = "SELECT nom_grup, nombre_mod, fecha_creacion FROM `grupos` ORDER BY visitas, nom_grup LIMIT 10 ";
 			
 			$conexion = mysql_connect ("localhost","proyecto","proyecto");
 			
@@ -357,22 +357,34 @@
                     <div class="dock" id="dock2">
   						<div class="dock-container2">
            <?php
-        $cadena = "SELECT * FROM `grupos` WHERE nom_grup IN (SELECT nom_grup FROM `pertenecen` WHERE nombre='{$_SESSION["usuario"]}')";
+        	$cadena = "SELECT nom_grup FROM `grupos` WHERE nom_grup IN (SELECT nom_grup FROM `pertenecen` WHERE nombre='{$_SESSION["usuario"]}')";
         
         
-        $conexion = mysql_connect ("localhost","proyecto","proyecto");
+       	 $conexion = mysql_connect ("localhost","proyecto","proyecto");
         
-        mysql_select_db("proyecto", $conexion);
+       	 mysql_select_db("proyecto", $conexion);
     
-        $peticion = mysql_query($cadena);
+   	     $peticion = mysql_query($cadena);
+		  if (mysql_fetch_array($peticion)!="")
+				  {
     
       ?>  
+                    
+          
 		  <?php
           	  while ($registro = mysql_fetch_array($peticion)){
+				 
           ?>
-							<a class="dock-item2" href="grupo.html"><span><?php echo $registro['nom_grup']; ?></span><img src="../img/agt_announcements.png" alt="home" /></a> 
+							<a class="dock-item2" href="grupo.php?grupo=<?php echo $registro['nom_grup']; ?>"><span><?php echo $registro['nom_grup']; ?></span><img src="../img/agt_announcements.png" alt="home" /></a> 
            <?php
-                }
+				  }
+			  }
+			  else
+			  {
+		    ?>
+            <a class="dock-item2" href="busca_grupos.php"><span>Buscar grupos</span><img src="../img/iconos/glyphicons_027_search.png" alt="home" /></a>
+			<?php  
+			  }
       		  mysql_close($conexion);
              
             ?>
