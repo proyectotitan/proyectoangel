@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
- <?php
+<?php
 	session_start();
 	if ($_SESSION["usuario"]=="")
 		header("Location: index.php");
-	?>
+?>
   
     <meta charset="utf-8">
     <title>Inicio</title>

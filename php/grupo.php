@@ -7,8 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-
-    <!-- Le styles -->
+    
+<?php
+	session_start();
+	if ($_SESSION["usuario"]=="")
+		header("Location: index.php");
+?>
 
     <link href="../css/bootstrap.css" rel="stylesheet">
     
@@ -32,7 +36,7 @@
 		  
 			   	<ul class="nav">
 						<li>
-							<a href="inicio.html"><i class="icon-home"></i>&nbsp;Inicio</a>
+							<a href="inicio.php"><i class="icon-home"></i>&nbsp;Inicio</a>
 						</li>
 					</ul>
 		     <ul role="navigation" class="nav">
@@ -70,7 +74,7 @@
                       <ul aria-labelledby="drop3" role="menu" class="dropdown-menu">
                         <li><a href="editar_perfil.html" tabindex="-1">Editar perfil</a></li>
                         <li class="divider"></li>
-                        <li><a href="#" tabindex="-1"><i class="icon-off"></i>&nbsp;Cerrar sesi&oacute;n</a></li>
+                        <li><a href="cerrar_sesion.php" tabindex="-1"><i class="icon-off"></i>&nbsp;Cerrar sesi&oacute;n</a></li>
                       </ul>
                     </li>
                    
@@ -88,26 +92,37 @@
 				<div class="span10">
     <?php
         $cadena = "SELECT nom_grup, imagen, descripcion_g FROM grupos where nom_grup='{$_GET["grupo"]}'";
-        
+        $cadena2 = "SELECT nom_grup FROM pertenecen where nom_grup='{$_GET["grupo"]}' and nombre='{$_SESSION["usuario"]}'";
         
         $conexion = mysql_connect ("localhost","proyecto","proyecto");
         
         mysql_select_db("proyecto", $conexion);
     
         $peticion = mysql_query($cadena);
+		$c_peticiones = mysql_query($cadena2);
     
       ?>
 		<?php
           	  while ($registro = mysql_fetch_array($peticion)){
-          ?>
+        ?>
 					<div class="span2">
 						<img src="<?php echo $registro['imagen']; ?>" style="width: 60px"; height="60px"/>
 					</div>
 					<div class="span8">
 						<h1 align="center"><p align="center"><?php echo $registro['nom_grup']; ?></p></h1>
 					</div>
+        
 					<div class="span2">
+        <?php
+			$registro2 = mysql_fetch_array($c_peticiones);
+				if ($registro2=="")
+				{
+		?>
 						<a href="#"><h5><img src="../img/iconos/glyphicons_043_group.png" style="width: 20px"; height="20px"/> &nbsp;Unirse al grupo</h5></a>
+        <?php
+				}
+			
+		?>
 					</div>
 					<div class="span12">
 						<h4 align="center"><p align="center"><?php echo $registro['descripcion_g']; ?></p></h4>
@@ -159,10 +174,18 @@
 					</div>
 					<div class="span4"></div>
 					<div class="span4">
+         <?php
+			$registro2 = mysql_fetch_array($c_peticiones);
+				if ($registro2!="")
+			{
+		?>
 						<form>
 							<textarea></textarea><br>
 							<input type="button" value="Enviar comentario" class="btn btn-danger">
 						</form>
+         <?php
+			}
+		 ?>
 					</div>
 					<div class="span4"></div>
 				</div>
